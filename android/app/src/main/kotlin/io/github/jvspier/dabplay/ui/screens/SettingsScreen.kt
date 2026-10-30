@@ -80,6 +80,7 @@ import com.adamglin.phosphoricons.fill.Heart
 import com.adamglin.phosphoricons.fill.Layout
 import com.adamglin.phosphoricons.fill.Moon
 import com.adamglin.phosphoricons.fill.Rows
+import com.adamglin.phosphoricons.fill.Radio
 import com.adamglin.phosphoricons.fill.Sidebar
 import com.adamglin.phosphoricons.fill.SignIn
 import com.adamglin.phosphoricons.fill.SteeringWheel
@@ -111,16 +112,21 @@ private val ON_AMBER = Color(0xFF2A1A00)
 @Composable
 fun SettingsScreen(s: Settings, db: Snapshot, a: RadioActions, compactTitle: Boolean, logoStatus: LogoStatus = LogoStatus(),
                    panelFits: Boolean = true) {
-    var editing by rememberSaveable { mutableStateOf(false) }
-    AnimatedContent(editing, transitionSpec = { fadeIn(tween(200)) togetherWith fadeOut(tween(150)) }, label = "settings") { edit ->
-        if (edit) EditFavourites(db, a, compactTitle) { editing = false }
-        else SettingsList(s, db, a, compactTitle, logoStatus, panelFits) { editing = true }
+    var page by rememberSaveable { mutableStateOf(SettingsPage.LIST) }
+    AnimatedContent(page, transitionSpec = { fadeIn(tween(200)) togetherWith fadeOut(tween(150)) }, label = "settings") { p ->
+        when (p) {
+            SettingsPage.FAVOURITES -> EditFavourites(db, a, compactTitle) { page = SettingsPage.LIST }
+            SettingsPage.FM_TEST -> FmTestScreen(compactTitle) { page = SettingsPage.LIST }
+            SettingsPage.LIST -> SettingsList(s, db, a, compactTitle, logoStatus, panelFits, { page = SettingsPage.FAVOURITES }) { page = SettingsPage.FM_TEST }
+        }
     }
 }
 
+private enum class SettingsPage { LIST, FAVOURITES, FM_TEST }
+
 @Composable
 private fun SettingsList(s: Settings, db: Snapshot, a: RadioActions, compact: Boolean, logoStatus: LogoStatus, panelFits: Boolean,
-                         onEditFavourites: () -> Unit) {
+                         onEditFavourites: () -> Unit, onFmTest: () -> Unit) {
     val tile = if (compact) 44.dp else 64.dp
     val segW = if (compact) 104.dp else 120.dp
     Column(Modifier.fillMaxSize()) {
@@ -218,6 +224,11 @@ private fun SettingsList(s: Settings, db: Snapshot, a: RadioActions, compact: Bo
                     ActionButton("Save", true) { save.launch(a.diagnosticsFileName()) }
                     ActionButton("Share", true, a.shareDiagnostics)
                 }
+            }
+            // stage 1 of the FM fork: does the head unit's MainServer take commands from this app?
+            SettingRow(PhosphorIcons.Fill.Radio, Accent.orange, tile, "FM test", "The head unit's own FM tuner: connect, tune, log",
+                onClick = onFmTest) {
+                Icon(PhosphorIcons.Fill.CaretRight, null, tint = LocalDabColors.current.neutral400, modifier = Modifier.size(30.dp))
             }
             VersionLine()
         }

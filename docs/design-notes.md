@@ -143,3 +143,22 @@ design session.
 - **Full screen setting** (owner, 2026-10-20, from issue #2): on by default (as before, now also after returning from
   another app); off keeps the head unit's own bars (a Dudu navbar can be handy) with the app fitted next to them. The
   owner hadn't decided which he prefers, so it's the user's choice.
+
+## DABplay+ FM (fork creafy/dabplayplusfm, 2026-10-30)
+FM through the head unit's own tuner on FYT head units (docs/fyt-radio.md). Decided with the fork's owner:
+- **Its own app**, "DABplay+ FM" (`io.github.creafy.dabplayfm`), installable next to DABplay+.
+- **One station, one tile:** a station's DAB service and FM frequency are one station. Linked automatically through
+  the FM frequencies the DAB multiplex announces for it (FIG 0/21, with FIG 0/6 linking), else by name (RDS PS vs DAB
+  label), and by hand (link / unlink). The app plays the best source: DAB first, FM when DAB is weak or lost, back to
+  DAB once it's stable for a few seconds. Now playing shows which source plays; a tap pins DAB or FM, another goes back
+  to automatic. DAB runs ≈ 2 s behind FM, so a switch jumps a little. The MainServer reports no FM signal level, so FM
+  is the fallback, never preferred.
+- **FM stations from the app's own scan:** seek through the band, wait at each stop for the RDS name, store it in the
+  app. The head unit's 18 presets are left alone.
+- **Now playing on FM** as on DAB (logo, name, radio text as the DLS line) plus a row of big buttons: seek down,
+  step −, frequency, step +, seek up.
+- **One station list, two scans** ("Scan DAB", "Scan FM"); each station marks where it was received.
+- Logos for FM stations the same way as DAB (name lookup, when online). AF always on, TA follows the Traffic
+  announcements setting, region Europe, no AM. FM exists only where `com.syu.ms` is installed. The head unit's radio
+  key opening the app: later.
+- Order: first an FM test page (Settings → FM test) to see the MainServer take our commands in the car, then the above.

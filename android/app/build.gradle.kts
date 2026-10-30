@@ -9,12 +9,12 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        // Final (owner, 2026-10-04): the applicationId can never change once APKs or a Play release are out.
-        applicationId = "io.github.jvspier.dabplay"
+        // The FM fork (creafy, 2026-10-30): its own app next to DABplay+, so both can be installed
+        applicationId = "io.github.creafy.dabplayfm"
         minSdk = 26
         targetSdk = 36
-        versionCode = 14                                 // +1 for every release: Android installs only higher codes as updates
-        versionName = "1.4.0"
+        versionCode = 15                                 // +1 for every release: Android installs only higher codes as updates
+        versionName = "1.4.0-fm.1"
     }
 
     // The release key lives outside the repo: dabplay.storeFile and dabplay.password in ~/.gradle/gradle.properties.
@@ -54,6 +54,7 @@ dependencies {
     implementation(project(":driver-siano"))
     implementation(project(":logos"))
     implementation(project(":usb-android"))
+    implementation(project(":fyt-radio"))
     implementation(project(":audio"))
     implementation(project(":data"))
     implementation(project(":engine"))

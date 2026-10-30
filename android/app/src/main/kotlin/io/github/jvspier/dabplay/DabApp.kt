@@ -20,6 +20,13 @@ import io.github.jvspier.dabplay.data.SettingsStore
 import io.github.jvspier.dabplay.data.StationStore
 import io.github.jvspier.dabplay.engine.AudioFocus
 import io.github.jvspier.dabplay.engine.DabEngine
+import io.github.jvspier.dabplay.fyt.FytRadio
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import io.github.jvspier.dabplay.logos.LogoFetcher
 import java.io.File
 
@@ -33,6 +40,25 @@ class DabApp : Application() {
     /** The event log (logcat + a file to pull after a drive). */
     lateinit var events: Diagnostics; private set
     val diagnosticsExport by lazy { DiagnosticsExport(this, events) }
+    /** The head unit's own FM tuner (FYT head units only), connected while Settings → FM test is open. */
+    val fmRadio by lazy { FytRadio(this, ::fmEvent) }
+    private val fmLines = MutableStateFlow<List<String>>(emptyList())
+    /** The FM test's recent events, for its screen (the diagnostics log has them all). */
+    val fmLog: StateFlow<List<String>> = fmLines
+    private val fmTime = SimpleDateFormat("HH:mm:ss.SSS", Locale.ROOT)
+
+    fun fmEvent(msg: String) {
+        events.i("FytRadio", msg)
+        val line = "${synchronized(fmTime) { fmTime.format(Date()) }} $msg"
+        fmLines.update { (it + line).takeLast(200) }
+    }
+
+    /** The FYT system properties that say which tuner the head unit has (getprop: no hidden API needed). */
+    fun fytProps(): String = listOf("sys.fyt.radio_type", "ro.fyt.platform", "sys.fyt.platform").joinToString(", ") { k ->
+        val v = runCatching { Runtime.getRuntime().exec(arrayOf("getprop", k)).inputStream.bufferedReader().readText().trim() }.getOrDefault("?")
+        "$k=${v.ifEmpty { "-" }}"
+    }
+
     /** MainActivity is on screen (started, not stopped): a dongle appearing then connects without opening anything. */
     @Volatile var uiVisible = false
     /** How long the CPU had been in deep sleep when the screen last went off (see [woke]). */
