@@ -21,6 +21,7 @@ import io.github.jvspier.dabplay.data.StationStore
 import io.github.jvspier.dabplay.engine.AudioFocus
 import io.github.jvspier.dabplay.engine.DabEngine
 import io.github.jvspier.dabplay.fyt.FytRadio
+import io.github.jvspier.dabplay.playback.RadioController
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -42,6 +43,8 @@ class DabApp : Application() {
     val diagnosticsExport by lazy { DiagnosticsExport(this, events) }
     /** The head unit's own FM tuner (FYT head units only), connected while Settings → FM test is open. */
     val fmRadio by lazy { FytRadio(this, ::fmEvent) }
+    /** DAB and FM as one radio (the FM fork): what the UI and the media session talk to. */
+    lateinit var radio: RadioController; private set
     private val fmLines = MutableStateFlow<List<String>>(emptyList())
     /** The FM test's recent events, for its screen (the diagnostics log has them all). */
     val fmLog: StateFlow<List<String>> = fmLines
@@ -76,6 +79,10 @@ class DabApp : Application() {
             resumeOnStart = { settings.state.value.resumeOnStart }, followStation = { settings.state.value.followStation },
             trafficAnnouncements = { settings.state.value.trafficAnnouncements },
             usbThreadSetup = { android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO) })
+        radio = RadioController(engine, fmRadio, store, events, getSystemService(AudioManager::class.java),
+            trafficAnnouncements = { settings.state.value.trafficAnnouncements })
+        // an FM-only station last time: the engine leaves it to the app (a DAB one resumes when the dongle is ready)
+        if (settings.state.value.resumeOnStart && store.state.value.lastPlayed?.isFm == true) radio.resume()
         logos = LogoStore(File(filesDir, "logos"))
         logoFetcher = LogoFetcher(this, store, logos, settings, current = { engine.state.value.current?.key }).also { it.start() }
         // in the app process, not an activity: the radio plays on with no screen open, and an unplug must still stop it
@@ -113,7 +120,7 @@ class DabApp : Application() {
                 .onFailure { events.w("DabApp", "couldn't open the app: ${it.message}") }
         }
         // as at a cold start: the last station plays again (Settings → Resume last station)
-        if (s.resumeOnStart && !engine.state.value.playing) engine.resume()
+        if (s.resumeOnStart && !radio.playing) radio.resume()
     }
 
     private companion object {

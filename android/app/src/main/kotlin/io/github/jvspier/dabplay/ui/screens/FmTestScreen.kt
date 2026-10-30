@@ -57,7 +57,8 @@ fun FmTestScreen(compact: Boolean, onBack: () -> Unit) {
     DisposableEffect(Unit) {
         app.fmEvent("FM test opened; MainServer ${if (fm.available) "installed" else "NOT installed"}; ${app.fytProps()}")
         fm.connect()
-        onDispose { }
+        fm.verbose = true
+        onDispose { fm.verbose = false }
     }
     Column(Modifier.fillMaxSize()) {
         Row(verticalAlignment = Alignment.CenterVertically) {

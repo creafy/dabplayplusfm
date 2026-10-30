@@ -9,7 +9,6 @@ import androidx.media3.common.SimpleBasePlayer
 import androidx.media3.common.util.UnstableApi
 import com.google.common.util.concurrent.Futures
 import com.google.common.util.concurrent.ListenableFuture
-import io.github.jvspier.dabplay.engine.DabEngine
 import io.github.jvspier.dabplay.engine.EngineState
 import io.github.jvspier.dabplay.data.LogoStore
 import io.github.jvspier.dabplay.data.ServiceKey
@@ -26,7 +25,7 @@ import kotlinx.coroutines.launch
  */
 @UnstableApi
 class DabPlayer(
-    private val engine: DabEngine,
+    private val engine: RadioController,
     private val logos: StateFlow<Map<ServiceKey, LogoStore.Entry>>,
     private val logosOn: () -> Boolean,
     looper: Looper = Looper.getMainLooper(),

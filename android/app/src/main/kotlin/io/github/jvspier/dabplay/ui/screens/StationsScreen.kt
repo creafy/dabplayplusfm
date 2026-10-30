@@ -1,5 +1,7 @@
 package io.github.jvspier.dabplay.ui.screens
 
+import io.github.jvspier.dabplay.playback.SourceUi
+import com.adamglin.phosphoricons.fill.Radio
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.CubicBezierEasing
@@ -99,7 +101,7 @@ private data class Header(val letter: String) : Row_ { override val key get() = 
 private data class Item(val station: Station) : Row_ { override val key get() = station.key.toString() }
 
 @Composable
-fun StationsScreen(e: EngineState, db: Snapshot, a: RadioActions, compactTitle: Boolean) {
+fun StationsScreen(e: EngineState, db: Snapshot, a: RadioActions, compactTitle: Boolean, src: SourceUi = SourceUi()) {
     val stations = db.stations
     // grouping only reruns when the station list itself changes, not on every engine update
     val (rows, letterIndex) = remember(stations) {
@@ -113,9 +115,15 @@ fun StationsScreen(e: EngineState, db: Snapshot, a: RadioActions, compactTitle: 
     val favSet = remember(db.favourites) { db.favourites.toSet() }
     Column(Modifier.fillMaxSize()) {
         ScreenTitle("All stations", compactTitle, extra = if (stations.isNotEmpty()) "${stations.size}" else null,
-            trailing = { ScanButton(e, a) })
+            trailing = {
+                // the FM fork: one list, two scans (owner, 2026-10-30)
+                if (src.fmAvailable) { ScanButton(e, a, "Scan DAB"); Spacer(Modifier.width(12.dp)); FmScanButton(src, a) }
+                else ScanButton(e, a)
+            })
         Box(Modifier.weight(1f).fillMaxWidth()) {
             if (stations.isEmpty()) {
+                if (src.fmAvailable && src.fmScan != null) { EmptyHint("Looking for FM stations…"); return@Box }
+                if (src.fmAvailable && !e.dongle && e.scan == null) { EmptyHint("Tap Scan FM to find FM stations, or connect the DAB dongle for DAB"); return@Box }
                 EmptyHint(if (e.unsupportedDongle) UNSUPPORTED_DONGLE else if (!e.dongle && e.notResponding) NOT_RESPONDING else if (!e.dongle) "Connect the DAB dongle, then tap Scan" else if (e.scan != null) "Looking for stations…" else "Tap Scan to find stations")
                 return@Box
             }
@@ -127,7 +135,7 @@ fun StationsScreen(e: EngineState, db: Snapshot, a: RadioActions, compactTitle: 
                         when (r) {
                             is Header -> stickyHeader(key = r.key, contentType = "h") { LetterHeader(r.letter) }
                             is Item -> item(key = r.key, contentType = "s") {
-                                StationRow(r.station, r.station.key == e.current?.key, e.playing, r.station.key in favSet, a)
+                                StationRow(r.station, r.station.key == e.current?.key, e.playing, r.station.key in favSet, a, src.fmAvailable)
                             }
                         }
                     }
@@ -148,8 +156,25 @@ private fun Modifier.fadeEdges() = this.graphicsLayer(compositingStrategy = Comp
         blendMode = BlendMode.DstIn)
 }
 
+/** FM scan (the head unit's own tuner): seeks through the band, a minute or two with the RDS names. */
 @Composable
-private fun ScanButton(e: EngineState, a: RadioActions) {
+private fun FmScanButton(src: SourceUi, a: RadioActions) {
+    val scan = src.fmScan
+    Row(Modifier.height(64.dp).clip(RoundedCornerShape(14.dp)).background(Accent.orange).pressable(a.scanFm, enabled = scan == null)
+        .padding(horizontal = 22.dp), verticalAlignment = Alignment.CenterVertically) {
+        val ink = Color(0xFF331206)
+        if (scan != null) {
+            val t = rememberInfiniteTransition(label = "fmscan")
+            val angle = t.animateFloat(0f, 360f, infiniteRepeatable(tween(900, easing = LinearEasing)), label = "angle")
+            Icon(PhosphorIcons.Fill.CircleNotch, null, tint = ink, modifier = Modifier.size(28.dp).graphicsLayer { rotationZ = angle.value })
+        } else Icon(PhosphorIcons.Fill.Radio, null, tint = ink, modifier = Modifier.size(28.dp))
+        Text(if (scan != null) "FM ${Station.fmText(scan.first)} · ${scan.second}" else "Scan FM", color = ink, fontSize = 20.sp,
+            fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(start = 10.dp))
+    }
+}
+
+@Composable
+private fun ScanButton(e: EngineState, a: RadioActions, label: String = "Scan") {
     val scanning = e.scan != null
     Row(Modifier.height(64.dp).clip(RoundedCornerShape(14.dp)).background(Accent.blue).pressable(a.scan, enabled = e.dongle && !scanning)
         .padding(horizontal = 22.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -159,7 +184,7 @@ private fun ScanButton(e: EngineState, a: RadioActions) {
             val angle = t.animateFloat(0f, 360f, infiniteRepeatable(tween(900, easing = LinearEasing)), label = "angle")
             Icon(PhosphorIcons.Fill.CircleNotch, null, tint = ink, modifier = Modifier.size(28.dp).graphicsLayer { rotationZ = angle.value })
         } else Icon(PhosphorIcons.Fill.Broadcast, null, tint = ink, modifier = Modifier.size(28.dp))
-        Text(if (scanning) "Scanning ${e.scan!!.channel}…" else "Scan", color = ink, fontSize = 20.sp, fontWeight = FontWeight.SemiBold,
+        Text(if (scanning) "Scanning ${e.scan!!.channel}…" else label, color = ink, fontSize = 20.sp, fontWeight = FontWeight.SemiBold,
             modifier = Modifier.padding(start = 10.dp))
     }
 }
@@ -178,7 +203,7 @@ private fun LetterHeader(letter: String) {
  * reveals a pink strip and toggles the favourite on release, then springs back.
  */
 @Composable
-private fun StationRow(st: Station, isCurrent: Boolean, audio: Boolean, fav: Boolean, a: RadioActions) {
+private fun StationRow(st: Station, isCurrent: Boolean, audio: Boolean, fav: Boolean, a: RadioActions, showSources: Boolean = false) {
     val c = LocalDabColors.current
     val scope = rememberCoroutineScope()
     val dx = remember { Animatable(0f) }
@@ -206,6 +231,8 @@ private fun StationRow(st: Station, isCurrent: Boolean, audio: Boolean, fav: Boo
                     Row(Modifier.weight(1f), verticalAlignment = Alignment.CenterVertically) {
                         Text(st.label, color = if (isCurrent) c.liveSub else c.text, fontSize = 24.sp, fontWeight = FontWeight.Medium,
                             maxLines = 1, overflow = TextOverflow.Ellipsis, modifier = Modifier.weight(1f, fill = false))
+                        if (showSources) Text(listOfNotNull(if (st.hasDab) "DAB" else null, st.fm?.let { "FM ${Station.fmText(it)}" }).joinToString(" · "),
+                            color = c.neutral400, fontSize = 16.sp, maxLines = 1, modifier = Modifier.padding(start = 14.dp))
                         if (isCurrent) { Spacer(Modifier.width(14.dp)); Waveform(audio, 24.dp) }
                     }
                     Box(Modifier.size(64.dp).pressable({ a.toggleFavourite(key) }), contentAlignment = Alignment.Center) { HeartIcon(fav, 30.dp) }

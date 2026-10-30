@@ -1,5 +1,26 @@
 package io.github.jvspier.dabplay.ui.screens
 
+import io.github.jvspier.dabplay.playback.Source
+import io.github.jvspier.dabplay.playback.SourceChoice
+import io.github.jvspier.dabplay.playback.SourceUi
+import androidx.compose.ui.window.Dialog
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Icon
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import com.adamglin.phosphoricons.fill.LinkSimple
+import com.adamglin.phosphoricons.fill.ArrowsLeftRight
+import com.adamglin.phosphoricons.fill.CaretDoubleLeft
+import com.adamglin.phosphoricons.fill.CaretDoubleRight
+import com.adamglin.phosphoricons.fill.Minus
+import com.adamglin.phosphoricons.fill.Plus
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -15,7 +36,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -25,7 +45,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -84,15 +103,17 @@ private val LOGO_GAP = 12.dp         // the logo "stands" this far above the gla
  * below, and the station (logo, name, signal) in the top corner away from the rail.
  */
 @Composable
-fun NowPlayingScreen(e: EngineState, db: Snapshot, a: RadioActions, chipOnLeft: Boolean, taOn: Boolean = false) {
+fun NowPlayingScreen(e: EngineState, db: Snapshot, a: RadioActions, chipOnLeft: Boolean, taOn: Boolean = false, src: SourceUi = SourceUi()) {
     val st = e.current
+    var linking by remember { mutableStateOf(false) }
+    if (linking && st != null) FmLinkDialog(st, db, a) { linking = false }
     BoxWithConstraints(Modifier.fillMaxSize()) {
         // as big as fits (up to 640×480), leaving room for the controls below and the station chip beside it
         val cardH = minOf(CARD_MAX_H, maxHeight - 28.dp - CONTROLS_H - 56.dp, (maxWidth - 400.dp) * 3 / 4).coerceAtLeast(0.dp)
         if (st != null) {
             // station chip in one top corner, the favourite heart in the other, level with it (owner, 2026-09-28):
             // symmetric, and on the driver's side (the rail's side) the heart is closest to hand
-            StationChip(st, e, taOn, Modifier.align(if (chipOnLeft) Alignment.TopStart else Alignment.TopEnd).padding(top = 24.dp))
+            StationChip(st, e, taOn, src, a, { linking = true }, Modifier.align(if (chipOnLeft) Alignment.TopStart else Alignment.TopEnd).padding(top = 24.dp))
             // the content has 8 dp next to the rail and 28 dp on the far side: +20 dp so both corners are inset alike.
             // Not during an announcement: the station shown then is the traffic service, not yours.
             if (e.announcement == null) Box(Modifier.align(if (chipOnLeft) Alignment.TopEnd else Alignment.TopStart)
@@ -106,7 +127,7 @@ fun NowPlayingScreen(e: EngineState, db: Snapshot, a: RadioActions, chipOnLeft: 
                 NowCard(e, st, cardH, Modifier.align(Alignment.TopCenter))
                 NowLine(e, st, Modifier.align(Alignment.BottomCenter).fillMaxWidth().height(cardH * BAND).padding(horizontal = 40.dp))
             }
-            Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) { Controls(e, a) }
+            Box(Modifier.weight(1f).fillMaxWidth(), contentAlignment = Alignment.Center) { Controls(e, a, fm = src.active == Source.FM) }
         }
     }
 }
@@ -201,19 +222,76 @@ private fun NowLine(e: EngineState, st: Station?, modifier: Modifier) {
     }
 }
 
-/** Station logo, name and signal. */
+/** Station logo, name and signal; on a head unit with FM, the source it plays from (tap: switch) and its FM link. */
 @Composable
-private fun StationChip(st: Station, e: EngineState, taOn: Boolean, modifier: Modifier) {
+private fun StationChip(st: Station, e: EngineState, taOn: Boolean, src: SourceUi, a: RadioActions, onLink: () -> Unit, modifier: Modifier) {
     val c = LocalDabColors.current
-    Row(modifier, verticalAlignment = Alignment.CenterVertically) {
-        StationLogo(st.label, st.key, 44.dp)
-        Column(Modifier.padding(start = 12.dp)) {
-            Text(st.label, color = c.text, fontSize = 20.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
-            Row(Modifier.padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
-                if (e.playing) SignalBars(e.signalBars, 14.dp)
-                if (taOn) TaBadge(e, Modifier.padding(start = 8.dp))
+    Column(modifier) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            StationLogo(st.label, st.key, 44.dp)
+            Column(Modifier.padding(start = 12.dp)) {
+                Text(st.label, color = c.text, fontSize = 20.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+                Row(Modifier.padding(top = 4.dp), verticalAlignment = Alignment.CenterVertically) {
+                    if (e.playing && src.active == Source.DAB) SignalBars(e.signalBars, 14.dp)
+                    if (taOn) TaBadge(e, Modifier.padding(start = 8.dp))
+                }
             }
         }
+        if (src.fmAvailable) Row(Modifier.padding(top = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+            SourcePill(st, src, a.cycleSource)
+            if (st.hasDab) Box(Modifier.padding(start = 8.dp).size(48.dp).clip(RoundedCornerShape(12.dp)).background(c.surface).pressable(onLink),
+                contentAlignment = Alignment.Center) {
+                Icon(PhosphorIcons.Fill.LinkSimple, "FM link", tint = c.neutral300, modifier = Modifier.size(24.dp))
+            }
+        }
+    }
+}
+
+/**
+ * "DAB" or "FM 101.7", and how it was chosen ("auto", or pinned). A tap goes automatic → DAB → FM when the station is
+ * on both (owner, 2026-10-30: the best source by itself, switchable by hand).
+ */
+@Composable
+private fun SourcePill(st: Station, src: SourceUi, onCycle: () -> Unit) {
+    val c = LocalDabColors.current
+    val fm = src.active == Source.FM
+    val name = if (fm) "FM ${Station.fmText(src.fmFreq.takeIf { it > 0 } ?: st.fm ?: 0)}${if (src.fmSeeking) " …" else ""}" else "DAB"
+    val how = when { !src.canSwitch -> null; src.choice == SourceChoice.AUTO -> "auto"; else -> "fixed" }
+    Row(Modifier.height(48.dp).clip(RoundedCornerShape(12.dp)).background(if (fm) Accent.orange.copy(alpha = 0.18f) else Accent.blue.copy(alpha = 0.18f))
+        .then(if (src.canSwitch) Modifier.pressable(onCycle) else Modifier).padding(horizontal = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+        Text(name, color = c.text, fontSize = 18.sp, fontWeight = FontWeight.SemiBold, maxLines = 1)
+        if (how != null) Text(" · $how", color = c.neutral400, fontSize = 16.sp, maxLines = 1)
+        if (src.canSwitch) Icon(PhosphorIcons.Fill.ArrowsLeftRight, null, tint = c.neutral400, modifier = Modifier.padding(start = 8.dp).size(18.dp))
+    }
+}
+
+/** Which FM frequency belongs to this station: automatic, none, or one of the scanned FM stations. */
+@Composable
+private fun FmLinkDialog(st: Station, db: Snapshot, a: RadioActions, onDismiss: () -> Unit) {
+    val c = LocalDabColors.current
+    val byHand = db.fmLinks[st.key]
+    Dialog(onDismissRequest = onDismiss) {
+        Column(Modifier.widthIn(max = 560.dp).fillMaxWidth().heightIn(max = 600.dp).clip(RoundedCornerShape(18.dp)).background(c.surface).padding(18.dp)) {
+            Text("FM for ${st.label}", color = c.text, fontSize = 24.sp, fontWeight = FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+            Text(if (db.fmStations.isEmpty()) "Scan FM on the Stations tab to choose from the stations here" else "Plays when DAB is weak, or when you pick FM",
+                color = c.neutral400, fontSize = 16.sp, modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                item { LinkRow("Automatic${if (byHand == null && st.fm != null) " · FM ${Station.fmText(st.fm!!)}" else ""}", byHand == null) { a.autoLinkFm(st.key); onDismiss() } }
+                item { LinkRow("No FM", byHand == 0) { a.linkFm(st.key, null); onDismiss() } }
+                items(db.fmStations.sortedBy { it.freq }) { f ->
+                    LinkRow("FM ${Station.fmText(f.freq)}${if (f.ps.isNotBlank()) " · ${f.ps}" else ""}", byHand == f.freq) { a.linkFm(st.key, f.freq); onDismiss() }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun LinkRow(text: String, selected: Boolean, onClick: () -> Unit) {
+    val c = LocalDabColors.current
+    Box(Modifier.fillMaxWidth().height(64.dp).clip(RoundedCornerShape(12.dp)).background(if (selected) Accent.orange.copy(alpha = 0.22f) else c.bg)
+        .pressable(onClick).padding(horizontal = 16.dp), contentAlignment = Alignment.CenterStart) {
+        Text(text, color = c.text, fontSize = 20.sp, fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Medium, maxLines = 1, overflow = TextOverflow.Ellipsis)
     }
 }
 
@@ -229,14 +307,28 @@ private fun TaBadge(e: EngineState, modifier: Modifier) {
     }
 }
 
-/** Previous, play/pause, next: a symmetric group, centred. */
+/**
+ * Previous, play/pause, next: a symmetric group, centred. On FM, framed by the tuning buttons (owner, 2026-10-30):
+ * seek down and step down on the left, step up and seek up on the right.
+ */
 @Composable
-private fun Controls(e: EngineState, a: RadioActions) {
-    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(24.dp)) {
-        SkipButton(true) { a.skip(-1) }
-        PlayButton(e.playing, 136.dp, a.togglePlay, busy = e.tuning)
-        SkipButton(false) { a.skip(+1) }
+private fun Controls(e: EngineState, a: RadioActions, fm: Boolean = false) {
+    BoxWithConstraints(contentAlignment = Alignment.Center) {
+        val roomy = maxWidth >= 900.dp
+        val tuneSize = if (roomy) 88.dp else 64.dp
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(if (fm && !roomy) 12.dp else 24.dp)) {
+            if (fm) { TuneButton(PhosphorIcons.Fill.CaretDoubleLeft, "Seek down", tuneSize) { a.fmTune(-2) }; TuneButton(PhosphorIcons.Fill.Minus, "Step down", tuneSize) { a.fmTune(-1) } }
+            SkipButton(true) { a.skip(-1) }
+            PlayButton(e.playing, 136.dp, a.togglePlay, busy = e.tuning)
+            SkipButton(false) { a.skip(+1) }
+            if (fm) { TuneButton(PhosphorIcons.Fill.Plus, "Step up", tuneSize) { a.fmTune(+1) }; TuneButton(PhosphorIcons.Fill.CaretDoubleRight, "Seek up", tuneSize) { a.fmTune(+2) } }
+        }
     }
+}
+
+@Composable
+private fun TuneButton(icon: ImageVector, description: String, size: Dp, onClick: () -> Unit) {
+    SquareButton(icon, description, size, onClick, background = Accent.orange.copy(alpha = 0.14f), radius = 16.dp)
 }
 
 @Composable

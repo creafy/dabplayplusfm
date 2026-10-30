@@ -4,6 +4,20 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.2] - 2026-10-30 (DABplay+ FM, fork creafy/dabplayplusfm)
+
+### New
+- **FM through the head unit's own tuner** on FYT head units (UIS7862 and similar with `com.syu.ms`), in its own app
+  "DABplay+ FM" next to DABplay+.
+- **One station, one tile**: a station's DAB service and its FM frequency are one station. Linked by the FM
+  frequencies the DAB multiplex announces for it, else by name; Now playing → link button to set it by hand.
+- **Best source by itself**: DAB first; FM takes over when DAB is lost for 2.5 s or weak for 6 s, and DAB comes back
+  after 5 s of good reception (it keeps receiving silently meanwhile). The source pill on Now playing switches
+  automatic → DAB → FM.
+- **Scan FM** next to Scan DAB on the Stations tab; FM-only stations join the list and the favourites.
+- On FM, Now playing has seek and step buttons around the usual controls.
+- Settings → FM test: the raw connection to the head unit's tuner, with an event log.
+
 ## [1.4.0] - 2026-10-29
 
 ### New

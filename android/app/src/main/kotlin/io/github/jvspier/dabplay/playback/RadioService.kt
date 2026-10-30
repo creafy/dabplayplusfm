@@ -21,7 +21,7 @@ class RadioService : MediaSessionService() {
         val app = application as DabApp
         val open = PendingIntent.getActivity(this, 0, Intent(this, MainActivity::class.java),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
-        val player = DabPlayer(app.engine, app.logos.state, logosOn = { app.settings.state.value.downloadLogos })
+        val player = DabPlayer(app.radio, app.logos.state, logosOn = { app.settings.state.value.downloadLogos })
         // who pressed play/pause or next/previous (a steering-wheel key, the head unit going to sleep, another app):
         // the engine's log only says what happened
         val logCommands = object : MediaSession.Callback {

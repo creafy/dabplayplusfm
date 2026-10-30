@@ -131,9 +131,24 @@ class DabEngine(
         _state.update { it.copy(unsupportedDongle = false) }
     }
     fun scan() = commands.offer(Cmd.Scan)
-    fun play(key: ServiceKey) = commands.offer(Cmd.Play(key))
+    /** FM-only stations (the FM fork) are the app's, not the engine's: ignored here. */
+    fun play(key: ServiceKey) { if (!key.isFm) commands.offer(Cmd.Play(key)) }
     fun pause() = commands.offer(Cmd.Pause)
-    fun resume() { listenerKey()?.let(::play) ?: store.state.value.lastPlayed?.let(::play) }
+    fun resume() { listenerKey()?.takeIf { !it.isFm }?.let(::play) ?: store.state.value.lastPlayed?.let(::play) }
+
+    /**
+     * The FM fork: silent but still receiving while the head unit's FM tuner plays the same station (DAB weak or lost,
+     * or FM chosen by hand), so the app sees DAB come back and can switch back without a gap.
+     */
+    fun setMuted(muted: Boolean) {
+        if (this.muted == muted) return
+        this.muted = muted
+        events.i(TAG, if (muted) "DAB muted (FM plays)" else "DAB unmuted")
+        activePlayer?.setLevel(level())
+    }
+    @Volatile private var muted = false
+    @Volatile private var activePlayer: AudioOut? = null
+    private fun level() = if (muted) 0f else focusLevel
 
     /** The listener's station: during an announcement the one to return to, not the announcing one. */
     private fun listenerKey() = state.value.announcement?.returnTo ?: state.value.current?.key
@@ -367,10 +382,11 @@ class DabEngine(
                 FocusChange.DUCK -> DUCK_LEVEL                       // navigation prompt
                 FocusChange.RESTORE -> 1f
             }
-            player.setLevel(focusLevel)
+            player.setLevel(level())
             events.i(TAG, "audio focus: $c")
         }
-        if (ok) player.setLevel(focusLevel)                         // e.g. a station change during a call stays silent
+        activePlayer = player
+        if (ok) player.setLevel(level())                         // e.g. a station change during a call stays silent
         return ok
     }
 

@@ -45,15 +45,19 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
         val sourceIsRadio get() = appId == APP_ID_RADIO
     }
 
+    /** Log every update (the FM test page); otherwise only source changes, frequencies and names. */
+    @Volatile var verbose = false
     private val ctx = context.applicationContext
     private val thread = HandlerThread("fyt-radio").apply { start() }
     private val handler = Handler(thread.looper)
     private val _state = MutableStateFlow(State())
     val state: StateFlow<State> = _state
 
+    /** Commands sent before the connection was up; run once it is (on [thread]). */
+    private val pending = ArrayList<Pair<String, () -> Unit>>()
     @Volatile private var main: RemoteModule? = null
     @Volatile private var radio: RemoteModule? = null
-    private var bound = false
+    @Volatile private var bound = false
 
     private val mainCb = ModuleCallback { u, ints, strs -> onMain(u, ints, strs) }
     private val radioCb = ModuleCallback { u, ints, strs -> onRadio(u, ints, strs) }
@@ -77,6 +81,7 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
                     m?.get(MAIN_APP_ID)?.ints?.firstOrNull()?.let { id -> log("get: source $id"); _state.update { it.copy(appId = id) } }
                     r?.get(R_FREQ)?.ints?.firstOrNull()?.let { f -> log("get: frequency ${fmt(f)}"); _state.update { it.copy(freq = f) } }
                 }.onFailure { log("setting up the modules failed: $it") }
+                if (main != null && radio != null) { val p = pending.toList(); pending.clear(); p.forEach { (what, b) -> run(what, b) } }
             }
         }
 
@@ -103,6 +108,7 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
                 radio?.let { r -> for (u in 0 until RADIO_UPDATES) r.unregister(radioCb, u) }
             }
         }
+        handler.post { pending.clear() }
         runCatching { ctx.unbindService(conn) }
         bound = false; main = null; radio = null
         _state.update { State() }
@@ -149,9 +155,14 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
 
     private fun onThread(what: String, block: () -> Unit) {
         handler.post {
-            log("> $what")
-            runCatching(block).onFailure { log("$what failed: $it") }
+            if (main == null || radio == null) { if (bound) { log("> $what (once connected)"); pending += what to block } else log("> $what: not connected") }
+            else run(what, block)
         }
+    }
+
+    private fun run(what: String, block: () -> Unit) {
+        log("> $what")
+        runCatching(block).onFailure { log("$what failed: $it") }
     }
 
     private fun onMain(u: Int, ints: IntArray?, strs: Array<String>?) {
@@ -187,7 +198,7 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
             R_FREQ -> "frequency ${i?.let(::fmt)}"
             else -> "u$u ${ints?.joinToString(",", "[", "]") ?: "-"}${if (strs != null) " \"${strs.joinToString("|")}\"" else ""}"
         }
-        log("< $shown")
+        if (verbose || u == R_FREQ || u == R_PS) log("< $shown")
     }
 
     companion object {

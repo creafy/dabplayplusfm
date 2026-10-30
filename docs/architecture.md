@@ -185,3 +185,13 @@ dongle family is a new kind and a line there.
 - Three of four dongle families are untested on hardware (README).
 - Dongle firmware levels other than 4: code paths from the decompile, untested.
 - Never write the vendor's FM registers: their state survives power-off and degrades DAB until a replug.
+
+## The FM fork (creafy/dabplayplusfm)
+FM through the FYT head unit's own tuner (`docs/fyt-radio.md`); decisions in design-notes.md.
+- `:fyt-radio` (Android lib): `FytRadio`, the MainServer's Binder interface written out by hand (no FYT code).
+- `:data`: `ServiceKey.fm()` for FM-only stations (ECC 0x100, frequency as SId), `StoredFm` (FM scan), `fmLinks` (by
+  hand), `fm` (frequencies learned from FIG 0/6 + 0/21 while listening); `FmLinking` merges them into
+  `Snapshot.stations`: one entry per station, with `Station.fm`.
+- `:engine`: ignores FM keys, learns FM frequencies, `setMuted()` (keeps receiving while FM covers).
+- `:app`: `RadioController` sits between UI / media session and the engine: picks the source, switches back and forth,
+  runs the FM scan, and gives the UI an `EngineState` with the FM station and radio text while FM plays.
