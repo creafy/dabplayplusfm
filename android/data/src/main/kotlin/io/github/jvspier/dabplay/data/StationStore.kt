@@ -36,6 +36,8 @@ data class Snapshot(
     val recents: List<Recent> = emptyList(),
     val lastPlayed: ServiceKey? = null,
     val alternatives: Map<ServiceKey, List<AltFreq>> = emptyMap(),
+    /** FM frequencies (kHz) a service is also on (FIG 0/6 + 0/21), learned while listening; for the DAB → FM fallback. */
+    val fm: Map<ServiceKey, List<Int>> = emptyMap(),
 ) {
     val stations: List<Station> by lazy {
         ensembles.sortedByDescending { it.lastSeen }
@@ -107,6 +109,13 @@ class StationStore(
         change { it.copy(alternatives = it.alternatives + found) }
     }
 
+    /** Merge learned FM frequencies (key → kHz); only writes when something changed. */
+    fun learnFm(found: Map<ServiceKey, List<Int>>) {
+        val cur = _state.value.fm
+        if (found.all { (k, v) -> cur[k] == v }) return
+        change { it.copy(fm = it.fm + found) }
+    }
+
     fun clearRecents(): List<Recent> = synchronized(lock) { _state.value.recents.also { change { s -> s.copy(recents = emptyList()) } } }
     /** Undo of [clearRecents]: merged, so stations played since the clear stay (newest first). */
     fun restoreRecents(r: List<Recent>) = change { s ->
@@ -148,6 +157,8 @@ class StationStore(
             lastPlayed = o.optString("lastPlayed").takeIf { it.isNotEmpty() }?.let(::key),
             alternatives = o.optJSONObject("alternatives")?.let { a -> a.keys().asSequence().associate { k ->
                 key(k) to a.getJSONArray(k).objs().map { AltFreq(it.getInt("eid"), it.getInt("khz")) } } }.orEmpty(),
+            fm = o.optJSONObject("fm")?.let { a -> a.keys().asSequence().associate { k ->
+                key(k) to a.getJSONArray(k).let { l -> (0 until l.length()).map(l::getInt) } } }.orEmpty(),
         )
     }.getOrNull()
 
@@ -165,6 +176,7 @@ class StationStore(
         s.lastPlayed?.let { o.put("lastPlayed", it.toString()) }
         o.put("alternatives", JSONObject().also { j -> s.alternatives.forEach { (k, v) ->
             j.put(k.toString(), JSONArray(v.map { JSONObject().put("eid", it.eid).put("khz", it.khz) })) } })
+        o.put("fm", JSONObject().also { j -> s.fm.forEach { (k, v) -> j.put(k.toString(), JSONArray(v)) } })
         // whole or nothing: write, sync to the disk, then rename over the old file (power can go at any moment in a car)
         val tmp = File(file.path + ".tmp")
         FileOutputStream(tmp).use { out -> out.write(o.toString(1).toByteArray()); out.fd.sync() }

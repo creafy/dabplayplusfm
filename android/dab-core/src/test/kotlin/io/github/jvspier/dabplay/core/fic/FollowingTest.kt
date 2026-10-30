@@ -22,4 +22,21 @@ class FollowingTest {
         assertEquals(emptyList(), dabAlternatives(oe, fi, 0x841B, ownEid = 0x805B))
         assertEquals(emptyList(), dabAlternatives(oe, fi, 0x83C7, ownEid = 0x8008))
     }
+
+    @Test fun fmFrequenciesByPiEqualToSid() {
+        assertEquals(listOf(98400), fmFrequencies(emptyList(), fi, 0x8421))
+        assertEquals(emptyList(), fmFrequencies(emptyList(), fi, 0x841B))
+    }
+
+    @Test fun fmFrequenciesThroughALinkageSet() {
+        val ls = LinkageSet(false, 1, hard = true, active = true, otherEnsemble = false).apply {
+            ids += LinkId("DAB", 0x83C7); ids += LinkId("RDS-PI", 0x8C07)
+        }
+        val fm = mapOf(
+            FiKey(false, 9, 0x8C07) to setOf<FiFrequency>(FiFrequency.Khz(101700), FiFrequency.Khz(88300)),
+            FiKey(false, 0, 0x8C07) to setOf<FiFrequency>(FiFrequency.Khz(174928)),     // a DAB entry: not FM
+        )
+        assertEquals(listOf(88300, 101700), fmFrequencies(listOf(ls), fm, 0x83C7))
+        assertEquals(emptyList(), fmFrequencies(listOf(ls), fm, 0x83C8))
+    }
 }

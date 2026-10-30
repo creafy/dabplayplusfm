@@ -7,6 +7,7 @@ import io.github.jvspier.dabplay.core.mp2.Mp2Decoder
 import io.github.jvspier.dabplay.core.mp2.Mp2Framer
 import io.github.jvspier.dabplay.core.fic.FicDecoder
 import io.github.jvspier.dabplay.core.fic.dabAlternatives
+import io.github.jvspier.dabplay.core.fic.fmFrequencies
 import io.github.jvspier.dabplay.core.Announcement
 import io.github.jvspier.dabplay.core.AnnouncementWatcher
 import io.github.jvspier.dabplay.core.Reception
@@ -658,6 +659,7 @@ class DabEngine(
 
         /** Store what this ensemble announces about its services elsewhere (for all its services, not just [st]). */
         private fun learnAlternatives(f: FicDecoder, st: Station) {
+            learnFm(f, st)
             val found = f.otherEnsembleServices.keys.associate { sid ->
                 ServiceKey(st.key.ecc, sid) to dabAlternatives(f.otherEnsembleServices, f.frequencyInfo, sid, st.ensemble.eid)
                     .filter { a -> Band3.CHANNELS.any { it.second == a.khz } }     // L-band etc.: the tuner can't go there
@@ -666,6 +668,15 @@ class DabEngine(
             if (found.isEmpty()) return
             events.i(TAG, "learned alternatives: " + found.entries.joinToString { (k, v) -> "$k on ${v.joinToString("/") { channelName(it.khz) }}" })
             store.learnAlternatives(found)
+        }
+
+        /** Store the FM frequencies this ensemble announces for its services (for FM fallback on FYT head units). */
+        private fun learnFm(f: FicDecoder, st: Station) {
+            val found = f.services.keys.associate { sid -> ServiceKey(st.key.ecc, sid) to fmFrequencies(f.links.values, f.frequencyInfo, sid) }
+                .filterValues { it.isNotEmpty() }
+            if (found.isEmpty() || found.all { (k, v) -> store.state.value.fm[k] == v }) return
+            events.i(TAG, "learned FM frequencies: " + found.entries.joinToString { (k, v) -> "$k on ${v.joinToString("/") { "${it / 1000}.${it % 1000 / 100}" }}" })
+            store.learnFm(found)
         }
 
         /**
