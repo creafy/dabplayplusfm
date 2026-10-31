@@ -54,3 +54,25 @@ No RDS PI and no signal level in this set.
 ## Tuner type
 `getprop sys.fyt.radio_type` (default 1): 1 = MCU tuner run by the MainServer (this interface). 3 / 4 = a tuner chip
 driven by the radio app itself (MTK FM, "Sofia"); then this interface alone doesn't play FM.
+
+## Radio types: who drives the tuner (verified on the EKIY T900, 2026-10-31)
+
+`sys.fyt.radio_type` decides what the MainServer's radio module does with our commands (MainServer `u0.f.l()`):
+
+- **1**: a tuner behind the MCU. The MainServer tunes it itself.
+- **3, 4**: a tuner chip on the Android side (radio type 4 on the T900, platform 6315). Unless
+  `persist.lsec.radio.ms_handler` is set, the MainServer only forwards each command as radio update **28**
+  (`U_INNER_CMD`, ints = [command, args...]) to the stock radio app `com.syu.radio`, and that app's *screen*
+  (`Act_Radio` → `Page_Radio_6025.onNotify`) carries it out. Without that screen, a command comes back to us as
+  `u28 [code]` and nothing tunes. The app reports what it tunes with radio cmd 26 ([0, freq]), which the MainServer
+  publishes as update 1 (frequency).
+- The app's process (started by its keep-alive service `com.syu.radio.broadcast.MyService`, action
+  `com.syu.radio.keepAlive`) powers the chip up by itself when the source becomes 1 (radio), with its last frequency.
+- Its screen opens tuned to a frequency with an explicit intent: action `com.syu.radio`, component
+  `com.syu.radio/com.syu.radio.act.ActRadio`, data with a query parameter `freq` (10 kHz units). The screen stays
+  usable in the background; its Back key gives up the radio source.
+- Command 13 (tune) is forwarded only as `[1, freq]` and only while the source is 1.
+- An app that plays audio or holds the audio focus becomes source 10 (third-party player), and the radio app powers
+  the chip off. So DAB must be fully silent (no AudioTrack, no focus) while FM plays.
+- The chip itself (`libfmjni`, `/dev/fm`, FM audio routing via `AudioSystem`) is reachable only for the privileged
+  stock app, not for a normal app.
