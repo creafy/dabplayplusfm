@@ -138,13 +138,17 @@ class DabEngine(
 
     /**
      * The FM fork: silent but still receiving while the head unit's FM tuner plays the same station (DAB weak or lost,
-     * or FM chosen by hand), so the app sees DAB come back and can switch back without a gap.
+     * or FM chosen by hand), so the app sees DAB come back and can switch back without a gap. Silent means no audio
+     * output and no audio focus at all, not a muted track: an FYT head unit takes a playing app (or one holding the
+     * focus) as its audio source and switches its radio off.
      */
     fun setMuted(muted: Boolean) {
         if (this.muted == muted) return
         this.muted = muted
-        events.i(TAG, if (muted) "DAB muted (FM plays)" else "DAB unmuted")
-        activePlayer?.setLevel(level())
+        events.i(TAG, if (muted) "DAB silent (FM plays): audio output and focus released" else "DAB audible again")
+        val p = activePlayer
+        if (muted) { p?.release(); runCatching { focus.abandon() } }
+        else if (p != null) { if (state.value.playing) requestFocus(p); p.setLevel(level()) }
     }
     @Volatile private var muted = false
     @Volatile private var activePlayer: AudioOut? = null
@@ -291,7 +295,7 @@ class DabEngine(
         // the driver's audio thread feeds while the engine thread may be stopping: after stopAudio() no chunk gets
         // through (one arriving late would start a new audio worker playing the old station)
         override fun onPcm(data: ByteArray, sampleRate: Int, channels: Int) =
-            synchronized(audioLock) { if (station != null) player.feedPcm(data, sampleRate, channels) }
+            synchronized(audioLock) { if (station != null && !muted) player.feedPcm(data, sampleRate, channels) }
         override fun onText(text: String) { station?.let { showText(text, it) } }
         override fun onSlide(bytes: ByteArray) { if (station != null) showSlide(bytes) }
         override fun onStarted() {
@@ -375,6 +379,7 @@ class DabEngine(
 
     /** Audio focus for [player]: a call silences it, navigation ducks it, another media app pauses the radio. */
     private fun requestFocus(player: AudioOut): Boolean {
+        if (muted) { activePlayer = player; return true }        // silent under FM: no focus (see setMuted)
         val ok = focus.request { c ->
             focusLevel = when (c) {
                 FocusChange.LOST -> { pause(); 1f }                  // another media app took over
@@ -624,15 +629,15 @@ class DabEngine(
                         framer.feed(data) { frame, h ->
                             if (Mp2Decoder.crcOk(frame)) mp2Frames++ else mp2Bad++      // a CRC-failed frame plays as silence
                             guarded("PAD") { DabMp2Pad.split(frame, h)?.let { (x, f) -> pad.feedPad(x, f, exact = false) } }
-                            player.feedMp2(frame)
+                            if (!muted) player.feedMp2(frame)
                         }
                     }
                     continue
                 }
                 // a lost AU becomes silence of its length (120 ms per superframe / AUs per superframe): the timing holds
-                guarded("DAB+") { dec.feed(data, lost = { n -> dec.format?.let { f -> player.feedSilence(n * 120 / f.ausPerSuperframe) } }) { au ->
+                guarded("DAB+") { dec.feed(data, lost = { n -> if (!muted) dec.format?.let { f -> player.feedSilence(n * 120 / f.ausPerSuperframe) } }) { au ->
                     pad.feedAu(au.data)
-                    player.feedAac(au.asc, au.data, au.format.outputRate)
+                    if (!muted) player.feedAac(au.asc, au.data, au.format.outputRate)
                 } }
             }
         }

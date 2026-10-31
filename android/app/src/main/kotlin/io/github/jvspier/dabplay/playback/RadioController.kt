@@ -1,6 +1,5 @@
 package io.github.jvspier.dabplay.playback
 
-import android.media.AudioManager
 import io.github.jvspier.dabplay.core.Reception
 import io.github.jvspier.dabplay.core.pad.DlsParser
 import io.github.jvspier.dabplay.core.pad.NowPlaying
@@ -8,11 +7,9 @@ import io.github.jvspier.dabplay.data.ServiceKey
 import io.github.jvspier.dabplay.data.Station
 import io.github.jvspier.dabplay.data.StationStore
 import io.github.jvspier.dabplay.data.StoredFm
-import io.github.jvspier.dabplay.engine.AudioFocus
 import io.github.jvspier.dabplay.engine.DabEngine
 import io.github.jvspier.dabplay.engine.EngineLog
 import io.github.jvspier.dabplay.engine.EngineState
-import io.github.jvspier.dabplay.engine.FocusChange
 import io.github.jvspier.dabplay.fyt.FytRadio
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,20 +55,35 @@ data class SourceUi(
  * no DAB; back to DAB once it's good again) unless the listener pinned one. While FM covers for DAB, the engine keeps
  * receiving silently, so DAB coming back is seen at once. The UI and the media session see [state]: the engine's state,
  * with the station and FM's radio text filled in while FM plays. Runs on the main thread.
+ *
+ * Audio focus: none for FM. On an FYT head unit the MainServer switches the audio between its sources (radio, BT,
+ * "third-party player", ...); an app that takes the focus or plays becomes the third-party source, which switches the
+ * radio off. So while FM plays, the engine is silent without focus ([DabEngine.setMuted]) and the head unit itself
+ * stops other sources when the radio becomes the source.
+ *
+ * Most FYT units (radio type 3/4, the EKIY T900 too) have the stock radio app drive the tuner chip: the MainServer
+ * passes our commands on to that app's screen and reports what it tunes. That screen has to exist (in the background
+ * is fine), so the first time FM needs tuning, the app opens it for a moment at the right frequency and comes back.
  */
 class RadioController(
     private val engine: DabEngine,
     private val fm: FytRadio,
     private val store: StationStore,
     private val log: EngineLog,
-    am: AudioManager,
     /** Settings → Traffic announcements: FM's TA follows it. */
     private val trafficAnnouncements: () -> Boolean,
+    /** Our screen is showing: only then may the stock radio app's screen open for a moment. */
+    private val uiVisible: () -> Boolean = { false },
+    /** Bring our screen back to the front (after the stock radio app's screen opened). */
+    private val bringBack: () -> Unit = {},
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
-    /** Our own audio focus while FM plays and the engine doesn't (an FM-only station): other media apps pause. */
-    private val fmFocus = AudioFocus(am)
     private val fmAvailable = fm.available
+    /** Tuning FM after the source request: waits for the radio to be the source first. */
+    private var fmJob: Job? = null
+    /** The stock radio app's screen took a tuning command since start-up (see the class comment). */
+    private var radioScreenSeen = false
+    private var radioScreenOpenedAt = 0L
 
     /** The listener's station (null: nothing chosen yet). */
     private var wanted: ServiceKey? = null
@@ -120,9 +132,9 @@ class RadioController(
         dabBadSince = 0; dabGoodSince = 0
         when {
             st == null -> engine.play(key)
-            !st.hasDab -> { engine.pause(); engine.setMuted(false); store.played(st.key); startFm(st.fm!!, ownFocus = true) }
+            !st.hasDab -> { engine.setMuted(true); engine.pause(); store.played(st.key); startFm(st.fm!!) }
             st.fm != null && fmAvailable && !engine.state.value.dongle -> {        // no dongle: FM straight away
-                store.played(st.key); startFm(st.fm!!, ownFocus = true)
+                engine.setMuted(true); store.played(st.key); startFm(st.fm!!)
             }
             else -> { stopFm(); engine.setMuted(false); engine.play(st.key) }
         }
@@ -132,14 +144,13 @@ class RadioController(
     fun pause() {
         paused = true
         if (active == Source.FM || fmPlaying) stopFm()
-        engine.setMuted(false)
-        engine.pause()
+        engine.pause()                       // still silent if FM covered for it: play() makes it audible again
         publish()
     }
 
     fun resume() {
         val key = wanted ?: engine.state.value.current?.key ?: store.state.value.lastPlayed
-        if (key != null) play(key) else engine.resume()
+        if (key != null) play(key) else { engine.setMuted(false); engine.resume() }
     }
 
     val playing get() = state.value.playing
@@ -178,7 +189,11 @@ class RadioController(
     private fun byHand(cmd: () -> Unit) {
         if (active != Source.FM) return
         tunedByHand = currentStation()
-        cmd()
+        scope.launch {
+            fmJob?.join()
+            if (fm.tunerInRadioApp && !radioScreenSeen) openRadioScreen(fm.state.value.freq.takeIf { it > 0 } ?: FM_START)
+            cmd()
+        }
     }
 
     /** Link the playing DAB station to the FM frequency playing now, or (null) never to FM; [auto]: back to automatic. */
@@ -193,13 +208,14 @@ class RadioController(
         if (!fmAvailable || scanJob?.isActive == true) return
         val before = wanted
         scanJob = scope.launch {
-            engine.pause(); engine.setMuted(false)
-            startFm(8750, ownFocus = true)
-            withTimeoutOrNull(5000) { fm.state.first { it.connected && it.sourceIsRadio } }
+            engine.setMuted(true); engine.pause()
+            startFm(FM_START)
+            fmJob?.join()
+            if (fm.tunerInRadioApp && !radioScreenSeen) openRadioScreen(FM_START)
             delay(800)
             val found = LinkedHashMap<Int, String>()
-            var last = 8750
-            ui.update { it.copy(fmScan = 8750 to 0) }
+            var last = FM_START
+            ui.update { it.copy(fmScan = FM_START to 0) }
             log.i(TAG, "FM scan")
             for (n in 0 until 80) {
                 fm.seekUp()
@@ -212,7 +228,8 @@ class RadioController(
                 ui.update { it.copy(fmScan = f to found.size) }
             }
             log.i(TAG, "FM scan done: ${found.size} stations")
-            store.applyFmScan(found.map { (f, ps) -> StoredFm(f, ps, 0) })
+            // nothing found: the tuner didn't seek at all (keep the stations of the last scan)
+            if (found.isNotEmpty()) store.applyFmScan(found.map { (f, ps) -> StoredFm(f, ps, 0) })
             ui.update { it.copy(fmScan = null) }
             stopFm()
             before?.let(::play)
@@ -246,22 +263,55 @@ class RadioController(
         return db.stations.firstOrNull { it.fm == f } ?: Station.fmOnly(StoredFm(f, fm.state.value.ps, 0))
     }
 
-    private fun startFm(freq: Int, ownFocus: Boolean) {
+    private fun startFm(freq: Int) {
         if (!fmAvailable) return
-        if (ownFocus) fmFocus.request { c -> if (c == FocusChange.LOST && active == Source.FM && !engine.state.value.playing) { log.i(TAG, "FM: another app took the audio"); pause() } }
         active = Source.FM; fmPlaying = true
         fmSourceSeen = false; sourceTakenSince = 0
+        if (fm.tunerInRadioApp) fm.wakeRadioApp()
         fm.requestSource()
-        fm.bandFm()
-        fm.tune(freq)
-        if (trafficAnnouncements() != fm.state.value.ta) fm.toggleTa()
-        if (!fm.state.value.af) fm.toggleAf()
+        fmJob?.cancel()
+        fmJob = scope.launch {
+            // the MainServer passes tuning on only while the radio is the source
+            withTimeoutOrNull(4000) { fm.state.first { it.connected && it.sourceIsRadio } }
+                ?: log.w(TAG, "FM: the radio didn't become the source (now ${fm.state.value.appId})")
+            val from = fm.state.value.freq
+            if (from != freq) {
+                if (!fm.tunerInRadioApp) fm.bandFm()
+                fm.tune(freq)
+                if (tunedTo(freq, 2500)) radioScreenSeen = fm.tunerInRadioApp
+                else if (fm.tunerInRadioApp) openRadioScreen(freq)
+                else log.w(TAG, "FM: the tuner didn't go to ${Station.fmText(freq)}")
+            }
+            if (trafficAnnouncements() != fm.state.value.ta) fm.toggleTa()
+            if (!fm.state.value.af) fm.toggleAf()
+        }
         publish()
     }
 
+    private suspend fun tunedTo(freq: Int, ms: Long) = withTimeoutOrNull(ms) { fm.state.first { it.freq == freq } } != null
+
+    /**
+     * The stock radio app tunes only through its screen: open it at [freq] (its link tunes there too), wait until
+     * it's there, and bring ours back. Only while our screen shows (never over navigation), at most every 20 s.
+     */
+    private suspend fun openRadioScreen(freq: Int) {
+        if (!uiVisible()) { log.w(TAG, "FM: the radio app's screen isn't open yet, and ours isn't showing to open it"); return }
+        val now = System.currentTimeMillis()
+        if (now - radioScreenOpenedAt < 20_000) return
+        radioScreenOpenedAt = now
+        log.i(TAG, "FM: opening the radio app's screen once, so that it takes our tuning")
+        if (!fm.openRadioApp(freq)) return
+        // its link tunes 2 s after the screen starts (0.3 s if it was there); its screen exists from then on
+        val ok = tunedTo(freq, 5000)
+        delay(400)
+        bringBack()
+        radioScreenSeen = ok
+        if (ok) log.i(TAG, "FM: the radio app tunes for us now") else log.w(TAG, "FM: the radio app didn't tune to ${Station.fmText(freq)}")
+    }
+
     private fun stopFm() {
+        fmJob?.cancel()
         if (active == Source.FM || fmPlaying) fm.releaseSource()
-        fmFocus.abandon()
         active = Source.DAB; fmPlaying = false; tunedByHand = null
     }
 
@@ -271,7 +321,7 @@ class RadioController(
         enginePlayedUnderFm = false
         log.i(TAG, "${st.label}: FM ${Station.fmText(f)} takes over")
         engine.setMuted(true)
-        startFm(f, ownFocus = !engine.state.value.playing)
+        startFm(f)
     }
 
     private fun toDab() {
@@ -344,6 +394,7 @@ class RadioController(
 
     private companion object {
         const val TAG = "Radio"
+        const val FM_START = 8750
         /** DAB lost this long: FM takes over (the engine's own DAB following starts after 6 s). */
         const val LOST_TO_FM_MS = 2_500L
         /** DAB weak (dropouts) this long: FM takes over. */

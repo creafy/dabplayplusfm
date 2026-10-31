@@ -3,5 +3,7 @@
          packages from an app unless it names them here -->
     <queries>
         <package android:name="com.syu.ms" />
+        <!-- the stock radio app: on most units it drives the tuner chip itself (FytRadio.radioType) -->
+        <package android:name="com.syu.radio" />
     </queries>
 </manifest>

@@ -4,6 +4,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.net.Uri
 import android.os.Handler
 import android.os.HandlerThread
 import android.os.IBinder
@@ -62,6 +63,16 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
     private val mainCb = ModuleCallback { u, ints, strs -> onMain(u, ints, strs) }
     private val radioCb = ModuleCallback { u, ints, strs -> onRadio(u, ints, strs) }
 
+    /**
+     * `sys.fyt.radio_type`: 1 is a tuner behind the MCU, which the MainServer tunes itself. 3 and 4 are a tuner chip
+     * on the Android side that the stock radio app (com.syu.radio) drives: the MainServer passes our commands on to
+     * that app's screen (radio update 28) and reports back what the app tunes (frequency, name). The EKIY T900 is 4.
+     */
+    val radioType: Int by lazy { prop("sys.fyt.radio_type").toIntOrNull() ?: -1 }
+
+    /** The stock radio app is the tuner (see [radioType]): it must be running, its screen too for tuning. */
+    val tunerInRadioApp get() = radioType == 3 || radioType == 4
+
     /** The MainServer is installed: an FYT head unit. */
     val available: Boolean
         get() = runCatching { ctx.packageManager.getPackageInfo(Syu.PACKAGE, 0); true }.getOrDefault(false)
@@ -116,6 +127,30 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
     }
 
     /**
+     * Start the stock radio app's process in the background (its keep-alive service), so that it powers the tuner
+     * chip up once the radio is the source. Its screen isn't opened: tuning needs [openRadioApp].
+     */
+    fun wakeRadioApp() {
+        runCatching { ctx.startService(Intent(RADIO_KEEP_ALIVE).setClassName(RADIO_PACKAGE, RADIO_SERVICE)) }
+            .onSuccess { log("> wake the radio app: ${if (it != null) "started" else "not found"}") }
+            .onFailure { log("> wake the radio app failed: $it") }
+    }
+
+    /**
+     * Open the stock radio app's screen tuned to [freq] (10 kHz units), through its own link for voice control.
+     * Its screen then takes our tuning commands, also once it's in the background again. Needs the radio as the
+     * source first, as the app tunes only then. The caller brings its own screen back.
+     */
+    fun openRadioApp(freq: Int): Boolean {
+        val i = Intent(RADIO_PACKAGE).setClassName(RADIO_PACKAGE, RADIO_ACTIVITY)
+            .setData(Uri.parse("syuradio://tune?freq=$freq"))      // only its freq parameter counts
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        return runCatching { ctx.startActivity(i) }
+            .onSuccess { log("> open the radio app at ${fmt(freq)}") }
+            .onFailure { log("> open the radio app failed: $it") }.isSuccess
+    }
+
+    /**
      * Make the radio the audio source. As the FYT radio app does: ask, and ask again until the server reports it
      * (every second, five times at most).
      */
@@ -143,8 +178,11 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
     fun seekUp() = radioCmd("seek up", 5)
     fun seekDown() = radioCmd("seek down", 6)
     fun bandFm() = radioCmd("band FM", 11, -3)
-    /** [freq] in 10 kHz units. */
-    fun tune(freq: Int) = radioCmd("tune ${fmt(freq)}", 13, 3, freq)
+    /**
+     * [freq] in 10 kHz units. Mode 1 (a frequency): the MCU tuner maps it onto its band; an app-driven tuner gets it
+     * as is. The MainServer passes it on only while the radio is the source.
+     */
+    fun tune(freq: Int) = radioCmd("tune ${fmt(freq)}", 13, 1, freq)
     fun toggleAf() = radioCmd("AF toggle", 20, 2)
     fun toggleTa() = radioCmd("TA toggle", 19, 2)
     fun setRds(on: Boolean) = radioCmd("RDS ${if (on) "on" else "off"}", 16, if (on) 1 else 0)
@@ -201,7 +239,14 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
         if (verbose || u == R_FREQ || u == R_PS) log("< $shown")
     }
 
+    private fun prop(key: String) =
+        runCatching { Runtime.getRuntime().exec(arrayOf("getprop", key)).inputStream.bufferedReader().readText().trim() }.getOrDefault("")
+
     companion object {
+        const val RADIO_PACKAGE = "com.syu.radio"
+        private const val RADIO_ACTIVITY = "com.syu.radio.act.ActRadio"
+        private const val RADIO_SERVICE = "com.syu.radio.broadcast.MyService"
+        private const val RADIO_KEEP_ALIVE = "com.syu.radio.keepAlive"
         const val APP_ID_NULL = 0
         const val APP_ID_RADIO = 1
         private const val MAIN_APP_ID = 0

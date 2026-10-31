@@ -79,8 +79,14 @@ class DabApp : Application() {
             resumeOnStart = { settings.state.value.resumeOnStart }, followStation = { settings.state.value.followStation },
             trafficAnnouncements = { settings.state.value.trafficAnnouncements },
             usbThreadSetup = { android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO) })
-        radio = RadioController(engine, fmRadio, store, events, getSystemService(AudioManager::class.java),
-            trafficAnnouncements = { settings.state.value.trafficAnnouncements })
+        radio = RadioController(engine, fmRadio, store, events,
+            trafficAnnouncements = { settings.state.value.trafficAnnouncements },
+            uiVisible = { uiVisible },
+            bringBack = {
+                runCatching { startActivity(Intent(this, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_NO_ANIMATION)) }
+                    .onFailure { events.w("Radio", "bringing the app back failed", it) }
+            })
         // an FM-only station last time: the engine leaves it to the app (a DAB one resumes when the dongle is ready)
         if (settings.state.value.resumeOnStart && store.state.value.lastPlayed?.isFm == true) radio.resume()
         logos = LogoStore(File(filesDir, "logos"))

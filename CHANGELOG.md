@@ -4,6 +4,18 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.3] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- **FM on head units whose stock radio app drives the tuner** (radio type 3/4, e.g. the EKIY T900): the MainServer
+  only passes commands on to that app's screen. The app now wakes the stock radio app, and the first time FM needs
+  tuning it opens that app's screen for a moment at the right frequency and comes back (only while DABplay+ FM is on
+  screen, never over navigation).
+- Tuning sends the frequency in the form these units pass on (mode 1).
+- While FM plays, DAB is silent without audio output or audio focus: before, the head unit took the app for a media
+  player and switched its radio off within half a second.
+- An FM scan that finds nothing keeps the stations of the last scan.
+
 ## [1.4.0-fm.2] - 2026-10-30 (DABplay+ FM, fork creafy/dabplayplusfm)
 
 ### New

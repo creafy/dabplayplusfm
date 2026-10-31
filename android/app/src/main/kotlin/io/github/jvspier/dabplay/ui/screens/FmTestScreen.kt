@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -67,7 +69,7 @@ fun FmTestScreen(compact: Boolean, onBack: () -> Unit) {
             Box(Modifier.weight(1f)) { ScreenTitle("FM test", compact) }
         }
         Row(Modifier.weight(1f).fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Column(Modifier.weight(1.1f), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(Modifier.weight(1.1f).verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Column(Modifier.fillMaxWidth().clip(RoundedCornerShape(14.dp)).background(c.surface).padding(18.dp)) {
                     Text(if (st.freq > 0) FytRadio.fmt(st.freq) else "–", color = c.text, fontSize = 44.sp, fontWeight = FontWeight.SemiBold)
                     Text(st.ps.ifEmpty { "no station name (RDS)" }, color = if (st.ps.isEmpty()) c.neutral400 else c.text, fontSize = 28.sp,
@@ -76,6 +78,7 @@ fun FmTestScreen(compact: Boolean, onBack: () -> Unit) {
                     Spacer(Modifier.height(6.dp))
                     Text(listOf(
                         if (st.connected) "connected" else "not connected",
+                        "type ${fm.radioType}${if (fm.tunerInRadioApp) " (tuner in the radio app)" else ""}",
                         "source ${st.appId}${if (st.sourceIsRadio) " = radio" else ""}",
                         if (st.stereo) "stereo" else "mono",
                         if (st.search != 0) "searching (${st.search})" else null,
@@ -83,8 +86,8 @@ fun FmTestScreen(compact: Boolean, onBack: () -> Unit) {
                     ).filterNotNull().joinToString(" · "), color = if (st.connected) Accent.green else c.warn, fontSize = 17.sp)
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    TestButton("Use FM", Accent.orange, Modifier.weight(1f)) { app.engine.pause(); fm.requestSource() }
-                    TestButton("Back to DAB", Accent.blue, Modifier.weight(1f)) { fm.releaseSource(); app.engine.resume() }
+                    TestButton("Use FM", Accent.orange, Modifier.weight(1f)) { app.engine.setMuted(true); app.engine.pause(); fm.requestSource() }
+                    TestButton("Back to DAB", Accent.blue, Modifier.weight(1f)) { fm.releaseSource(); app.engine.setMuted(false); app.engine.resume() }
                 }
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     TestButton("◀◀ Seek", null, Modifier.weight(1f)) { fm.seekDown() }
@@ -97,6 +100,10 @@ fun FmTestScreen(compact: Boolean, onBack: () -> Unit) {
                     TestButton("101.70", null, Modifier.weight(1f)) { fm.tune(10170) }
                     TestButton("AF", null, Modifier.weight(0.7f)) { fm.toggleAf() }
                     TestButton("TA", null, Modifier.weight(0.7f)) { fm.toggleTa() }
+                }
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    TestButton("Wake radio app", null, Modifier.weight(1f)) { fm.wakeRadioApp() }
+                    TestButton("Open radio app", null, Modifier.weight(1f)) { fm.openRadioApp(st.freq.takeIf { it > 0 } ?: 10170) }
                 }
             }
             LazyColumn(Modifier.weight(1f).fillMaxSize().clip(RoundedCornerShape(14.dp)).background(c.surface).padding(12.dp),
