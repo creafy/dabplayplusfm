@@ -339,7 +339,10 @@ class RadioController(
             withTimeoutOrNull(4000) { fm.state.first { it.connected && it.sourceIsRadio } }
                 ?: log.w(TAG, "FM: the radio didn't become the source (now ${fm.state.value.appId})")
             val from = fm.state.value.freq
-            if (from != freq) {
+            // the stock radio app's screen not seen yet (start-up): open it at once. Our tuning reaches only that
+            // screen, and the frequency it reports may be from before, while nothing plays
+            if (fm.tunerInRadioApp && !radioScreenSeen && uiVisible()) openRadioScreen(freq)
+            else if (from != freq) {
                 if (!fm.tunerInRadioApp) fm.bandFm()
                 fm.tune(freq)
                 // the stock radio app powers the chip up first when the radio becomes the source, and drops
@@ -349,7 +352,6 @@ class RadioController(
                 else if (fm.tunerInRadioApp) openRadioScreen(freq)
                 else log.w(TAG, "FM: the tuner didn't go to ${Station.fmText(freq)}")
             }
-            // toggles only: without the current state from the server (an app-driven tuner) they'd flip every time
             // the stock radio app keeps its own AF/TA settings and doesn't report them: leave them to it
             val f = fm.state.value
             if (!fm.tunerInRadioApp) {

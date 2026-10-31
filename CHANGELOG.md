@@ -4,6 +4,14 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.8] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- The first FM station after start-up stayed silent when the stock radio app was already on its frequency: the app
+  took that for tuned while the radio app wasn't even running. The first time, the radio app's screen now opens
+  straight away, and the radio app is started by binding to it (Android refuses a plain start while DABplay+ FM
+  isn't in front, as at boot).
+
 ## [1.4.0-fm.7] - 2026-10-31 (DABplay+ FM)
 
 ### Fixed

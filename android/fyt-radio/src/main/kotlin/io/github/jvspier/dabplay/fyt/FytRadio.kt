@@ -144,9 +144,21 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
      * chip up once the radio is the source. Its screen isn't opened: tuning needs [openRadioApp].
      */
     fun wakeRadioApp() {
-        runCatching { ctx.startService(Intent(RADIO_KEEP_ALIVE).setClassName(RADIO_PACKAGE, RADIO_SERVICE)) }
+        if (radioBound) return
+        // a binding, not a start: Android 8+ refuses to start another app's service while ours isn't in front (at
+        // boot, say), but binding is allowed, and keeps the radio app's process alive while we're bound
+        val i = Intent(RADIO_KEEP_ALIVE).setClassName(RADIO_PACKAGE, RADIO_SERVICE)
+        radioBound = runCatching { ctx.bindService(i, radioConn, Context.BIND_AUTO_CREATE) }
+            .onFailure { log("> wake the radio app failed: $it") }.getOrDefault(false)
+        if (radioBound) log("> wake the radio app (bound)")
+        else runCatching { ctx.startService(i) }
             .onSuccess { log("> wake the radio app: ${if (it != null) "started" else "not found"}") }
             .onFailure { log("> wake the radio app failed: $it") }
+    }
+    @Volatile private var radioBound = false
+    private val radioConn = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName, binder: IBinder) = log("radio app is running")
+        override fun onServiceDisconnected(name: ComponentName) = log("radio app stopped (Android binds again when it's back)")
     }
 
     /**
