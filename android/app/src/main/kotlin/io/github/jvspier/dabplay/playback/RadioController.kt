@@ -223,7 +223,8 @@ class RadioController(
                 if (f <= last) break                                   // wrapped around: the band is done
                 last = f
                 ui.update { it.copy(fmScan = f to found.size) }
-                val ps = withTimeoutOrNull(3000) { fm.state.first { it.freq == f && it.ps.isNotBlank() } }?.ps ?: ""
+                // the stock radio app never passes the name on: no point waiting for it
+                val ps = if (fm.tunerInRadioApp) "" else withTimeoutOrNull(3000) { fm.state.first { it.freq == f && it.ps.isNotBlank() } }?.ps ?: ""
                 found[f] = ps.trim()
                 ui.update { it.copy(fmScan = f to found.size) }
             }
@@ -282,8 +283,10 @@ class RadioController(
                 else if (fm.tunerInRadioApp) openRadioScreen(freq)
                 else log.w(TAG, "FM: the tuner didn't go to ${Station.fmText(freq)}")
             }
-            if (trafficAnnouncements() != fm.state.value.ta) fm.toggleTa()
-            if (!fm.state.value.af) fm.toggleAf()
+            // toggles only: without the current state from the server (an app-driven tuner) they'd flip every time
+            val f = fm.state.value
+            if (f.taKnown && trafficAnnouncements() != f.ta) fm.toggleTa()
+            if (f.afKnown && !f.af) fm.toggleAf()
         }
         publish()
     }

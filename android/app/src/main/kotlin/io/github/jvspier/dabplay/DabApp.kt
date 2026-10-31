@@ -57,7 +57,7 @@ class DabApp : Application() {
     }
 
     /** The FYT system properties that say which tuner the head unit has (getprop: no hidden API needed). */
-    fun fytProps(): String = listOf("sys.fyt.radio_type", "ro.fyt.platform", "sys.fyt.platform").joinToString(", ") { k ->
+    fun fytProps(): String = listOf("sys.fyt.radio_type", "persist.lsec.radio.ms_handler", "ro.fyt.platform", "sys.fyt.platform").joinToString(", ") { k ->
         val v = runCatching { Runtime.getRuntime().exec(arrayOf("getprop", k)).inputStream.bufferedReader().readText().trim() }.getOrDefault("?")
         "$k=${v.ifEmpty { "-" }}"
     }

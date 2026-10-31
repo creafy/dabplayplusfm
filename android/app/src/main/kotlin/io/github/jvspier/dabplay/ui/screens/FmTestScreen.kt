@@ -78,7 +78,7 @@ fun FmTestScreen(compact: Boolean, onBack: () -> Unit) {
                     Spacer(Modifier.height(6.dp))
                     Text(listOf(
                         if (st.connected) "connected" else "not connected",
-                        "type ${fm.radioType}${if (fm.tunerInRadioApp) " (tuner in the radio app)" else ""}",
+                        "type ${fm.radioType}${if (fm.serverDrivesChip) ", ms_handler on" else ""}${if (fm.tunerInRadioApp) " (tuner in the radio app)" else ""}",
                         "source ${st.appId}${if (st.sourceIsRadio) " = radio" else ""}",
                         if (st.stereo) "stereo" else "mono",
                         if (st.search != 0) "searching (${st.search})" else null,

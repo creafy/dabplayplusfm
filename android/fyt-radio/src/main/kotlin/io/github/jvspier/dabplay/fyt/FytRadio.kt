@@ -36,6 +36,9 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
         val rds: Boolean = false,
         val af: Boolean = false,
         val ta: Boolean = false,
+        /** The server reported AF / TA at all (an app-driven tuner never does): only then can they be toggled right. */
+        val afKnown: Boolean = false,
+        val taKnown: Boolean = false,
         val tp: Boolean = false,
         val taActive: Boolean = false,
         val tunerOn: Boolean = false,
@@ -70,8 +73,18 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
      */
     val radioType: Int by lazy { prop("sys.fyt.radio_type").toIntOrNull() ?: -1 }
 
-    /** The stock radio app is the tuner (see [radioType]): it must be running, its screen too for tuning. */
-    val tunerInRadioApp get() = radioType == 3 || radioType == 4
+    /**
+     * `persist.lsec.radio.ms_handler`: on radio type 4, the MainServer drives the tuner chip itself instead of
+     * handing our commands to the stock radio app, and reports the RDS name and text too. Off by default; set with
+     * adb (`setprop`), read by the MainServer at start-up.
+     */
+    val serverDrivesChip: Boolean by lazy { prop("persist.lsec.radio.ms_handler").lowercase() in setOf("1", "true", "y", "yes", "on") }
+
+    /**
+     * The stock radio app is the tuner (see [radioType]): it must be running, its screen too for tuning. It keeps
+     * the RDS name and text to itself: only the frequency reaches us.
+     */
+    val tunerInRadioApp get() = (radioType == 3 || radioType == 4) && !(radioType == 4 && serverDrivesChip)
 
     /** The MainServer is installed: an FYT head unit. */
     val available: Boolean
@@ -218,10 +231,10 @@ class FytRadio(context: Context, private val log: (String) -> Unit) {
             R_FREQ -> i?.let { v -> _state.update { it.copy(freq = v, ps = if (v != it.freq) "" else it.ps, radioText = if (v != it.freq) "" else it.radioText) } }
             R_REGION -> i?.let { v -> _state.update { it.copy(region = v) } }
             R_PTY -> i?.let { v -> _state.update { it.copy(pty = v) } }
-            R_AF -> i?.let { v -> _state.update { it.copy(af = v != 0) } }
+            R_AF -> i?.let { v -> _state.update { it.copy(af = v != 0, afKnown = true) } }
             R_TA_ACTIVE -> i?.let { v -> _state.update { it.copy(taActive = v != 0) } }
             R_TP -> i?.let { v -> _state.update { it.copy(tp = v != 0) } }
-            R_TA -> i?.let { v -> _state.update { it.copy(ta = v != 0) } }
+            R_TA -> i?.let { v -> _state.update { it.copy(ta = v != 0, taKnown = true) } }
             R_RT -> _state.update { it.copy(radioText = s.orEmpty()) }
             R_RDS -> i?.let { v -> _state.update { it.copy(rds = v != 0) } }
             R_RANGE -> if (ints != null && ints.size >= 3) _state.update { it.copy(range = ints.copyOf(3)) }

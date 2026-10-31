@@ -4,6 +4,15 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.4] - 2026-10-31 (DABplay+ FM)
+
+### Changed
+- On radio type 4 with `persist.lsec.radio.ms_handler` set, the MainServer drives the tuner chip itself and passes
+  the RDS name and text on: the app then leaves the stock radio app alone.
+- AF and TA are switched only when the head unit reports their state (with the stock radio app as the tuner they
+  flipped at every station).
+- The FM scan doesn't wait for station names the stock radio app never passes on.
+
 ## [1.4.0-fm.3] - 2026-10-31 (DABplay+ FM)
 
 ### Fixed
