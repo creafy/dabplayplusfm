@@ -3,6 +3,9 @@ package io.github.jvspier.dabplay.playback
 import io.github.jvspier.dabplay.core.Reception
 import io.github.jvspier.dabplay.core.pad.DlsParser
 import io.github.jvspier.dabplay.core.pad.NowPlaying
+import io.github.jvspier.dabplay.data.FmLinking
+import io.github.jvspier.dabplay.data.FmTransmitters
+import io.github.jvspier.dabplay.data.GeoPoint
 import io.github.jvspier.dabplay.data.ServiceKey
 import io.github.jvspier.dabplay.data.Station
 import io.github.jvspier.dabplay.data.StationStore
@@ -76,6 +79,12 @@ class RadioController(
     private val uiVisible: () -> Boolean = { false },
     /** Bring our screen back to the front (after the stock radio app's screen opened). */
     private val bringBack: () -> Unit = {},
+    /** The offline FM transmitter list (null: none for this country, or not loaded). */
+    private val fmList: () -> FmTransmitters? = { null },
+    /** Where the car is (the head unit's location or an earlier estimate), for [fmList]. */
+    private val location: () -> GeoPoint? = { null },
+    /** A place estimated from an FM scan (no location from the head unit): kept for later. */
+    private val rememberEstimate: (GeoPoint) -> Unit = {},
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private val fmAvailable = fm.available
@@ -134,7 +143,7 @@ class RadioController(
             st == null -> engine.play(key)
             !st.hasDab -> { engine.setMuted(true); engine.pause(); store.played(st.key); startFm(st.fm!!) }
             st.fm != null && fmAvailable && !engine.state.value.dongle -> {        // no dongle: FM straight away
-                engine.setMuted(true); store.played(st.key); startFm(st.fm!!)
+                engine.setMuted(true); store.played(st.key); startFm(fmFreqFor(st)!!)
             }
             else -> { stopFm(); engine.setMuted(false); engine.play(st.key) }
         }
@@ -206,6 +215,8 @@ class RadioController(
      */
     fun scanFm() {
         if (!fmAvailable || scanJob?.isActive == true) return
+        val list = fmList(); val here = location()
+        if (list != null && here != null) { fillNearby(list, here); return }
         val before = wanted
         scanJob = scope.launch {
             engine.setMuted(true); engine.pause()
@@ -228,13 +239,60 @@ class RadioController(
                 found[f] = ps.trim()
                 ui.update { it.copy(fmScan = f to found.size) }
             }
-            log.i(TAG, "FM scan done: ${found.size} stations")
+            log.i(TAG, "FM scan done: ${found.size} stops")
+            // names from the transmitter list, at the place the found frequencies point to; stops that no
+            // transmitter there explains are noise (the stock radio app's seek stops at nearly anything)
+            val place = list?.locate(found.keys)
+            val named = if (list != null && place != null) {
+                rememberEstimate(place)
+                log.i(TAG, "FM scan: the frequencies point to %.3f, %.3f".format(place.lat, place.lon))
+                found.mapNotNull { (f, ps) -> list.nameAt(f, place)?.let { n -> f to ps.ifEmpty { n } } }.toMap()
+            } else found
+            log.i(TAG, "FM scan: ${named.size} stations")
             // nothing found: the tuner didn't seek at all (keep the stations of the last scan)
-            if (found.isNotEmpty()) store.applyFmScan(found.map { (f, ps) -> StoredFm(f, ps, 0) })
+            if (named.isNotEmpty()) store.applyFmScan(named.map { (f, ps) -> StoredFm(f, ps, 0) })
             ui.update { it.copy(fmScan = null) }
             stopFm()
             before?.let(::play)
         }
+    }
+
+    /**
+     * FM nearby: the programmes the transmitter list has in reach of [here], each on its strongest frequency, without
+     * tuning anything. Repeated by itself as the car moves on (see [tick]).
+     */
+    private fun fillNearby(list: FmTransmitters, here: GeoPoint) {
+        val near = list.nearby(here)
+        log.i(TAG, "FM nearby %.3f, %.3f: %d programmes".format(here.lat, here.lon, near.size))
+        if (near.isEmpty()) return
+        store.applyFmScan(near)
+        nearbyAt = here
+    }
+    /** Where the last FM-nearby fill was (null: the FM stations came from a scan, which stays as it is). */
+    private var nearbyAt: GeoPoint? = null
+    private var lastPlaceCheck = 0L
+
+    /** Every minute: the car moved on, so FM nearby again, and a station on FM to its strongest frequency here. */
+    private fun followPlace() {
+        val list = fmList() ?: return
+        val here = location() ?: return
+        nearbyAt?.let { if (FmTransmitters.distanceKm(it, here) > REFILL_KM) fillNearby(list, here) }
+        if (active != Source.FM || !fmPlaying || tunedByHand != null || fmJob?.isActive == true) return
+        val st = wanted?.let(store.state.value::station) ?: return
+        val best = list.bestFreq(st.label, here) ?: return
+        val now = fm.state.value.freq
+        // only when the frequency playing isn't this programme's here any more (another one, or out of reach)
+        val stillOurs = now != 0 && list.nameAt(now, here)?.let { FmLinking.namesMatch(it, st.label) } == true
+        if (best != now && !stillOurs) {
+            log.i(TAG, "${st.label}: ${Station.fmText(best)} is the stronger FM frequency here")
+            fm.tune(best)
+        }
+    }
+
+    /** The FM frequency for [st] now: the strongest of its programme here (transmitter list), else its linked one. */
+    private fun fmFreqFor(st: Station): Int? {
+        val list = fmList(); val here = location()
+        return (if (list != null && here != null) list.bestFreq(st.label, here) else null) ?: st.fm
     }
 
     /**
@@ -261,7 +319,9 @@ class RadioController(
     private fun currentStation(): Station? {
         val f = fm.state.value.freq
         val db = store.state.value
-        return db.stations.firstOrNull { it.fm == f } ?: Station.fmOnly(StoredFm(f, fm.state.value.ps, 0))
+        val here = location()
+        val ps = fm.state.value.ps.ifBlank { here?.let { fmList()?.nameAt(f, it) }.orEmpty() }
+        return db.stations.firstOrNull { it.fm == f } ?: Station.fmOnly(StoredFm(f, ps, 0))
     }
 
     private fun startFm(freq: Int) {
@@ -320,7 +380,7 @@ class RadioController(
 
     /** DAB → FM for the same station: DAB keeps receiving, silent. */
     private fun toFm(st: Station) {
-        val f = st.fm ?: return
+        val f = fmFreqFor(st) ?: return
         enginePlayedUnderFm = false
         log.i(TAG, "${st.label}: FM ${Station.fmText(f)} takes over")
         engine.setMuted(true)
@@ -339,6 +399,7 @@ class RadioController(
     private fun tick() {
         val e = engine.state.value
         val now = System.currentTimeMillis()
+        if (now - lastPlaceCheck > PLACE_CHECK_MS) { lastPlaceCheck = now; runCatching { followPlace() } }
         // another source took the head unit's audio (BT, the stock radio app): FM isn't playing for us any more
         if (active == Source.FM && fmPlaying && sourceTakenSince > 0 && now - sourceTakenSince > SOURCE_TAKEN_MS) {
             log.i(TAG, "FM: the head unit switched to source ${fm.state.value.appId}"); pause(); return
@@ -398,6 +459,9 @@ class RadioController(
     private companion object {
         const val TAG = "Radio"
         const val FM_START = 8750
+        /** FM nearby again after the car moved this far. */
+        const val REFILL_KM = 15.0
+        const val PLACE_CHECK_MS = 60_000L
         /** DAB lost this long: FM takes over (the engine's own DAB following starts after 6 s). */
         const val LOST_TO_FM_MS = 2_500L
         /** DAB weak (dropouts) this long: FM takes over. */

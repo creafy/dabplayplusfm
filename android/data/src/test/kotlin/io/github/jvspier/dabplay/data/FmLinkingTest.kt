@@ -45,4 +45,11 @@ class FmLinkingTest {
         assertEquals(wdr2.key, s.station(ServiceKey.fm(9980))?.key)  // an old FM favourite finds its DAB station
         assertEquals("101.7", Station.fmText(10170)); assertEquals("87.55", Station.fmText(8755))
     }
+
+    @Test fun aNameInBracketsCountsOnItsOwn() {
+        assertTrue(FmLinking.namesMatch("Deutschlandfunk (Dlf)", "DLF"))
+        assertTrue(FmLinking.namesMatch("Deutschlandfunk (Dlf)", "Deutschlandfunk"))
+        assertTrue(FmLinking.namesMatch("NDR 2 Hamburg", "NDR 2"))
+        assertTrue(!FmLinking.namesMatch("NDR 2 Hamburg", "NDR 1 Nieders."))
+    }
 }

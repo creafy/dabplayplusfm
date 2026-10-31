@@ -1,0 +1,2779 @@
+# FM transmitters in Germany: German Wikipedia, "Liste der UKW-Hörfunksender in Deutschland", CC BY-SA 4.0
+# https://de.wikipedia.org/wiki/Liste_der_UKW-Hörfunksender_in_Deutschland
+# freq (10 kHz)	lat	lon	ERP kW	programme
+8760	47.4583	10.1444	0.02	BR-Klassik
+8760	47.5653	9.6742	0.1	BR-Klassik
+8760	47.6067	11.3161	0.1	BR24
+8760	47.6928	7.8736	0.1	SWR1 Baden-Württemberg
+8760	48.2233	9.4650	0.1	SWR4 FN
+8760	48.6756	10.1497	0.01	SWR1 Baden-Württemberg
+8760	48.9044	8.7192	0.5	SWR4 KA
+8760	49.3233	11.3806	25	BR-Klassik
+8760	49.3289	6.9400	0.1	Cityradio Saarbrücken Tests 5/2021
+8760	49.4594	7.7711	0.5	Rockland Radio Kaiserslautern
+8760	49.6811	7.3281	0.2	Antenne Idar-Oberstein
+8760	50.9481	6.9431	0.3	WDR 1 live
+8760	50.9508	8.5319	100	hr3
+8760	51.0844	14.6711	0.5	R.SA Dresden
+8760	51.4208	14.2836	0.32	Energy Sachsen Dresden
+8760	51.8064	12.9936	1	MDR Aktuell
+8760	52.1044	9.3783	0.05	Radio 21 Mitte
+8760	52.3256	12.5933	0.4	89.2 Radio Potsdam
+8760	52.3744	8.0297	0.2	NDR Info Niedersachsen
+8760	52.3828	14.4256	10	Antenne Brandenburg Frankfurt
+8760	53.3319	13.8933	0.2	Energy Berlin
+8760	53.5192	10.1028	80	NDR 2 Hamburg
+8760	54.3650	12.7089	0.4	NDR 1 Radio MV Vorpommern
+8770	47.5178	10.2733	0.1	RSA Radio Oberallgäu
+8770	47.6025	8.4069	2.6	SWR4 FR
+8770	47.6614	11.7939	0.1	Bayern 2
+8770	48.4453	12.3894	0.05	Radio Trausnitz
+8770	48.5628	13.4589	0.5	Bayern 1 Niederbayern/Oberpfalz
+8770	48.6336	9.8311	0.2	Deutschlandfunk Kultur
+8770	49.4569	8.9686	0.01	SWR Kultur Baden-Württemberg
+8770	50.0225	8.2769	1	SWR1 Rheinland-Pfalz
+8770	50.0628	10.2447	0.2	Radio Hashtag+
+8770	50.3394	6.9475	0.05	RPR 1./Radio Nürburgring
+8770	50.5561	6.2358	0.05	WDR 5
+8770	50.6222	12.8700	100	MDR Kultur
+8770	50.9122	14.7864	0.2	MDR Sachsen Bautzen
+8770	51.3361	6.6003	0.2	Welle Niederrhein Krefeld
+8770	51.9144	10.4681	0.5	Radio 21 Süd
+8770	52.2447	8.8992	0.1	WDR 5
+8770	53.1475	12.4783	1.3	rbb Inforadio
+8770	53.3675	7.2103	0.1	Radio Ostfriesland
+8770	54.7917	9.5033	10	NDR Info Schleswig-Holstein
+8780	47.7497	11.5744	0.1	Deutschlandfunk (Dlf)
+8780	48.2022	9.0358	0.5	Dasding (SWR)
+8780	48.6181	10.2419	0.02	SWR Kultur Baden-Württemberg
+8780	49.4867	8.4919	1	big FM Baden-Württemberg
+8780	49.5072	9.7822	10	SWR1 Baden-Württemberg
+8780	49.9456	6.5581	0.05	Antenne Trier
+8780	50.3597	7.5781	0.05	Radio Teddy Rheinland-Pfalz
+8780	50.3947	8.7628	0.32	Radio Welle West Wetterau
+8780	50.9631	6.1097	0.5	big FM NRW
+8780	51.4619	7.5433	2	WDR 2 Ruhrgebiet
+8780	51.7281	9.4872	0.5	WDR 4 Ostwestfalen-Lippe
+8780	51.9792	9.8094	0.05	NDR 1 Niedersachsen Braunschweig
+8780	52.6464	11.8347	1	MDR Aktuell
+8780	52.9772	9.6067	2	NDR Kultur
+8780	53.5236	8.1047	1	Radio Jade
+8780	54.0844	13.3958	0.8	Schlager Radio Mecklenburg-Vorpommern
+8790	47.6836	12.4883	0.1	Bayern 2
+8790	47.8083	9.5858	0.1	SWR3 Alb/Bodensee
+8790	47.8300	8.5211	1	Antenne 1 Neckarburg Rock & Pop
+8790	48.2850	11.9142	0.1	Top FM Ost
+8790	48.3594	10.8858	0.32	Rock Antenne Bayern
+8790	48.5147	8.3658	0.1	SWR4 FR
+8790	48.7556	9.1900	1	Deutschlandfunk Kultur
+8790	48.9331	12.7050	1	Radio AWN
+8790	49.1511	8.0194	0.005	Peilsender
+8790	49.8800	7.8992	0.15	Studio Nahe
+8790	50.1342	8.6761	0.1	Hr2-Kultur
+8790	50.3689	8.0125	0.1	SWR4 KO
+8790	50.8514	10.4653	60	MDR Kultur
+8790	51.1814	14.4283	0.1	MDR Aktuell
+8790	52.0250	8.5372	0.05	Radio Hertz
+8790	52.5208	13.4092	1	Star FM 87.9
+8790	54.1953	9.2483	15	NDR Info Schleswig-Holstein
+8800	48.9464	11.4286	10	BR-Klassik
+8800	49.3406	7.0156	100	SR 1
+8800	50.0531	8.3869	0.32	Main FM
+8800	50.1267	11.8450	5	Radio Euroherz
+8800	50.5800	8.6661	0.5	Rock Antenne
+8800	50.7078	7.0967	35	WDR 5
+8800	51.2164	11.9500	1	Rockland Sachsen-Anhalt Süd
+8800	51.7239	13.7908	1	104.6 RTL
+8800	51.9003	10.1731	0.05	Deutschlandfunk (Dlf)
+8800	52.4164	9.3650	0.2	Meer Radio
+8800	52.9925	10.5314	1	Radio ZuSa
+8800	53.5725	13.2733	0.8	Mediatop Radio
+8800	53.8583	10.6886	0.5	NDR Kultur
+8810	47.5653	9.6742	0.5	Bayern 1 Schwaben
+8810	47.6067	11.3161	0.1	Bayern 1 Oberbayern
+8810	47.7236	10.3150	0.2	Radio Galaxy Kempten
+8810	48.2464	10.3753	0.1	hitradio.rt1 Südschwaben
+8810	48.8869	8.6439	3.2	SWR Kultur Baden-Württemberg
+8810	49.6575	9.0689	5	hr1
+8810	50.6372	13.3561	0.1	Radio Erzgebirge
+8810	50.7292	9.3225	4	Hit Radio FFH Mittelhessen
+8810	51.6217	8.9967	4	Radio Hochstift
+8810	51.9050	12.5806	30	MDR Sachsen-Anhalt Dessau
+8810	53.4994	10.1903	0.1	Oldie Antenne Hamburg
+8810	54.9108	8.3069	0.2	Antenne Sylt
+8820	47.7353	12.8992	0.3	Bayernwelle Südost Berchtesgadener Land
+8820	47.8889	10.6803	0.2	RSA Radio Ostallgäu
+8820	49.4144	10.3778	25	Bayern 2
+8820	49.7547	8.6453	0.05	hr-info
+8820	50.0683	8.2286	0.5	harmony.fm
+8820	50.3381	9.5269	0.32	Dasding (hr)
+8820	50.5014	12.4089	0.4	Vogtland Radio
+8820	50.5856	8.4542	0.5	Radio BOB! (Hessen)
+8820	50.8803	11.5661	1	MDR Thüringen Gera
+8820	50.8847	8.0403	0.5	Radio Siegen
+8820	51.3517	14.1247	1	Lausitzwelle
+8820	51.4089	9.6636	0.05	NDR 1 Niedersachsen Braunschweig
+8820	51.7467	7.4058	0.5	Radio Kiepenkerl Süd
+8820	51.9144	10.4681	0.1	NDR 1 Niedersachsen Braunschweig
+8820	52.2331	8.3108	0.25	NDR Info Niedersachsen
+8820	52.4142	10.7742	0.1	NDR Info Niedersachsen
+8820	53.5969	7.2061	0.25	Radio Nordseewelle Ostfriesland
+8820	54.1294	12.1264	160	NDR Kultur
+8830	47.8586	12.6122	0.1	Deutschlandfunk Kultur
+8830	48.3058	8.9922	40	SWR1 Baden-Württemberg
+8830	49.2489	12.8908	5	BR-Klassik
+8830	49.4742	8.4239	0.1	Radyo Metropol FM Südwest
+8830	49.8267	7.8336	0.1	Antenne Bad Kreuznach
+8830	50.2400	6.3364	0.01	SWR1 Rheinland-Pfalz
+8830	50.2531	10.9847	5	Bayern 2
+8830	50.4167	7.5903	2	Rockland Radio Koblenz
+8830	50.9975	13.6603	0.2	R.SA Dresden
+8830	51.1039	7.6322	0.1	Radio MK Süd
+8830	51.1589	8.6111	0.1	WDR 5
+8830	51.4475	6.9967	0.1	big FM NRW
+8830	51.5117	10.7594	0.1	MDR Thüringen Heiligenstadt
+8830	52.8894	12.8025	0.5	Power Radio
+8830	53.0956	8.7917	100	Bremen Zwei
+8840	48.0031	7.8353	0.3	PH 88.4
+8840	48.0031	7.8353	0.3	uniFM
+8840	48.2506	11.7508	25	Bayern 2
+8840	49.2058	7.6044	0.5	Antenne Pirmasens
+8840	49.2139	7.6017	0.25	Antenne Pirmasens
+8840	49.7542	6.6647	0.3	Antenne Trier
+8840	49.9328	9.2408	25	Bayern 2
+8840	50.3689	8.0125	0.1	SWR1 Rheinland-Pfalz
+8840	50.8686	9.7319	0.3	harmony.fm
+8840	50.9617	6.7050	0.5	WDR 2 Köln
+8840	51.1358	9.2931	0.1	Radio BOB! (Hessen)
+8840	51.1844	12.2853	100	MDR Kultur
+8840	51.4789	9.1508	0.5	WDR 5
+8840	51.8339	6.6181	1	Radio WMW
+8840	52.4956	13.3575	1	88vier
+8850	48.6178	9.7853	0.5	SWR Kultur Baden-Württemberg
+8850	48.7644	8.2806	0.8	SWR4 Baden-Württemberg Baden Radio
+8850	49.0264	11.0058	0.05	Radio 8
+8850	49.4886	6.5856	0.01	SR 2 Kulturradio
+8850	49.6972	7.3211	0.01	SWR1 Rheinland-Pfalz
+8850	49.7219	10.2742	0.05	Radio Charivari Würzburg
+8850	49.8872	10.8592	0.5	Radio Bamberg
+8850	49.8947	12.3483	0.1	Radio Ramasuri
+8850	50.5044	7.0161	0.1	SWR1 Rheinland-Pfalz
+8850	51.4011	8.0622	0.1	WDR 5
+8850	51.5697	9.9819	5	NDR 1 Niedersachsen Braunschweig
+8850	52.2736	7.8181	0.5	WDR 5
+8850	53.3958	12.4636	10	NDR 1 Radio MV Neubrandenburg
+8850	53.8089	8.8836	2.7	Radio Hamburg
+8850	53.9069	10.6419	0.2	Radio Lübeck
+8850	54.8336	9.4094	0.2	Radio BOB! (Schleswig-Holstein) Nord/West
+8860	48.8153	9.2197	1	HoRadS
+8860	48.8678	11.4475	0.63	Deutschlandfunk Kultur
+8860	49.2425	6.8178	0.1	Deutschlandfunk Kultur
+8860	49.2639	9.8733	1	Radio Ton Hohenlohe
+8860	49.4661	6.3967	5	SR 2 Kulturradio
+8860	49.9533	9.7864	0.05	Radio Charivari Würzburg
+8860	50.0425	8.0175	0.5	SWR4 Rheinland-Pfalz Radio Mainz
+8860	50.0556	8.7461	0.1	Film-Begleitton
+8860	50.2981	8.2353	0.5	Deutschlandfunk Kultur
+8860	50.6122	10.7450	1	Landeswelle Thüringen Süd
+8860	50.9589	11.0228	0.5	radio TOP 40
+8860	51.6981	14.2728	3	Deutschlandfunk (Dlf)
+8860	51.8381	9.3958	0.5	NDR Info Niedersachsen
+8860	51.9678	9.2150	0.05	NDR 1 Niedersachsen Hannover
+8860	52.3094	8.6167	0.1	WDR 5
+8860	52.3275	9.7367	0.5	NDR Info Niedersachsen
+8860	54.3236	13.3414	10	NDR Info Mecklenburg-Vorpommern
+8860	54.4969	9.0939	0	Autokino Husum
+8870	47.5531	10.3169	100	Bayern 2
+8870	48.8797	12.5742	0.4	Deutschlandfunk Kultur
+8870	49.7950	10.6108	0.05	Radio Bamberg
+8870	49.9594	7.1111	0.32	Deutschlandfunk (Dlf)
+8870	50.3931	7.4631	0.02	Radio Kettig
+8870	50.4006	12.3503	3	MDR Sachsen Chemnitz
+8870	50.9464	11.3408	0.063	Radio Teddy Thüringen
+8870	50.9508	8.5319	15	WDR 3
+8870	51.3294	13.3617	0.005	beach f.m.
+8870	51.3936	10.1369	0.1	Landeswelle Thüringen Nord
+8870	51.8383	12.2553	0	Weill FM
+8870	52.2703	10.8775	0.2	NDR Info Niedersachsen
+8870	53.2050	8.2350	0.2	Radio Nordseewelle
+8870	53.5192	10.1028	3.2	Deutschlandfunk (Dlf)
+8870	53.9006	11.3892	1	80s80s MV West
+8880	48.1711	12.0886	0.5	TOP FM Ost
+8880	49.4036	8.7283	100	SWR Kultur Baden-Württemberg
+8880	50.3639	11.1886	0.1	radio TOP 40
+8880	50.9464	10.6892	0.1	MDR Aktuell
+8880	51.2164	11.9500	1	MDR Aktuell
+8880	51.3561	7.1339	100	WDR 5
+8880	51.5200	9.3492	0.2	Radio BOB! (Hessen)
+8880	52.5058	13.2194	80	rbb 88.8
+8880	52.9772	9.6067	1	Deutschlandfunk Kultur
+8880	54.3325	8.7889	0.15	N-Joy
+8890	49.3233	11.3806	25	Bayern 1 Franken
+8890	49.8650	8.9467	0.05	Radio Wein Welle
+8890	50.3381	9.5269	0.32	hr3
+8890	50.3747	8.7281	0.32	hr-info
+8890	50.7997	12.9656	1	apollo radio
+8890	50.8686	9.7319	0.32	hr1
+8890	51.5603	12.9869	0.5	MDR Sachsen Leipzig
+8890	51.9939	8.9303	0.32	Deutschlandfunk Kultur
+8890	52.5350	7.3531	0.32	NDR Info Niedersachsen
+8890	54.0842	9.9744	0.5	Radio BOB! (Schleswig-Holstein) Mitte
+8890	54.1294	12.1264	5	N-Joy
+8890	54.1803	7.8831	0.05	NDR 1 Welle Nord Heide
+8900	47.4386	11.2697	0.01	Bayern 1 Oberbayern
+8900	47.8056	12.9042	0.3	Bayernwelle Südost Berchtesgadener Land
+8900	47.9358	8.8267	5	SWR4 Baden-Württemberg Bodensee Radio
+8900	48.1631	11.6978	0.1	Film-Begleitton
+8900	48.1742	11.5536	0.32	Radio 2Day
+8900	48.4203	9.2472	0.1	SWR4 Baden-Württemberg Radio Tübingen
+8900	48.6144	12.4708	0.1	Radio Trausnitz
+8900	48.7058	9.6483	0.1	Radio Fips
+8900	48.7406	8.7250	0.01	SWR4 Baden-Württemberg Radio Tübingen
+8900	48.8733	9.1919	0.1	Film-Begleitton
+8900	49.7803	9.9069	5	BR-Klassik
+8900	49.8447	7.8536	0.1	SWR4 Rheinland-Pfalz Radio Mainz
+8900	51.0353	7.8625	0.5	big FM NRW
+8900	51.4208	14.2836	0.5	MDR Jump
+8900	51.8000	10.6142	60	89.0 RTL
+8900	52.3931	13.5108	0.1	Film-Begleitton
+8900	53.5700	7.9056	0.5	Deutschlandfunk Kultur
+8900	54.0461	13.7550	0.4	NDR 1 Radio MV Vorpommern
+8910	47.5278	10.2453	0.1	Bayern 1 Schwaben
+8910	47.5486	10.5703	0.05	Bayern 2
+8910	48.6939	8.3939	0.05	SWR1 Baden-Württemberg
+8910	49.0681	10.5256	0.1	Radio 8
+8910	49.1117	9.2508	0.5	Hitradio Antenne 1 Heilbronn
+8910	49.2464	7.2797	5	SR 3 Saarlandwelle
+8910	50.6686	7.1519	5	Deutschlandfunk (Dlf)
+8910	51.1464	8.2503	0.2	Radio Sauerland
+8910	51.2925	13.1214	0.25	R.SA Leipzig
+8910	52.3828	14.4256	5	rbb radioeins Frankfurt
+8910	53.5631	9.9756	0.05	Deutschlandfunk Kultur
+8910	54.9108	8.3069	1	Radio BOB! (Schleswig-Holstein) Nord/West
+8920	47.4522	11.0667	0.1	Bayern 1 Oberbayern
+8920	47.7775	7.7014	8.4	SWR1 Baden-Württemberg
+8920	48.3819	9.9486	10	SWR Kultur Baden-Württemberg
+8920	48.4456	8.6819	0.05	Freies Radio Freudenstadt
+8920	48.8719	8.6839	0.1	Deutschlandfunk (Dlf)
+8920	50.2531	10.9847	0.5	Radio Eins
+8920	50.7017	11.5806	0.1	Deutschlandfunk (Dlf)
+8920	50.8503	12.4600	0.1	Radio Zwickau
+8920	51.0136	11.2586	0.25	Landeswelle Thüringen Mitte
+8920	51.0400	13.8386	2	R.SA Dresden
+8920	51.3406	12.4031	0.1	Radio BLAU
+8920	51.3406	12.4031	0.1	apollo radio
+8920	51.4914	14.6442	1	Radio WSW
+8920	52.3744	8.0297	8	NDR 2 Niedersachsen
+8920	52.4172	13.1275	0.5	89.2 Radio Potsdam
+8920	53.5919	11.4553	30	NDR Kultur
+8930	47.4119	10.2778	0.1	RSA Radio Oberallgäu
+8930	47.6214	13.0239	0.1	Bayernwelle Südost Berchtesgadener Land
+8930	48.3594	10.8858	0.1	Bayern 2
+8930	48.4864	9.3969	0.025	Hitradio Antenne 1 Reutlingen
+8930	48.9236	13.0375	0.2	Unser Radio Regen
+8930	49.4336	6.5961	0.1	SR 1
+8930	50.1267	11.8450	20	Deutschlandfunk Kultur
+8930	50.2322	8.4589	100	hr3
+8930	50.7161	12.7806	0.1	MDR Aktuell
+8930	51.4894	7.2439	0.2	big FM NRW
+8930	51.6658	7.4700	0.25	Antenne Unna
+8930	51.9050	12.5806	1	Deutschlandfunk (Dlf)
+8930	52.8522	9.9069	0.13	Deutschlandfunk (Dlf)
+8930	53.5217	8.6492	25	Bremen Eins
+8930	54.3017	13.0358	0.25	Deutschlandfunk (Dlf)
+8940	48.2261	8.3781	0.01	SWR1 Baden-Württemberg
+8940	49.2892	10.5719	0.5	Radio 8
+8940	49.7567	6.6119	0.1	SWR Kultur Rheinland-Pfalz
+8940	51.0303	12.1711	0.5	Sputnik (MDR)
+8940	51.2178	6.7617	1	NE-WS 89.4
+8940	51.4047	7.4383	1	big FM NRW
+8940	51.7089	8.7722	0.032	L'UniCo FM
+8940	52.4428	9.2097	0.5	Radio 21 Mitte
+8940	52.8292	11.6894	10	MDR Kultur
+8950	47.7036	12.0128	100	Bayern 2
+8950	48.7633	9.2056	20	big FM Baden-Württemberg
+8950	49.6811	7.3281	0.2	Deutschlandfunk (Dlf)
+8950	49.7653	9.5264	0.1	Hitradio Antenne 1 Heilbronn
+8950	50.8803	11.5661	0.2	MDR Aktuell
+8950	51.2072	9.8475	100	hr3
+8950	51.5072	13.5542	0.5	104.6 RTL
+8950	52.8881	7.8497	1	Ems-Vechte-Welle
+8950	53.5192	10.1028	10	NDR 1 Welle Nord Norderstedt/Hamburg
+8950	53.5725	13.2733	1	N-Joy
+8960	48.3981	9.7942	0.002	SWR1 Baden-Württemberg
+8960	49.3206	7.3442	1	Cityradio Homburg
+8960	49.5078	8.4628	0.1	bermuda/R-Aktiv
+8960	49.8889	11.0622	25	Bayern 2
+8960	50.3019	12.3231	1	R.SA Chemnitz
+8960	50.4225	6.4589	10	WDR 5
+8960	50.4950	11.3678	0.02	Bayern 2
+8960	50.9964	14.2256	0.2	MDR Aktuell
+8960	51.4808	11.9642	0.1	MDR Jump
+8960	52.2414	8.9364	0.1	BFBS Radio 2
+8960	52.2669	11.8758	1	MDR Aktuell
+8960	52.5208	13.4092	16	Deutschlandfunk Kultur
+8960	54.7917	9.5033	25	NDR 1 Welle Nord Flensburg
+8970	48.4619	13.2044	0.3	Unser Radio Passau
+8970	48.5436	9.0381	1	big FM Baden-Württemberg
+8970	48.5806	10.4897	0.1	hitradio.rt1 Nordschwaben
+8970	48.9933	12.0753	0.3	gong fm
+8970	49.6575	9.0689	5	hr3
+8970	49.8267	7.8336	0.2	RPR 1. Mainz
+8970	50.1497	9.6672	0.01	Bayern 2
+8970	50.5336	9.7225	0.2	hr-info
+8970	50.9464	11.3408	0.5	Deutschlandfunk (Dlf)
+8970	51.4208	14.2836	0.5	Deutschlandfunk Kultur
+8970	51.9650	7.3597	25	WDR 3
+8970	54.1294	12.1264	0.32	Radio Paradiso
+8980	47.4386	11.2697	0.01	BR24
+8980	47.8725	8.0053	5	SWR1 Baden-Württemberg
+8980	48.0319	10.8831	0.2	TOP FM West
+8980	48.6756	10.1497	0.01	SWR4 Baden-Württemberg Schwaben Radio
+8980	49.0697	10.3272	0.1	Radio 8
+8980	49.4717	10.0389	0.01	SWR1 Baden-Württemberg
+8980	49.6792	12.2353	0.1	Radio Galaxy Amberg/Weiden
+8980	50.2383	9.3453	0.32	hr-info
+8980	50.6122	10.7450	0.2	MDR Kultur
+8980	50.6222	12.8700	100	MDR Jump
+8980	50.6636	7.9592	25	SWR1 Rheinland-Pfalz
+8980	53.0956	8.7917	0.8	Energy Bremen Bremen
+8980	53.9256	13.0442	1	Deutschlandfunk (Dlf)
+8980	54.9108	8.3069	0.5	Klassik Radio
+8990	47.7311	12.8950	0.3	BR-Klassik
+8990	48.2664	10.4442	0.008	Radio Horeb
+8990	48.6181	10.2419	0.02	SWR1 Baden-Württemberg
+8990	48.8517	12.9422	0.1	Radio Galaxy Passau
+8990	49.3764	8.1211	25	SWR1 Rheinland-Pfalz
+8990	49.4303	11.8469	0.245	AFN Bavaria-The Eagle ?
+8990	50.3314	8.7556	0.32	Radyo Metropol FM Hessen
+8990	50.9342	6.9536	0.32	big FM NRW
+8990	51.0433	11.7036	0.2	MDR Jump
+8990	51.8014	10.5322	100	NDR Kultur
+8990	54.2172	10.7186	50	NDR Kultur
+9000	48.2506	11.7508	25	BR24
+9000	48.3592	9.9694	0.32	Radio 7 Ulm
+9000	49.7803	9.9069	5	Bayern 2
+9000	49.8456	7.0533	50	SWR3 Rheinland-Pfalz/Rheinland
+9000	50.2136	11.3322	0.1	Radio Eins
+9000	50.5639	8.4711	0.05	ERF Jess
+9000	51.1464	8.2503	0.1	WDR 5
+9000	51.4450	7.2586	0.3	CT das Radio
+9000	51.4864	6.9714	0.1	Film-Begleitton
+9000	51.8203	12.3042	0.3	MDR Aktuell
+9000	53.3958	12.4636	3	Deutschlandfunk Kultur
+9000	53.4614	7.5067	25	NDR Kultur
+9010	47.9186	12.7228	0.05	Bayernwelle Südost Traunstein
+9010	48.3594	10.8858	0.1	BR24
+9010	48.7556	9.1900	100	SWR4 Baden-Württemberg Radio Stuttgart
+9010	49.2203	7.0028	1	Deutschlandfunk (Dlf)
+9010	49.4258	11.0389	0.1	Deutschlandfunk (Dlf)
+9010	49.9050	8.7733	1	planet radio
+9010	50.0683	8.2286	0.32	planet radio
+9010	50.8247	8.7939	0.1	Radio Unerhört
+9010	51.0400	13.8386	100	MDR Jump
+9010	51.1947	6.4531	0.32	Radio 90.1
+9010	51.7600	6.1167	1	Deutschlandfunk Kultur
+9010	52.1142	8.1281	0.2	Radio Osnabrück
+9010	52.2447	8.8992	0.1	WDR 4 Bielefeld
+9010	52.7461	11.3533	2	MDR Aktuell
+9010	52.9772	9.6067	1	Radio 21 Nordost
+9010	53.5919	11.4553	0.32	Schlager Radio Mecklenburg-Vorpommern
+9010	53.7253	14.0564	4	NDR 1 Radio MV Vorpommern
+9020	47.4583	10.1444	0.02	Bayern 1 Schwaben
+9020	47.5278	10.2453	0.1	BR-Klassik
+9020	47.7836	11.8503	0.1	Radio Alpenwelle
+9020	47.9222	10.2581	0.32	hitradio.rt1 Südschwaben
+9020	48.5692	12.1125	0.25	Bayern 1 Niederbayern/Oberpfalz
+9020	49.7058	8.6297	0.2	Dasding (hr)
+9020	50.0294	7.7847	0.2	Deutschlandfunk Kultur
+9020	50.8514	10.4653	100	MDR Jump
+9020	52.5208	13.4092	16	Radio Teddy Berlin/Brandenburg
+9020	52.5350	7.3531	15	NDR Kultur
+9020	53.2078	12.7483	0.1	Film-Begleitton
+9020	53.3506	13.0758	0.1	Film-Begleitton
+9020	54.1294	12.1264	0.1	Lohro
+9030	47.4878	11.0631	0.05	AFN Bavaria-The Eagle ?
+9030	47.8261	11.5178	0.001	Radio RoSt
+9030	48.0428	10.8700	0.05	Deutschlandfunk (Dlf)
+9030	48.4436	10.3053	0.1	Donau 3 FM Günzburg
+9030	49.1525	10.8308	0.1	Radio 8
+9030	49.4750	7.2006	0.16	Dasding (SR)
+9030	49.7533	9.3075	0.01	SWR1 Baden-Württemberg
+9030	51.1481	7.7567	35	WDR 5
+9030	51.5958	14.3622	0.5	Radio Cottbus
+9030	53.5192	10.1028	80	NDR 90.3
+9030	54.9108	8.3069	0.2	Deutschlandfunk (Dlf)
+9040	47.6181	12.9925	0.3	Bayern 1 Oberbayern
+9040	47.7817	11.4247	0.01	*Posterity
+9040	47.9358	8.8267	40	SWR Kultur Baden-Württemberg
+9040	48.2489	12.5267	0.1	Inn-Salzach-Welle
+9040	48.5628	13.4589	0.5	Bayern 3
+9040	48.7406	8.7250	0.01	SWR Kultur Baden-Württemberg
+9040	49.0117	8.3025	2	Klassik Radio
+9040	49.5608	10.6228	0.2	Radio 8
+9040	49.6011	9.7447	0.05	SWR4 Baden-Württemberg Franken Radio
+9040	49.7783	7.4589	0.01	SWR Kultur Rheinland-Pfalz
+9040	50.0494	9.6692	0.1	Radio Charivari Würzburg
+9040	50.1122	8.6722	0.5	Dasding (hr)
+9040	50.2531	10.9847	0.2	Radio Galaxy Oberfranken
+9040	51.1844	12.2853	100	MDR Jump
+9040	51.9003	10.1731	0.2	NDR Info Niedersachsen
+9040	51.9589	14.6781	0.3	105.9 Radio Paradiso
+9040	52.4142	10.7742	0.1	NDR 1 Niedersachsen Braunschweig
+9040	53.0431	8.4581	0.25	Radio 90.vier
+9050	48.5375	8.7667	1	Dasding (SWR)
+9050	48.6108	8.0958	2	Hitradio Ohr
+9050	48.6833	10.1600	0.16	big FM Baden-Württemberg
+9050	48.9464	11.4286	25	Bayern 2
+9050	49.2372	7.3536	0.2	SWR4 Rheinland-Pfalz Radio Kaiserslautern
+9050	50.2017	10.0594	0.1	Radio Primaton
+9050	50.5294	8.5256	0.32	hr4 Mittelhessen
+9050	50.7972	9.4611	0.05	Radio BOB! (Hessen)
+9050	50.9008	7.0733	0.1	Film-Begleitton
+9050	50.9464	11.3408	0.1	Schlager Radio Thüringen
+9050	51.3936	10.1369	0.1	MDR Aktuell
+9050	51.4914	14.6442	1	MDR Aktuell
+9050	52.4939	12.0333	1	Sputnik (MDR)
+9050	53.4833	13.6022	100	NDR 1 Radio MV Neubrandenburg
+9050	54.1953	9.2483	15	NDR 1 Welle Nord Heide
+9060	48.0039	7.8214	0.2	Deutschlandfunk Kultur
+9060	48.5622	9.6339	0.01	SWR1 Baden-Württemberg
+9060	49.5397	8.8036	50	hr1
+9060	49.6286	6.6133	5	SWR3 Rheinland-Pfalz/Rheinland
+9060	50.5622	10.4275	0.1	Radio Teddy Thüringen
+9060	50.9147	13.3453	0.2	R.SA Chemnitz
+9060	51.8203	12.3042	1	Radio BRocken Anhalt
+9060	51.9058	8.8217	100	WDR 5
+9060	51.9911	13.0844	0.02	Kirchenradio Jüterbog
+9060	53.4614	7.5067	1	Radio Nordseewelle Ostfriesland
+9060	53.8769	11.6867	0.25	Deutschlandfunk (Dlf)
+9070	47.5531	10.3169	100	Bayern 1 Schwaben
+9070	50.0300	11.8083	100	Bayern 1 Franken
+9070	50.3747	8.7281	0.32	Radio Frankfurt 95.1
+9070	50.3878	8.0517	0.2	Dasding (hr)
+9070	50.5317	9.7275	0.3	Deutschlandfunk Kultur
+9070	50.7078	7.0967	18	WDR 4 Köln
+9070	51.3769	10.8317	0.2	radio TOP 40
+9070	52.4172	13.1275	0.1	88vier
+9070	53.0653	10.8972	3	NDR Info Niedersachsen
+9070	53.5217	8.6492	0.2	radioWeser.tv Bremerhaven
+9070	53.8583	10.6886	0.5	NDR 2 Schleswig-Holstein
+9080	48.2869	8.3525	0.1	SWR1 Baden-Württemberg
+9080	48.7556	9.1900	5	Dasding (SWR)
+9080	49.5608	7.5428	25	SWR1 Rheinland-Pfalz
+9080	50.0789	9.1103	0.2	Radio Primavera
+9080	50.5772	12.7044	1	Radio Erzgebirge
+9080	50.9464	10.6892	0.063	radio TOP 40
+9080	51.2292	12.4397	0.05	Camp FM
+9080	51.3731	7.6006	0.03	Radio MK Nord
+9080	51.4089	9.6636	0.05	NDR Kultur
+9080	51.5403	7.2092	0.1	Radio Herne
+9080	51.7417	13.9419	20	Deutschlandfunk Kultur
+9080	51.8283	10.7831	1	Radio SAW Harz
+9080	53.9794	9.8494	1	NDR Info Schleswig-Holstein
+9090	48.3594	10.8858	0.1	Bayern 1 Schwaben
+9090	48.7644	8.2806	0.8	SWR1 Baden-Württemberg
+9090	49.4044	8.6633	0.1	big FM Baden-Württemberg
+9090	49.7803	9.9069	5	Bayern 1 Mainfranken
+9090	49.8447	7.8536	0.05	Dasding (SWR)
+9090	49.9758	8.4364	0.32	Radio Rüsselsheim
+9090	50.7228	12.3792	0.32	Radio Zwickau
+9090	50.8803	11.5661	1	Antenne Thüringen Mitte
+9090	50.9908	10.3300	0.2	Radio Teddy Thüringen
+9090	51.2592	12.7178	0.25	Radio Leipzig
+9090	51.5003	11.5072	0.1	MDR Aktuell
+9090	51.9661	7.6033	0.02	Radio Q
+9090	52.3275	9.7367	15	NDR 1 Niedersachsen Hannover/Messejournal
+9090	52.7458	12.3519	0.8	BB Radio Brandenburg
+9090	53.5744	10.5408	0.5	N-Joy
+9090	54.8717	8.4697	5	NDR 1 Welle Nord Flensburg
+9100	47.6067	11.3161	0.1	Bayern 3
+9100	47.6836	12.4883	0.1	Bayern 1 Oberbayern
+9100	49.2086	7.9514	0.03	SWR4 Rheinland-Pfalz Radio Ludwigshafen
+9100	49.6986	9.0219	0.2	Dasding (hr)
+9100	50.7997	12.9656	3	R.SA Chemnitz
+9100	50.9508	8.5319	100	hr1
+9100	51.1561	11.1292	0.1	radio TOP 40
+9100	51.2314	7.1428	0.25	Deutschlandfunk (Dlf)
+9100	51.3936	10.3636	0.2	MDR Aktuell
+9100	51.7319	11.1469	0.1	MDR Aktuell
+9100	52.1497	7.3289	0.2	Deutschlandfunk Kultur
+9100	52.4956	13.3575	0.4	ALEX RADIO
+9100	54.1294	12.1264	100	NDR 1 Radio MV Rostock
+9100	54.7917	9.5033	0.5	N-Joy
+9110	48.0133	7.7936	0.5	Dasding (SWR)
+9110	48.0272	8.4781	1	SWR4 Baden-Württemberg Radio Südbaden
+9110	48.8608	10.1372	50	SWR Kultur Baden-Württemberg
+9110	48.9933	12.0753	0.3	Klassik Radio Bayern
+9110	49.5367	8.1378	0.1	RPR 1. Ludwigshafen
+9110	49.8964	8.6225	0.25	planet radio
+9110	49.9589	7.9006	0.32	hr3
+9110	50.1497	9.6672	0.01	BR24
+9110	50.2186	6.7506	8	SWR1 Rheinland-Pfalz
+9110	50.6122	10.7450	0.1	MDR Jump
+9110	50.9183	12.0758	1	MDR Aktuell
+9110	51.0350	13.6322	1	Radio Dresden
+9110	51.3436	9.8722	0.32	Dasding (hr)
+9110	51.4564	11.0153	0.48	MDR Sachsen-Anhalt Halle
+9110	51.5603	12.9869	0.2	R.SA Leipzig
+9110	51.9792	9.8094	0.05	NDR Info Niedersachsen
+9110	52.0364	11.6653	2	MDR Aktuell
+9110	53.0431	8.4581	100	NDR 1 Niedersachsen Oldenburg
+9110	53.2294	14.2075	20	Antenne Brandenburg Prenzlau
+9120	47.7744	9.7261	25	SWR4 Baden-Württemberg Bodensee Radio
+9120	48.2261	8.3781	0.01	SWR3 Alb/Bodensee
+9120	49.1286	8.5664	0.1	Lernradio
+9120	49.4569	8.9686	0.01	SWR3 Baden. die Pfalz und Rhein-Neckar
+9120	49.7058	8.6297	0.06	hr-info
+9120	49.7392	9.3931	0.01	SWR Kultur Baden-Württemberg
+9120	50.0300	11.8083	20	Bayern 1 Niederbayern/Oberpfalz
+9120	50.0831	8.6906	0.1	Deutschlandfunk Kultur
+9120	50.5681	13.0028	0.2	MDR Aktuell
+9120	50.7933	7.2067	0.2	Radio Bonn/Rhein-Sieg
+9120	51.0344	11.5044	1	MDR Aktuell
+9120	51.2336	13.0433	0.5	R.SA Leipzig
+9120	51.4964	7.4764	0.2	Radio 91.2
+9120	51.7703	8.7208	0.1	BFBS Radio 2
+9120	52.1142	8.1281	0.1	N-Joy
+9120	53.0653	10.8972	25	NDR 1 Niedersachsen Lüneburg
+9130	48.1633	11.6969	0.1	Film-Begleitton
+9130	48.2506	11.7508	25	Bayern 1 Oberbayern
+9130	48.6614	9.4567	0.1	Deutschlandfunk (Dlf)
+9130	48.8783	9.1931	0.1	Film-Begleitton
+9130	49.1672	9.1825	0.1	Deutschlandfunk (Dlf)
+9130	49.3406	7.0156	100	SR 2 Kulturradio
+9130	50.6636	7.9592	0.2	Dasding (SWR)
+9130	50.7972	9.4611	50	Deutschlandfunk (Dlf)
+9130	50.8603	11.7175	0.2	MDR Aktuell
+9130	50.9342	6.9536	0.1	Deutschlandfunk (Dlf)
+9130	51.2228	6.2006	0.2	big FM NRW
+9130	51.3167	12.4481	4	Radio Leipzig
+9130	51.4700	13.7333	1	94.3 rs2 Cottbus + Lausitz
+9130	52.2589	9.2008	1	N-Joy
+9130	52.3933	13.5119	0.1	Film-Begleitton
+9130	53.5250	12.7181	0.2	Deutschlandfunk (Dlf)
+9130	54.3325	10.0678	15	NDR 1 Welle Nord Kiel
+9140	47.4386	11.2697	0.05	Radio Oberland
+9140	47.9750	8.9061	0.01	Camp FM
+9140	48.4697	8.5892	3	Die neue Welle Freudenstadt
+9140	48.9044	8.7192	0.5	Die neue Welle Pforzheim
+9140	49.4144	10.3778	25	Bayern 1 Franken
+9140	50.0225	8.2769	1	SWR4 Rheinland-Pfalz Radio Mainz
+9140	50.6386	12.4353	1	MDR Aktuell
+9140	50.9514	6.6528	0.1	Radio Erft
+9140	51.0661	13.3019	0.2	R.SA Dresden
+9140	52.5208	13.4092	100	Berliner Rundfunk 91.4 Berlin
+9140	53.3964	9.8656	0.3	N-Joy
+9150	47.8417	12.6536	5	Bayern 2
+9150	48.3903	9.8956	1	Deutschlandfunk Kultur
+9150	48.7936	9.2036	0.3	SWR Aktuell
+9150	48.9011	11.1617	0.1	Bayern 3
+9150	49.4764	8.4961	4	Dasding (SWR)
+9150	50.0558	8.7456	0.1	Film-Begleitton
+9150	50.3381	9.5269	0.32	hr-info
+9150	50.4203	12.1747	0.1	R.SA Chemnitz
+9150	51.2325	6.6981	0.02	Antenne Düsseldorf
+9150	51.2928	7.6781	0.1	Radio MK Nord
+9150	51.3847	7.2092	0.1	Radio Ennepe Ruhr Nord-Kreis
+9150	51.7364	8.0569	0.16	Deutschlandfunk (Dlf)
+9150	51.8000	10.6142	100	MDR Jump
+9150	53.2639	7.4364	0.5	Deutschlandfunk Kultur
+9150	53.9069	10.6419	0.32	Radio BOB! (Schleswig-Holstein) Ost
+9150	54.1803	7.8831	0.05	N-Joy
+9150	54.3236	13.3414	10	NDR Kultur
+9150	54.8639	8.9203	0.4	N-Joy
+9160	47.6181	12.9925	0.1	Deutschlandfunk (Dlf)
+9160	49.2378	7.3861	0.5	Antenne Zweibrücken
+9160	49.2489	12.8908	50	Bayern 2
+9160	49.7533	9.3075	0.01	SWR4 Baden-Württemberg Franken Radio
+9160	49.9447	9.1964	0.1	Radio Galaxy Aschaffenburg
+9160	50.2600	7.5208	40	SWR3 Rheinland-Pfalz/Rheinland
+9160	50.5411	12.8392	0.2	MDR Aktuell
+9160	51.2511	8.8275	0.5	Dasding (hr)
+9160	51.2592	12.7178	0.1	Deutschlandfunk Kultur
+9160	51.6981	14.2728	0.5	Schlager Radio Lausitz
+9160	52.5111	7.2872	0.4	Deutschlandfunk Kultur
+9160	53.0264	8.6517	1	Radio 90.vier
+9160	53.2294	14.2075	1.3	Energy Berlin
+9160	53.8336	8.6481	10	N-Joy
+9170	47.8931	11.6369	0.1	Radio Alpenwelle
+9170	48.5653	13.4333	0.2	Radio Galaxy Passau
+9170	48.7525	8.2022	0.5	Dasding (SWR)
+9170	49.7100	8.5400	0.63	Antenne Bergstraße
+9170	49.7567	6.6119	0.3	Dasding (SWR)
+9170	50.4467	11.0042	100	MDR Thüringen Suhl
+9170	50.7533	13.0744	0.25	Radio Chemnitz
+9170	51.3183	13.2636	1	Energy Sachsen Dresden
+9170	51.3192	9.4700	0.2	Radio Teddy Hessen
+9170	51.4011	8.0622	0.1	WDR 4 Siegen
+9170	51.4697	6.6506	0.1	Radio K.W. Moers
+9170	51.6939	13.2558	0.1	Energy Berlin
+9170	51.9419	8.4958	0.45	BFBS Germany
+9170	52.1578	8.8717	0.1	Radio Herford
+9170	52.3094	8.6167	0.1	WDR 3
+9170	52.3419	14.5517	1	91.7 ODERWELLE / Radio Slubfurt
+9170	53.1053	12.1800	10	rbb Kultur
+9170	53.4994	10.1903	0.2	Byte FM
+9170	53.5631	9.9756	0.05	917xfm
+9170	54.2072	9.0972	0.32	Klassik Radio
+9170	54.3325	8.7889	0.5	Klassik Radio
+9180	47.5128	8.0436	0.1	Radio Argovia
+9180	47.6206	8.2267	0.25	Radio Argovia
+9180	48.3058	8.9922	40	SWR Kultur Baden-Württemberg
+9180	48.6289	11.9331	0.2	Radio Trausnitz
+9180	49.7575	9.5222	0.1	SWR Kultur Baden-Württemberg
+9180	50.1353	8.6544	0.1	Radio X
+9180	50.7906	12.6872	0.032	R.SA
+9180	50.9792	7.4631	10	WDR 2 Wuppertal
+9180	51.0303	12.1711	1	Deutschlandfunk Kultur
+9180	51.0936	14.7000	5	MDR Jump
+9180	51.4789	9.1508	0.5	WDR 2 Bielefeld
+9180	52.8233	13.8333	1.3	Power Radio
+9180	52.9772	9.6067	5	NDR 1 Niedersachsen Lüneburg
+9180	53.9256	13.0442	0.2	NDR Kultur
+9190	48.7856	10.6681	25	Bayern 1 Schwaben
+9190	49.4661	6.3967	5	SR 1
+9190	49.5308	9.3328	0.1	SWR1 Baden-Württemberg
+9190	50.5561	6.2358	0.05	WDR 4 Aachen
+9190	50.7019	6.6597	0.16	Radio Euskirchen
+9190	50.7972	9.4611	20	hr4 Nord-Osthessen
+9190	52.1944	12.5608	30	rbb Fritz
+9190	53.2533	10.5083	0.1	Radio 21 Nordost
+9190	54.2172	10.7186	50	NDR 2 Schleswig-Holstein
+9200	47.4119	10.2778	0.1	Deutschlandfunk (Dlf)
+9200	47.5653	9.6742	0.5	Bayern 2
+9200	47.6706	8.9194	0.025	Radio SRF 1 Ostschweiz
+9200	47.8953	11.3978	0.1	Radio Alpenwelle
+9200	49.6244	7.9236	60	SWR Kultur Rheinland-Pfalz
+9200	50.3992	7.4622	0.005	Radio Kettig
+9200	50.4006	12.3503	10	Radio PSR Chemnitz
+9200	51.0017	6.7994	0.1	big FM NRW
+9200	51.4572	12.6089	0.2	Deutschlandfunk Kultur
+9200	51.9650	7.3597	25	WDR 5
+9200	54.4869	9.0753	0.06	Radio BOB! (Schleswig-Holstein) Nord/West
+9210	47.5097	10.0197	0.05	RSA Radio Oberallgäu
+9210	48.8169	13.2175	100	Bayern 1 Niederbayern/Oberpfalz
+9210	49.4336	6.5961	0.1	SR 2 Kulturradio
+9210	49.7800	9.9022	0.3	Klassik Radio Bayern
+9210	49.8528	11.0603	0.2	Radio Bamberg
+9210	50.3317	8.7553	0.32	hr-info
+9210	50.3956	8.0228	0.2	harmony.fm
+9210	50.5044	7.0161	0.3	SWR Kultur Rheinland-Pfalz
+9210	50.6172	10.6853	0.1	Antenne Thüringen Süd
+9210	50.9061	8.0281	0.032	Radius 92.1
+9210	51.8014	10.5322	100	NDR 2 Niedersachsen
+9210	51.9589	14.6781	1	Radio Cottbus
+9210	53.5217	8.6492	25	Bremen NEXT
+9210	54.3017	13.0358	0.4	Deutschlandfunk Kultur
+9210	54.8336	9.4094	0.16	Deutschlandfunk Kultur
+9220	47.5278	10.2453	0.1	Bayern 2
+9220	47.5858	11.1031	0.1	Bayern 2
+9220	48.3594	10.8858	0.2	Klassik Radio Bayern
+9220	48.7556	9.1900	100	SWR3 Württemberg
+9220	50.1497	9.6672	0.01	Bayern 1 Mainfranken
+9220	50.3242	11.1347	0.05	Radio Eins
+9220	50.4950	11.3678	0.02	BR-Klassik
+9220	51.0400	13.8386	100	MDR Sachsen Dresden
+9220	51.1856	7.2211	0.1	Radio RSG
+9220	51.4336	6.7775	0.1	Radio Duisburg
+9220	51.9939	8.9303	0.32	Deutschlandfunk (Dlf)
+9220	53.3958	12.4636	0.2	Ostseewelle Ost
+9220	54.2072	9.0972	0.1	Deutschlandfunk Kultur
+9230	47.5486	10.5703	0.05	Bayern 1 Schwaben
+9230	47.8511	12.1219	0.05	Radio Charivari Rosenheim
+9230	49.2464	7.2797	5	SR 1
+9230	49.3233	11.3806	25	Bayern 2
+9230	49.9589	7.9006	0.32	Dasding (hr)
+9230	50.6686	12.5014	0.5	R.SA Chemnitz
+9230	50.9508	8.5319	15	WDR 2 Siegen
+9230	51.1400	11.8158	1	MDR Sachsen-Anhalt Halle
+9230	51.1436	6.7689	0.2	big FM NRW
+9230	53.0814	11.8558	1	rbb Inforadio
+9230	53.5192	10.1028	5	NDR Info Hamburg
+9230	53.9561	14.1497	1	N-Joy
+9240	47.4386	11.2697	0.01	Bayern 2
+9240	47.9358	8.8267	40	SWR1 Baden-Württemberg
+9240	48.1742	11.5536	0.32	CRM 92.4
+9240	48.1742	11.5536	0.32	Münchener Kirchenradio
+9240	48.1742	11.5536	0.32	Radio Feierwerk
+9240	48.1742	11.5536	0.32	Radio Horeb München
+9240	48.1742	11.5536	0.32	Radio LORA
+9240	48.1742	11.5536	0.32	Radio München
+9240	49.3261	8.5711	0.5	Hockenheimring Radio 92.4
+9240	49.3300	8.5742	0.001	Radio Hockenheimring
+9240	49.5419	8.6533	0.05	Woinemer Woinachtsradio
+9240	49.6011	9.7447	0.05	SWR1 Baden-Württemberg
+9240	49.7392	9.3931	0.01	SWR3 Württemberg
+9240	49.8714	8.6439	0.2	Radio BOB! (Hessen)
+9240	50.1450	8.9197	0.2	Radio BOB! (Hessen)
+9240	50.5647	11.8022	0.2	Vogtland Radio
+9240	50.5769	7.3400	50	SWR1 Rheinland-Pfalz
+9240	50.6244	12.2600	0.2	R.SA Chemnitz
+9240	51.4572	12.6089	0.2	MDR Aktuell
+9240	52.3744	8.0297	8	NDR 1 Niedersachsen Osnabrück
+9240	52.5058	13.2194	80	rbb Kultur
+9240	54.1294	12.1264	0.1	sunshine live Rostock
+9240	54.5278	9.5289	1	Radio BOB! (Schleswig-Holstein) Nord/West
+9250	48.7803	8.5653	0.01	SWR1 Baden-Württemberg
+9250	49.4594	7.7711	0.25	Dasding (SWR)
+9250	49.4717	10.0389	0.01	SWR Kultur Baden-Württemberg
+9250	50.0683	8.2286	0.1	Radio Rheinwelle 92.5
+9250	50.8514	10.4653	100	MDR Thüringen Erfurt
+9250	51.3908	7.7400	1	Radio MK Nord
+9250	51.7244	11.4650	1	radio hbw
+9250	51.8278	7.2819	1.3	big FM NRW
+9250	53.0847	7.3908	0.5	N-Joy
+9250	53.0956	8.7917	0.2	radioWeser.tv Bremen
+9250	53.9256	13.0442	1	NDR 2 Mecklenburg-Vorpommern
+9250	54.1803	7.8831	0.05	NDR Info Schleswig-Holstein
+9260	47.7311	12.8950	0.05	Deutschlandfunk Kultur
+9260	47.7775	7.7014	8.4	SWR Kultur Baden-Württemberg
+9260	48.3819	9.9486	10	SWR1 Baden-Württemberg
+9260	48.5431	11.4311	0.5	Antenne Bayern
+9260	49.4336	6.5961	0.5	big FM Saarland
+9260	49.4656	7.1622	0.05	Cityradio Sankt Wendel
+9260	49.6656	10.0489	0.05	Radio Charivari Würzburg
+9260	50.0494	7.1511	0.01	SWR3 Rheinland-Pfalz/Rheinland
+9260	50.6506	8.5803	0.1	Radio BOB! (Hessen)
+9260	51.2150	6.7822	0.4	big FM NRW
+9260	51.8203	12.3042	2	Radio SAW Anhalt
+9260	51.8489	7.8394	1	Radio WAF
+9260	51.9678	9.2150	0.05	NDR 2 Niedersachsen
+9260	52.3275	9.7367	2.5	N-Joy
+9270	47.5725	9.9358	0.1	RSA Radio Bodensee
+9270	48.0828	12.3636	0.3	Inn-Salzach-Welle
+9270	48.4456	8.6819	1	big FM Baden-Württemberg
+9270	49.2489	12.8908	0.4	Radio Charivari Regensburg Cham
+9270	49.3081	10.5808	0.2	Deutschlandfunk (Dlf)
+9270	49.5397	8.8036	50	hr3
+9270	49.9667	11.6444	0.1	Radio Galaxy Oberfranken
+9270	50.7369	6.4033	0.5	Radio Rur
+9270	51.3192	9.4700	0.1	Deutschlandfunk (Dlf)
+9270	51.4047	7.4383	0.5	Radio Ennepe Ruhr Nord-Kreis
+9270	51.8381	9.3958	0.5	NDR 1 Niedersachsen Braunschweig
+9270	52.2447	8.8992	0.1	WDR 3
+9270	52.3828	14.4256	5	Deutschlandfunk Kultur
+9270	53.1556	9.5214	0.01	Camp FM
+9270	53.4614	7.5067	1.6	N-Joy
+9270	53.9297	9.5467	0.5	Klassik Radio
+9270	54.8717	8.4697	5	NDR Info Schleswig-Holstein
+9280	47.6025	8.4069	2.6	SWR Kultur Baden-Württemberg
+9280	47.8011	11.0244	12.5	Bayern 1 Oberbayern
+9280	48.2233	9.4650	0.1	SWR3 Alb/Bodensee
+9280	50.2531	10.9847	0.3	BR24
+9280	50.6222	12.8700	100	MDR Sachsen Chemnitz
+9280	50.6636	7.9592	25	SWR3 Rheinland-Pfalz/Rheinland
+9280	51.2794	8.9047	0.1	Deutschlandfunk (Dlf)
+9280	52.5350	7.3531	15	NDR 1 Niedersachsen Osnabrück
+9280	52.7500	9.6167	0.001	Serengeti Safari Radio
+9280	53.5217	8.6492	0.05	N-Joy
+9280	53.5919	11.4553	30	NDR 1 Radio MV Schwerin
+9290	47.6894	9.0700	0.05	Radio SRF 1 Ostschweiz
+9290	48.8075	8.6242	5	SWR1 Baden-Württemberg
+9290	49.2203	7.0028	1	Classic Rock Radio
+9290	49.4258	11.0389	0.32	AREF
+9290	49.4258	11.0389	0.32	Camillo 92.9
+9290	49.4258	11.0389	0.32	HitRadioN1
+9290	49.4258	11.0389	0.32	Radio Meilensteine
+9290	49.8697	8.3836	0.1	SWR4 Rheinland-Pfalz Radio Mainz
+9290	50.1108	8.7117	0.05	LUX 92.9
+9290	50.9067	11.4400	0.01	MDR Thüringen Erfurt
+9290	51.4019	6.8692	0.5	Radio Mülheim
+9290	51.4089	9.6636	0.05	NDR Info Niedersachsen
+9290	51.5003	11.5072	1	MDR Sachsen-Anhalt Halle
+9290	51.6258	7.4258	0.1	Radio 345
+9290	51.9503	13.9183	0.4	rbb Inforadio
+9290	51.9792	9.8094	0.05	N-Joy
+9290	53.0431	8.4581	1	N-Joy
+9290	54.3222	9.6286	0.5	Klassik Radio
+9300	47.5522	10.2169	0.1	RSA Radio Oberallgäu
+9300	48.0742	11.9072	0.63	TOP FM Ost
+9300	48.2772	8.0747	0.1	Schwarzwald Radio
+9300	48.6178	9.7853	0.5	SWR1 Baden-Württemberg
+9300	49.0394	12.1714	25	Bayern 2
+9300	49.8456	7.0533	50	SWR Kultur Rheinland-Pfalz
+9300	49.8964	8.6225	0.2	harmony.fm
+9300	50.6756	10.9450	0.1	MDR Aktuell
+9300	51.4208	14.2836	1	MDR Sachsen Bautzen
+9300	51.4914	7.4147	0.05	elDOradio
+9300	51.5603	12.9869	0.2	MDR Kultur
+9300	52.0817	7.0153	0.5	Radio WMW
+9300	52.2175	10.7825	40	N-Joy
+9300	53.5250	12.7181	0.2	Ostseewelle Ost
+9300	53.5631	9.9756	0.05	Freies Sender-Kombinat (FSK)
+9300	54.3017	13.0358	0.13	Radio Teddy Mecklenburg-Vorpommern
+9310	47.5858	11.1031	0.1	BR-Klassik
+9310	47.6836	12.4883	0.1	BR-Klassik
+9310	48.1717	8.5631	1	Antenne 1 Neckarburg Rock & Pop
+9310	48.1769	12.7311	0.1	Inn-Salzach-Welle
+9310	48.7856	10.6681	10	BR-Klassik
+9310	49.1478	9.2622	0.15	Dasding (SWR)
+9310	50.0731	8.2550	0.1	hr2-kultur
+9310	50.3692	9.9803	100	Bayern 2
+9310	50.4950	11.3678	0.02	Bayern 3
+9310	50.7078	7.0967	35	WDR 3
+9310	51.0825	8.2250	0.1	big FM NRW
+9310	51.1400	11.8158	0.5	Sputnik (MDR)
+9310	52.5058	13.2194	25	rbb Inforadio
+9310	53.8336	8.6481	10	NDR Info Niedersachsen
+9310	53.8583	10.6886	0.5	NDR 1 Welle Nord Lübeck
+9320	47.7497	11.5744	0.1	Deutschlandfunk Kultur
+9320	47.9644	7.9542	0.01	Weihnachtsradio
+9320	48.5628	13.4589	0.5	Bayern 2
+9320	48.5692	12.1125	0.25	BR-Klassik
+9320	49.4867	8.4919	1	Rockland Radio Mannheim/Ludwigshafen
+9320	49.5072	9.7822	10	SWR Kultur Baden-Württemberg
+9320	50.4267	11.6133	1	Antenne Thüringen Ost
+9320	50.5856	8.4542	0.32	hr-info
+9320	51.0400	13.8386	1	Deutschlandfunk Kultur
+9320	51.9058	8.8217	100	WDR 2 Bielefeld
+9320	52.4044	12.1539	0.1	MDR Aktuell
+9320	54.0461	13.7550	0.3	N-Joy
+9320	54.7917	9.5033	25	NDR 2 Schleswig-Holstein
+9330	48.1742	11.5536	0.32	Energy München
+9330	49.2939	11.4917	0.05	Radio Charivari Regensburg Neumarkt
+9330	49.4569	8.9686	0.01	SWR1 Baden-Württemberg
+9330	49.7783	7.4589	0.01	SWR3 Rheinland-Pfalz/Rheinland
+9330	49.8144	11.4461	0.1	Radio Mainwelle
+9330	49.9786	7.8917	0.1	SWR3 Rheinland-Pfalz/Rheinland
+9330	50.5044	7.0161	0.1	SWR4 Rheinland-Pfalz Radio Koblenz
+9330	50.6594	12.1878	0.2	MDR Aktuell
+9330	50.8247	8.7939	0.05	Deutschlandfunk Kultur
+9330	51.0136	11.2586	5	MDR Thüringen Erfurt
+9330	51.1947	6.4531	0.32	big FM NRW
+9330	51.2592	12.7178	0.25	Energy Sachsen Leipzig
+9330	51.7864	6.1111	2	WDR 2 Rhein-Ruhr
+9330	52.6936	7.2817	0.05	N-Joy
+9330	53.0342	14.2181	0.5	Power Radio
+9330	53.0653	10.8972	10	NDR Kultur
+9340	48.3594	10.8858	0.32	Radio Fantasy
+9340	49.9328	9.2408	25	Bayern 3
+9340	50.1853	12.1019	0.1	extra-radio
+9340	50.3689	8.0125	0.1	SWR Kultur Rheinland-Pfalz
+9340	50.7161	12.7806	1	R.SA Chemnitz
+9340	51.5828	9.9558	1	Radio 21 Süd
+9340	51.7417	13.9419	30	rbb Inforadio/Sorbisches Prog.
+9340	52.2936	7.1464	0.05	N-Joy
+9340	53.3675	7.2103	1	Deutschlandfunk Kultur
+9340	53.5631	9.9756	0.1	delta radio Süd
+9340	54.1803	7.8831	0.05	NDR 2 Schleswig-Holstein
+9350	47.4522	11.0667	0.1	Bayern 2
+9350	47.5486	10.5703	0.05	Bayern 3
+9350	48.6106	8.2017	80	SWR1 Baden-Württemberg
+9350	49.2289	11.8453	0.245	AFN Bavaria-The Eagle ?
+9350	49.8447	7.8536	0.05	SWR3 Rheinland-Pfalz/Rheinland
+9350	50.2531	10.9847	5	Bayern 1 Franken
+9350	50.5264	12.1089	1	R.SA Chemnitz
+9350	50.9736	9.7533	0.05	Radio Teddy Hessen
+9350	50.9908	10.3300	0.2	radio TOP 40
+9350	51.1481	7.7567	35	WDR 2 Siegen
+9350	51.5953	11.9572	5	Radio BRocken Halle
+9350	52.6178	10.0778	0.2	Radio 21 Mitte
+9350	52.8881	7.8497	1.6	N-Joy
+9350	54.1294	12.1264	40	NDR 2 Mecklenburg-Vorpommern
+9360	47.5178	10.2733	0.1	Antenne Bayern
+9360	48.6181	10.2419	0.02	SWR3 Württemberg
+9360	49.5883	11.0006	0.1	Energy Nürnberg
+9360	49.6844	12.4869	0.05	Radio Ramasuri
+9360	49.8989	10.3417	0.05	Radio Primaton
+9360	50.2186	6.7506	8	SWR4 Rheinland-Pfalz Radio Trier
+9360	50.3481	11.6622	0.005	Veranstaltungsradio Pfingsttagung Bobengrün
+9360	50.5336	9.7225	0.3	Dasding (hr)
+9360	50.8747	12.0633	0.32	Deutschlandfunk Kultur
+9360	51.1667	8.9000	0	Hessentagsradio 2018
+9360	51.3936	10.1369	0.1	MDR Thüringen Heiligenstadt
+9360	51.7314	10.6153	0.02	NDR Info Niedersachsen
+9360	51.9792	9.8094	0.05	NDR 2 Niedersachsen
+9360	52.3094	8.6167	0.1	WDR 1 live
+9360	52.5208	13.4092	2.4	Jam FM
+9360	53.7431	10.7042	1	Klassik Radio
+9360	53.8089	8.8836	2.7	Rock Antenne Hamburg
+9360	54.3222	9.6286	0.5	Radio BOB! (Schleswig-Holstein) Mitte
+9370	47.7036	12.0128	100	Bayern 1 Oberbayern
+9370	48.2233	9.4650	0.1	SWR1 Baden-Württemberg
+9370	50.0225	8.2769	1	SWR3 Rheinland-Pfalz/Rheinland
+9370	50.3878	12.5033	0.2	MDR Sachsen Chemnitz
+9370	50.4875	11.3708	0.02	Radio Eins
+9370	50.5800	8.6661	0.5	planet radio
+9370	50.6122	10.7450	0.7	MDR Thüringen Suhl
+9370	50.9147	13.3453	0.2	MDR Aktuell
+9370	51.3122	9.4289	0.5	hr2-kultur
+9370	51.4019	6.8692	0.5	big FM NRW
+9370	51.5003	11.5072	1	Radio BRocken Halle
+9370	51.5117	10.7594	0.08	MDR Aktuell
+9370	51.7189	8.7369	0.1	Radio Hochstift
+9370	51.9144	10.4681	0.1	NDR 2 Niedersachsen
+9370	52.1044	9.3783	0.05	N-Joy
+9370	52.1142	8.1281	0.1	Radio Osnabrück
+9370	53.4803	14.0303	2.5	NDR 1 Radio MV Vorpommern
+9370	53.4994	10.1903	0.025	Radio BOB! (Schleswig-Holstein) Hamburg
+9370	53.9006	11.3892	0.32	Ostseewelle West
+9370	54.4869	9.0753	0.05	N-Joy
+9380	47.8725	8.0053	5	SWR3 Baden. die Pfalz und Rhein-Neckar
+9380	49.1847	9.6656	100	SWR Kultur Baden-Württemberg
+9380	49.6286	6.6133	5	SWR Kultur Rheinland-Pfalz
+9380	50.8686	9.7319	0.32	Radio Teddy Hessen
+9380	51.1464	8.2503	0.1	WDR 2 Siegen
+9380	51.2125	10.4597	0.16	radio TOP 40
+9380	53.0956	8.7917	100	Bremen Eins
+9380	53.3958	12.4636	5	80s80s MV Ost
+9390	48.0058	10.5447	0.3	hitradio.rt1 Südschwaben
+9390	48.5436	9.0381	0.5	Deutschlandfunk (Dlf)
+9390	48.6419	13.2942	0.3	Unser Radio Passau
+9390	49.5608	7.5428	25	SWR Kultur Rheinland-Pfalz
+9390	50.2006	9.2333	0.2	planet radio
+9390	50.7786	6.2436	20	WDR 4 Aachen
+9390	50.8153	8.7886	1	Dasding (hr)
+9390	51.1844	12.2853	100	MDR Sachsen Leipzig
+9390	51.2808	14.0928	1	MDR Aktuell
+9390	51.7281	9.4872	0.5	WDR 5
+9390	52.2447	8.8992	0.05	Deutschlandfunk (Dlf)
+9390	52.3214	14.0375	3	Sender KW
+9390	54.4806	9.6611	0.5	Klassik Radio
+9400	47.5653	9.6742	0.5	Bayern 3
+9400	47.6614	11.7939	0.1	Bayern 1 Oberbayern
+9400	48.6106	8.2017	0.63	SWR4 Baden-Württemberg Radio Südbaden
+9400	48.6833	10.1600	0.1	Deutschlandfunk (Dlf)
+9400	49.1742	11.5900	1	Radio Charivari Regensburg Neumarkt
+9400	49.6394	8.3711	1	SWR4 Rheinland-Pfalz Radio Mainz
+9400	50.2600	7.5208	40	SWR Kultur Rheinland-Pfalz
+9400	50.3094	9.8172	0.1	Radio Primaton
+9400	50.3317	8.7553	0.323	Dasding (hr)
+9400	50.3336	11.9339	0.2	extra-radio
+9400	50.8181	10.2611	0.1	MDR Aktuell
+9400	51.2794	8.9047	0.2	planet radio
+9400	52.3256	12.5933	3.2	Schlager Radio Brandenburg-West
+9400	52.3928	9.7994	0.1	Deutschlandfunk (Dlf)
+9400	53.0653	10.8972	1	N-Joy
+9400	53.4658	7.4658	1	Radio Ostfriesland
+9400	53.8583	10.6886	0.5	N-Joy
+9400	53.9561	14.1497	1	NDR 2 Mecklenburg-Vorpommern
+9410	48.8378	10.3625	0.05	SWR4 Baden-Württemberg Schwaben Radio
+9410	48.8844	9.1764	0.5	Deutschlandfunk (Dlf)
+9410	49.5308	9.3328	0.05	SWR3 Württemberg
+9410	49.6011	9.7447	0.05	SWR3 Württemberg
+9410	49.8858	8.2761	0.32	Antenne Mainz Bodenheim
+9410	50.7292	9.3225	0.05	harmony.fm
+9410	51.5697	9.9819	5	NDR 2 Niedersachsen
+9410	51.8203	12.3042	0.3	Rockland Sachsen-Anhalt Mitte
+9410	51.9650	7.3597	25	WDR 2 Münster
+9410	52.2197	11.0122	0.5	Radio 21 Ost
+9410	53.8225	12.1722	0.1	NDR 1 Radio MV Rostock
+9410	54.3325	8.7889	0.5	Radio BOB! (Schleswig-Holstein) Nord/West
+9420	47.6181	12.9925	0.3	Bayern 3
+9420	47.8011	11.0244	13	Bayern 2
+9420	49.2228	7.0322	1	big FM Saarland
+9420	49.3453	8.1581	1	Antenne Pfalz
+9420	50.4467	11.0042	100	Deutschlandfunk Kultur
+9420	50.5350	7.0419	0.01	Ahrtalradio
+9420	50.5561	6.2358	0.05	WDR 2 Aachen
+9420	50.8286	7.2803	0.5	Radio Bonn/Rhein-Sieg
+9420	50.8778	8.0036	0.1	Deutschlandfunk (Dlf)
+9420	51.4208	14.2836	1	MDR Aktuell
+9420	51.9678	9.2150	0.05	N-Joy
+9420	53.1053	12.1800	0.5	rbb Inforadio
+9420	53.4833	13.6022	6.3	NDR 1 Radio MV Vorpommern
+9420	53.5192	10.1028	1	N-Joy
+9430	48.3058	8.9922	40	SWR3 Alb/Bodensee
+9430	48.7803	8.5653	0.1	SWR3 Alb/Bodensee
+9430	49.4344	10.3128	0.32	Deutschlandfunk Kultur
+9430	49.7542	6.6647	0.2	Deutschlandfunk Kultur
+9430	50.6503	13.1564	0.1	MDR Aktuell
+9430	50.8747	12.0633	0.2	Deutschlandfunk (Dlf)
+9430	50.9122	14.7864	0.32	Radio Lausitz
+9430	51.1878	7.0769	0.2	Radio RSG
+9430	51.3122	9.4289	0.5	hr1
+9430	51.4789	9.1508	0.5	WDR 3
+9430	51.9281	8.5581	0.005	Antenne Bethel
+9430	51.9997	8.5217	0.003	Antenne Bethel
+9430	52.5208	13.4092	25	94.3 rs2 Berlin + Umland
+9430	54.1064	11.7661	0.2	NDR 1 Radio MV Rostock
+9430	54.8717	8.4697	5	NDR Kultur
+9440	48.8169	13.2175	100	Bayern 3
+9440	49.2139	7.6017	0.4	Deutschlandfunk Kultur
+9440	50.2322	8.4589	100	hr1
+9440	50.9308	11.1072	2	MDR Thüringen Erfurt
+9440	50.9678	13.4322	0.5	R.SA Chemnitz
+9440	51.3811	12.3100	0.25	Radio BLAU
+9440	51.3811	12.3100	0.25	apollo radio
+9440	53.0431	8.4581	100	NDR Kultur
+9440	53.0814	11.8558	1.3	Power Radio
+9440	53.7942	12.6917	1	N-Joy
+9450	47.6711	9.1808	0.2	Deutschlandfunk Kultur
+9450	48.1472	11.5497	0.1	Rock Antenne Bayern
+9450	48.2869	8.3525	0.1	SWR3 Baden. die Pfalz und Rhein-Neckar
+9450	48.3819	9.9486	10	SWR4 Baden-Württemberg Schwaben Radio
+9450	49.4258	11.0389	0.32	Jazztime Nürnberg
+9450	49.4258	11.0389	0.32	Radio F
+9450	50.4006	12.3503	3	Deutschlandfunk (Dlf)
+9450	50.9028	6.9611	0.05	METROPOLE FM
+9450	50.9381	14.6308	0.24	MDR Sachsen Bautzen
+9450	51.6939	13.2558	0.32	Deutschlandfunk (Dlf)
+9450	51.7189	8.7369	0.2	Deutschlandfunk (Dlf)
+9450	51.7200	14.3414	0.3	Radio Cottbus
+9450	52.3231	9.2083	0.001	Schülerradio Stadthagen
+9450	54.3325	10.0678	15	N-Joy
+9460	47.6417	12.1897	0.3	Antenne Bayern
+9460	48.5753	11.2567	0.3	hitradio.rt1 Neuburg-Schrobenhausen
+9460	49.3436	7.2125	0.63	Cityradio Neunkirchen
+9460	49.4764	8.4961	0.1	SWR Maimarkt-Radio
+9460	49.7575	9.5222	0.1	SWR3 Württemberg
+9460	50.2400	6.3364	0.1	SWR4 Rheinland-Pfalz Radio Trier
+9460	50.7086	6.3944	0.006	Radio ventex Raffelsberg
+9460	51.3386	7.8589	0.02	Radio MK Nord
+9460	51.6153	7.2253	0.1	Radio Vest
+9460	51.8000	10.6142	60	MDR Sachsen-Anhalt Magdeburg
+9460	52.2114	7.0197	0.2	Deutschlandfunk Kultur
+9460	53.8336	8.6481	1	NDR Kultur
+9460	53.8489	13.6917	6.3	NDR 1 Radio MV Vorpommern
+9470	47.8011	11.0244	0.05	Deutschlandfunk (Dlf)
+9470	48.0028	11.3486	0.1	Deutschlandfunk Kultur
+9470	48.0133	7.7936	0.5	baden.fm
+9470	48.7556	9.1900	100	SWR1 Baden-Württemberg
+9470	49.2489	12.8908	50	Bayern 3
+9470	49.6811	7.3281	0.2	Deutschlandfunk Kultur
+9470	49.7422	6.5453	0.04	Antenne Trier
+9470	50.5108	9.2264	0.1	Radio BOB! (Hessen)
+9470	50.6169	10.4067	0.2	MDR Aktuell
+9470	50.7997	12.9656	0.5	MDR Aktuell
+9470	51.3475	8.2808	0.05	Radio FH
+9470	51.4208	14.2836	1	MDR Kultur
+9470	51.9514	7.9806	0.2	Radio WAF
+9470	52.3828	14.4256	3	94.3 rs2 Frankfurt (Oder) + Oderland
+9470	53.3389	10.5197	0.3	NDR 1 Welle Nord Lübeck
+9470	53.3958	12.4636	10	NDR Kultur
+9470	53.8714	11.2331	0.1	Ostseewelle West
+9470	54.8639	8.9203	0.2	Klassik Radio
+9480	47.4386	11.2697	0.01	Bayern 3
+9480	49.2006	8.1214	0.1	Antenne Landau
+9480	49.8889	11.0622	25	Bayern 1 Franken
+9480	49.9447	9.1964	0.1	Deutschlandfunk Kultur
+9480	50.5769	7.3400	50	SWR3 Rheinland-Pfalz/Rheinland
+9480	50.6756	10.9450	0.1	radio TOP 40
+9480	50.9153	11.6011	0.2	radio TOP 40
+9480	51.4089	9.6636	0.05	N-Joy
+9480	51.4553	8.8508	0.1	Radio Sauerland
+9480	51.9739	9.2114	0.05	radio aktiv
+9480	52.4172	13.1275	4	BBC World Service
+9480	53.4803	14.0303	1.3	N-Joy
+9490	47.7744	9.7261	60	SWR Kultur Baden-Württemberg
+9490	49.4717	10.0389	0.01	SWR4 Baden-Württemberg Franken Radio
+9490	49.7533	9.3075	0.01	SWR3 Württemberg
+9490	49.7567	6.6119	0.1	SWR1 Rheinland-Pfalz
+9490	49.8786	8.0503	5	SWR4 Rheinland-Pfalz Radio Mainz
+9490	50.8111	12.2156	3	Landeswelle Thüringen Ost
+9490	50.9589	11.0228	0.2	Schlager Radio Thüringen
+9490	51.1128	14.4131	0.2	Radio WSW
+9490	51.1522	13.4517	1	MDR Aktuell
+9490	52.1450	8.7244	0.5	Radio Herford
+9490	52.8292	11.6894	10	MDR Sachsen-Anhalt Stendal
+9490	53.5700	7.9056	0.25	Radio Nordseewelle Wilhelmshaven/Jever
+9490	54.1953	9.2483	0.8	N-Joy
+9500	47.6008	7.6397	0.1	Deutschlandfunk Kultur
+9500	47.7636	11.5544	0.2	Radio Alpenwelle
+9500	48.4081	11.7150	0.1	TOP FM Ost
+9500	49.0394	12.1714	25	Bayern 1 Niederbayern/Oberpfalz
+9500	50.7972	9.4611	32	hr-info
+9500	51.2981	14.8194	0.2	R.SA Dresden
+9500	51.3778	12.7511	0.4	R.SA Leipzig
+9500	51.8108	11.7250	1	Rockland Sachsen-Anhalt Nord
+9500	52.6889	7.2914	0.01	Kirchenfunk Meppen
+9500	52.9958	13.9125	0.8	BB Radio Nord-Ost
+9500	53.0956	8.7917	1	NDR Info Niedersachsen/RB 5
+9500	53.5631	9.9756	0.1	HAMBURG ZWEI
+9500	54.3650	12.7089	0.3	N-Joy
+9510	47.6025	8.4069	2.6	SWR1 Baden-Württemberg
+9510	48.8608	10.1372	50	SWR1 Baden-Württemberg
+9510	49.6972	7.3211	0.01	SWR Kultur Rheinland-Pfalz
+9510	49.7392	9.3931	0.01	SWR1 Baden-Württemberg
+9510	50.0172	12.0394	0.1	Radio Euroherz
+9510	50.0494	7.1511	0.01	SWR Kultur Rheinland-Pfalz
+9510	50.0683	8.2286	0.5	Radio Frankfurt 95.1
+9510	50.1353	8.6544	0.2	Radio Frankfurt 95.1
+9510	50.5772	12.7044	1	MDR Aktuell
+9510	51.1400	11.8158	0.5	Radio SAW Halle
+9510	51.3561	7.1339	100	WDR 3
+9510	51.3769	10.8317	0.1	MDR Aktuell
+9510	51.7417	13.9419	22	rbb radioeins Cottbus
+9510	51.9144	10.4681	0.1	NDR Kultur
+9510	52.4142	10.7742	0.1	Radio 21 Ost
+9510	52.4283	8.6225	0.1	Radio Westfalica
+9510	52.5806	9.7381	0.01	Kirchenfunk Elze-Bennemühlen
+9510	53.9256	13.0442	0.1	N-Joy
+9520	48.1544	8.6589	2	SWR4 Baden-Württemberg Radio Südbaden
+9520	48.8719	8.6839	0.5	Deutschlandfunk Kultur
+9520	49.3569	7.1264	0.05	Adventsradio
+9520	50.3622	12.4642	0.1	MDR Aktuell
+9520	50.4467	11.0042	20	MDR Kultur
+9520	51.7281	9.4872	0.5	WDR 3
+9520	52.1769	9.9506	0.006	M’era Luna FM
+9520	52.1944	12.5608	0.4	Power Radio
+9520	52.3883	9.7125	0.1	DRM+ Test
+9520	52.4308	7.0625	0.2	Ems-Vechte-Welle
+9520	53.3183	7.4903	0.006	Pfarrradio Warsingsfehn
+9520	54.3222	9.6286	0.25	Deutschlandfunk Kultur
+9530	48.5692	12.1125	0.25	Bayern 3
+9530	49.5086	12.0047	1	Radio Ramasuri
+9530	49.5397	8.8036	50	Dasding (hr)
+9530	49.9636	6.5231	0.1	Deutschlandfunk Kultur
+9530	50.8747	12.0633	0.5	radio TOP 40
+9530	51.5953	11.9572	2	MDR Aktuell
+9530	52.1675	9.1328	0.1	NDR Info Niedersachsen
+9530	52.2642	8.0783	0.079	Radio 21 Südwest
+9530	52.3214	14.0375	0.1	Power Radio
+9530	52.3967	13.0767	0.25	BHeins
+9530	53.5919	11.4553	100	Deutschlandfunk Kultur
+9540	48.3381	8.1536	0.5	SWR1 Baden-Württemberg
+9540	48.7850	11.5081	0.2	Radio IN
+9540	48.8153	9.2197	1	Radyo Metropol FM Südwest
+9540	50.1431	11.0628	0.3	Radio Eins
+9540	50.2544	6.3589	0.05	Deutschlandfunk (Dlf)
+9540	50.4703	12.1561	2	Vogtland Radio
+9540	50.6636	7.9592	25	SWR Kultur Rheinland-Pfalz
+9540	50.9122	14.7864	0.5	MDR Kultur
+9540	51.0400	13.8386	100	MDR Kultur
+9540	51.9497	7.6661	0.3	Antenne Münster
+9540	52.5050	9.4758	0.25	Meer Radio
+9540	52.5583	8.2106	0.32	Deutschlandfunk (Dlf)
+9540	52.8233	13.8333	0.8	BB Radio Nord-Ost
+9540	53.5217	8.6492	25	Bremen Zwei
+9550	48.1742	11.5536	0.32	95.5 Charivari
+9550	48.6178	9.7853	0.5	SWR3 Württemberg
+9550	48.9933	12.0753	0.2	Deutschlandfunk (Dlf)
+9550	49.3406	7.0156	100	SR 3 Saarlandwelle
+9550	49.4144	10.3778	10	BR-Klassik
+9550	50.4267	11.6133	2	MDR Thüringen Gera
+9550	50.4778	6.5228	0.5	Eifeler Radiotage
+9550	50.6758	12.4772	0.5	R.SA Chemnitz
+9550	51.2072	9.8475	100	hr2-kultur
+9550	52.0250	8.5372	0.1	Deutschlandfunk (Dlf)
+9550	52.1189	14.5681	0.2	105.9 Radio Paradiso
+9550	52.8881	7.8497	0.1	Deutschlandfunk Kultur
+9550	53.2533	10.5083	3.2	Radio ZuSa
+9550	54.3236	13.3414	10	N-Joy
+9560	47.6714	9.1811	0.05	Radio SRF 3
+9560	48.2108	8.9189	1	Neckaralb Live
+9560	48.5628	13.4589	0.5	BR-Klassik
+9560	48.7856	10.6681	1	hitradio.rt1 Nordschwaben
+9560	49.9328	9.2408	25	Bayern 1 Mainfranken
+9560	50.5189	6.9906	0.01	Ahrtalradio
+9560	51.0844	14.6711	2	MDR Aktuell
+9560	51.3161	12.3856	0.5	MDR Aktuell
+9560	51.6981	14.2728	1.3	94.3 rs2 Cottbus + Lausitz
+9560	51.7333	7.1475	0.1	Radio Vest
+9560	52.5111	7.2872	0.63	Ems-Vechte-Welle
+9560	52.8292	11.6894	1	Radio SAW Magdeburg/Altmark
+9560	53.0956	8.7917	0.2	Cosmo
+9560	53.6278	9.7244	0.2	N-Joy
+9560	54.8717	8.4697	2	N-Joy
+9570	48.7606	12.3347	0.1	Radio AWN
+9570	48.9414	8.8506	2	SWR4 Baden-Württemberg Baden Radio
+9570	49.1756	12.8883	0.003	Radio Charivari Regensburg Cham
+9570	49.9786	7.8917	0.5	SWR1 Rheinland-Pfalz
+9570	50.0311	10.5214	0.1	Radio Primaton
+9570	50.4167	7.5903	1	Dasding (SWR)
+9570	50.5317	9.7275	0.3	harmony.fm
+9570	50.7736	11.1828	10	Landeswelle Thüringen Mitte
+9570	51.1878	7.0769	1	WDR 2 Wuppertal
+9570	51.7364	8.0569	0.25	Radio WAF
+9570	51.8000	10.9414	0.1	Radio SAW Harz
+9570	51.9678	9.2150	0.05	NDR Kultur
+9570	52.0619	9.9608	0.5	N-Joy
+9570	52.2414	8.9364	0.5	Radio Westfalica
+9570	54.3325	10.0678	1	NDR Kultur
+9580	47.5531	10.3169	100	Bayern 3
+9580	49.1106	9.7494	0.1	Deutschlandfunk (Dlf)
+9580	49.4258	11.0389	0.32	Radio Z
+9580	49.4258	11.0389	0.32	Star FM 107.8/99.0
+9580	49.8722	6.8625	0.17	big FM Rheinland-Pfalz
+9580	50.7731	12.8367	1	Radio Chemnitz
+9580	50.9439	8.2128	20	WDR 5
+9580	52.5208	13.4092	100	rbb radioeins
+9580	53.3744	10.5569	0.1	Deutschlandfunk Kultur
+9580	53.4614	7.5067	25	NDR 1 Niedersachsen Oldenburg
+9580	54.1294	12.1264	0.1	Radio Teddy Mecklenburg-Vorpommern
+9590	47.4522	11.0667	0.1	BR-Klassik
+9590	47.8417	12.6536	5	Bayern 3
+9590	48.7953	9.7689	0.2	Deutschlandfunk Kultur
+9590	49.3764	8.1211	25	SWR4 Rheinland-Pfalz Radio Ludwigshafen
+9590	50.7786	6.2436	20	WDR 3
+9590	50.8686	9.7319	0.1	Hit Radio FFH Nordhessen
+9590	50.9975	13.6603	0.1	MDR Aktuell
+9590	51.5697	9.9819	0.5	N-Joy
+9590	51.5953	11.9572	1	radio corax
+9590	51.9089	8.3811	0.05	Radio Gütersloh
+9590	51.9367	8.8669	0.02	Triquency
+9590	52.9772	9.6067	5	NDR 2 Niedersachsen
+9590	53.8583	10.6886	0.1	NDR Info Schleswig-Holstein
+9600	48.0133	7.7936	1	SWR Kultur Baden-Württemberg
+9600	48.8153	9.2197	0.5	Deutschlandfunk (Dlf)
+9600	49.2833	9.6747	0.1	Radio Ton Heilbronn
+9600	49.4886	6.5856	0.01	SR 3 Saarlandwelle
+9600	50.0033	8.2597	0.4	Radyo Metropol FM Südwest
+9600	50.0300	11.8083	100	Bayern 2
+9600	50.4400	8.6678	0.08	Radio BOB! (Hessen)
+9600	51.0814	10.6389	0.02	MDR Aktuell
+9600	51.1358	9.2931	0.1	Deutschlandfunk Kultur
+9600	51.4011	8.0622	0.1	WDR 1 live
+9600	51.5833	13.9897	1.3	Lausitzwelle
+9600	51.8381	9.3958	0.5	NDR 2 Niedersachsen
+9600	51.9144	10.4681	0.1	NDR Info Niedersachsen
+9600	52.2736	7.8181	0.5	WDR 2 Münster
+9600	52.3094	8.6167	0.1	WDR 2 Bielefeld
+9600	53.4833	13.6022	100	NDR Kultur
+9600	53.5217	8.6492	0.1	NDR 1 Niedersachsen Oldenburg
+9600	53.5631	9.9756	0.05	Tide 96.0 / Hamburger Lokalradio
+9610	47.5858	11.1031	0.1	Bayern 3
+9610	48.7856	10.6681	25	Bayern 2
+9610	49.4661	6.3967	5	SR 3 Saarlandwelle
+9610	49.6986	9.0219	0.2	Hit Radio FFH Südhessen
+9610	50.2600	7.5208	10	SWR1 Rheinland-Pfalz
+9610	51.0303	12.1711	0.1	MDR Aktuell
+9610	51.1589	8.6111	0.1	WDR 4 Siegen
+9610	51.2783	11.4631	0.1	MDR Thüringen Heiligenstadt
+9610	51.3039	13.0094	0.32	Deutschlandfunk Kultur
+9610	51.4089	9.6636	0.05	NDR 2 Niedersachsen
+9610	51.5047	7.0953	0.1	Radio Emscher Lippe
+9610	51.7314	10.6153	0.02	N-Joy
+9610	52.0161	8.9050	0.02	Triquency
+9610	52.2200	11.8400	10	MDR Sachsen-Anhalt Magdeburg
+9610	53.0956	8.7917	0.2	Radio Roland
+9610	54.7917	9.5033	25	NDR Kultur
+9620	47.8511	12.1219	0.1	Deutschlandfunk Kultur
+9620	48.6106	8.2017	80	SWR Kultur Baden-Württemberg
+9620	50.0300	8.0992	0.5	Dasding (hr)
+9620	50.6386	12.4353	0.295	Radio Zwickau
+9620	50.8247	8.7939	0.2	harmony.fm
+9620	50.8636	13.0889	0.1	MDR Aktuell
+9620	50.9589	11.0228	0.6	Radio F.R.E.I.
+9620	51.0936	14.7000	5	MDR Kultur
+9620	51.3697	8.4819	0.4	Radio Sauerland
+9620	52.3275	9.7367	5	NDR 2 Niedersachsen
+9620	53.8933	11.5411	0.5	NDR 1 Radio MV Schwerin
+9630	48.1742	11.5536	0.32	Radio Gong 96.3
+9630	48.3819	9.9486	0.1	Bayern 2
+9630	49.2656	12.0489	0.32	gong fm
+9630	49.3369	6.7692	0.1	Deutschlandfunk Kultur
+9630	50.3692	9.9803	100	Bayern 3
+9630	50.4225	6.4589	10	WDR 3
+9630	51.0353	7.8625	0.1	Deutschlandfunk Kultur
+9630	51.8053	8.2164	0.25	Radio WAF
+9630	52.5058	13.2194	80	Cosmo
+9630	54.1953	9.2483	15	NDR 2 Schleswig-Holstein
+9630	54.3017	13.0358	0.08	NDR 1 Radio MV Vorpommern
+9640	47.7511	9.1242	1	Radio Seefunk Bodensee
+9640	48.1411	10.2567	0.05	hitradio.rt1 Südschwaben
+9640	48.3981	9.7942	0.002	SWR4 Baden-Württemberg Schwaben Radio
+9640	49.4581	8.2267	0.1	big FM Rheinland-Pfalz
+9640	49.4714	10.9883	1	Star FM 107.8/99.0
+9640	49.7783	7.4589	0.01	SWR1 Rheinland-Pfalz
+9640	50.8803	11.5661	1	MDR Kultur
+9640	50.8986	13.9686	0.1	Radio Dresden
+9640	50.9147	13.3453	0.5	Energy Sachsen Dresden
+9640	51.7281	9.4872	0.5	WDR 2 Bielefeld
+9640	52.3744	8.0297	0.2	N-Joy
+9640	53.0653	10.8972	25	NDR 2 Niedersachsen
+9640	53.4614	7.5067	10	NDR Info Niedersachsen
+9650	47.4119	10.2778	0.1	Deutschlandfunk Kultur
+9650	47.5486	10.5703	0.02	Deutschlandfunk (Dlf)
+9650	48.8169	13.2175	100	Bayern 2
+9650	49.1847	9.6656	100	SWR3 Württemberg
+9650	49.6203	6.5414	0.25	big FM Rheinland-Pfalz
+9650	50.3278	11.6694	0.1	extra-radio
+9650	50.8264	10.9417	0.05	Radio Teddy Thüringen
+9650	50.9908	10.3300	0.2	Wartburg-Radio 96.5
+9650	51.2794	8.9047	0.2	Radio BOB! (Hessen)
+9650	51.3436	9.8722	0.32	RundFunk Meissner
+9650	51.3561	7.1339	50	Deutschlandfunk Kultur
+9650	51.9144	10.4681	0.1	N-Joy
+9650	51.9792	9.8094	0.05	NDR Kultur
+9650	53.4833	13.6022	10	Deutschlandfunk (Dlf)
+9650	53.6425	10.2633	2	delta radio Ost
+9660	47.7483	7.5803	0.1	SWR4 Baden-Württemberg Radio Südbaden
+9660	48.0056	11.3983	0.32	TOP FM West
+9660	48.5436	9.0381	2	Wüste Welle
+9660	48.5436	9.0381	2	helle welle
+9660	49.0425	8.2981	0.2	Deutschlandfunk Kultur
+9660	49.6831	11.0942	0.1	Radio Bamberg
+9660	51.1844	12.2853	100	Deutschlandfunk (Dlf)
+9660	51.3192	9.4700	0.32	harmony.fm
+9660	51.9003	10.1731	0.05	N-Joy
+9660	52.2414	8.9364	0.03	BFBS Germany
+9660	52.5350	7.3531	0.5	N-Joy
+9660	53.1475	12.4783	0.5	Energy Berlin
+9660	54.2172	10.7186	2	NDR Info Schleswig-Holstein
+9670	47.6714	9.1811	0.05	Radio SRF 1 Ostschweiz
+9670	47.7311	12.8950	0.3	Bayern 2
+9670	47.7636	12.1689	0.3	Radio Charivari Rosenheim
+9670	48.3594	10.8858	0.3	hitradio.rt1 Augsburg
+9670	48.7278	9.3108	0.1	Deutschlandfunk (Dlf)
+9670	49.2061	7.5928	0.4	big FM Rheinland-Pfalz
+9670	50.2322	8.4589	100	hr2-kultur
+9670	51.7239	13.7908	1	94.3 rs2 Cottbus + Lausitz
+9670	52.4956	13.3575	0.8	RFI - Radio France Internationale
+9670	53.0956	8.7917	50	Bremen NEXT
+9670	54.1294	12.1264	40	Deutschlandfunk Kultur
+9670	54.6922	8.5539	0.4	Westküste FM
+9680	47.6928	7.8736	0.5	SWR3 Baden. die Pfalz und Rhein-Neckar
+9680	48.1472	11.5497	0.32	Deutschlandfunk Kultur
+9680	49.1392	8.9283	0.32	Radio Ton Heilbronn
+9680	49.2489	12.8908	50	Bayern 1 Niederbayern/Oberpfalz
+9680	49.3278	7.1053	0.1	big FM Saarland
+9680	50.7522	7.0967	0.5	bonn FM
+9680	50.9736	9.7533	0.32	Radio BOB! (Hessen)
+9680	51.4117	11.0761	3	Landeswelle Thüringen Nord
+9680	51.5697	9.9819	0.5	NDR Kultur
+9680	52.3828	14.4256	5	rbb Kultur
+9680	53.3389	10.5197	0.3	NDR Info Hamburg
+9690	47.5278	10.2453	0.1	Bayern 3
+9690	47.6181	12.9925	0.3	Bayern 2
+9690	47.8083	9.5858	0.1	Radio 7 Ravensburg
+9690	48.8608	10.1372	5	SWR4 Baden-Württemberg Schwaben Radio
+9690	49.4125	7.7406	0.5	Antenne Kaiserslautern
+9690	49.7575	9.5222	0.1	SWR1 Baden-Württemberg
+9690	50.4467	11.0042	20	MDR Jump
+9690	50.5664	7.3233	0.2	Rockland Radio Linz/Remagen
+9690	50.9381	14.6308	0.32	MDR Jump
+9690	51.0747	6.9894	0.5	Radio Berg
+9690	51.1189	8.0614	0.1	Deutschlandfunk Kultur
+9690	51.4208	14.2836	0.2	R.SA Dresden
+9690	51.9075	6.8575	0.01	WRZ Radio
+9690	52.8292	11.6894	7	Deutschlandfunk Kultur
+9690	54.0844	13.3958	0.1	Deutschlandfunk Kultur
+9690	54.2072	9.0972	0.3	Radio BOB! (Schleswig-Holstein) Nord/West
+9700	47.6067	11.3161	0.1	Bayern 2
+9700	47.7775	7.7014	8.4	SWR3 Baden. die Pfalz und Rhein-Neckar
+9700	47.8417	12.6536	5	BR-Klassik
+9700	48.9406	8.4272	20	SWR4 Baden-Württemberg Baden Radio
+9700	49.0394	12.1714	5	BR-Klassik
+9700	50.6222	12.8700	100	Deutschlandfunk (Dlf)
+9700	51.6619	7.0161	0.2	big FM NRW
+9700	51.9058	8.8217	100	WDR 3
+9700	52.3847	13.0958	2	Schlager Radio Brandenburg-West
+9700	53.8933	11.5411	0.2	Schlager Radio Mecklenburg-Vorpommern
+9700	54.1803	7.8831	0.05	NDR Kultur
+9700	54.3006	10.1183	0.5	Radio BOB! (Schleswig-Holstein) Mitte
+9710	47.6836	12.4883	0.1	Bayern 3
+9710	47.9358	8.8267	40	SWR3 Alb/Bodensee
+9710	48.6992	10.7139	0.1	hitradio.rt1 Nordschwaben
+9710	49.4258	11.0389	0.32	Radio Gong 97.1
+9710	49.5308	9.3328	0.05	SWR Kultur Baden-Württemberg
+9710	49.5647	8.6750	0.04	SWR1 Baden-Württemberg
+9710	49.6461	8.0403	0.2	Rockland Radio Kaiserslautern
+9710	49.9161	8.3389	0.1	Antenne Mainz Bodenheim
+9710	50.1419	8.6578	0.2	Radyo Metropol FM Hessen
+9710	50.3878	8.0517	0.2	hr4 Mittelhessen
+9710	50.5197	7.0233	0.01	Ahrtalradio
+9710	50.6506	7.2256	0.001	Antenne SIBI
+9710	50.8847	8.0403	0.5	WDR 2 Siegen
+9710	51.2039	6.7814	0.04	Hochschulradio Düsseldorf
+9710	51.7631	11.9686	1	Rockland Sachsen-Anhalt Mitte
+9710	52.4308	7.0625	0.2	Deutschlandfunk Kultur
+9710	52.9925	10.5314	0.2	Deutschlandfunk Kultur
+9710	53.2639	7.4364	0.32	Radio Nordseewelle Ostfriesland
+9710	53.4833	13.6022	30	Deutschlandfunk Kultur
+9710	53.5631	9.9756	0.1	Energy Hamburg
+9720	47.8511	12.1219	0.1	Deutschlandfunk (Dlf)
+9720	48.5622	9.6339	0.01	SWR Kultur Baden-Württemberg
+9720	48.8394	13.4025	0.1	Unser Radio Passau
+9720	49.1144	12.9092	0.012	Unser Radio Regen
+9720	49.2408	8.8506	0.5	big FM Baden-Württemberg
+9720	49.4717	10.0389	0.01	SWR3 Württemberg
+9720	49.7533	9.3075	0.01	SWR Kultur Baden-Württemberg
+9720	50.0494	7.1511	0.05	SWR4 Rheinland-Pfalz Radio Koblenz
+9720	50.0731	8.2550	0.1	hr-info
+9720	50.6317	6.2625	0.05	Antenne AC
+9720	50.8514	10.4653	100	Deutschlandfunk Kultur
+9720	51.0000	6.7931	0.04	Antenne Pulheim 97.2
+9720	51.2639	7.7533	0.1	Radio MK Süd
+9720	52.4956	13.3575	0.16	Golos Berlina
+9720	53.0956	8.7917	0.5	Radyo Metropol FM Bremen
+9720	54.2092	10.7239	0.2	Klassik Radio
+9730	47.4511	10.1086	0.02	Antenne Bayern
+9730	48.2506	11.7508	25	Bayern 3
+9730	48.5436	9.0381	2	Dasding (SWR)
+9730	49.1217	10.3008	0.3	Radio 8
+9730	49.1672	9.1825	0.1	Deutschlandfunk Kultur
+9730	49.3267	12.1358	0.1	gong fm
+9730	49.4742	8.4239	0.1	Deutschlandfunk Kultur
+9730	49.5631	6.4078	0.3	SWR4 Rheinland-Pfalz Radio Trier
+9730	49.9881	11.9803	0.2	extra-radio
+9730	50.1450	8.9197	0.5	Radio Frankfurt 95.1
+9730	50.5856	8.4542	0.32	Deutschlandfunk Kultur
+9730	50.9200	8.4189	0.1	Radio Siegen
+9730	50.9986	12.4553	0.4	Deutschlandfunk Kultur
+9730	51.0400	13.8386	100	Deutschlandfunk (Dlf)
+9730	51.7864	6.1111	2	WDR 3
+9730	52.2736	7.8181	0.5	WDR 3
+9730	52.3828	14.4256	0.5	Deutschlandfunk (Dlf)
+9730	53.5236	8.1047	0.3	N-Joy
+9730	53.6064	9.4158	0.19	Radio 21 Nordost
+9730	54.1294	12.1264	5	Deutschlandfunk (Dlf)
+9740	48.3819	9.9486	10	SWR3 Alb/Bodensee
+9740	48.7406	8.7250	0.01	SWR1 Baden-Württemberg
+9740	48.8869	8.6439	1	Dasding (SWR)
+9740	49.6575	9.0689	5	hr2-kultur
+9740	49.8889	11.0622	5	BR24
+9740	50.5769	7.3400	50	SWR4 Rheinland-Pfalz Radio Koblenz
+9740	51.6147	7.5208	0.25	Antenne Unna
+9740	51.8000	10.6142	100	Deutschlandfunk Kultur
+9740	53.3744	10.5569	0.32	Radio BOB! (Schleswig-Holstein) Ost
+9740	53.3958	12.4636	4	N-Joy
+9740	54.3006	10.1183	0.16	Klassik Radio
+9750	47.8011	11.0244	0.1	Radio Oberland
+9750	47.9744	7.9086	1	Radio Regenbogen Freiburg
+9750	48.6939	8.3939	0.05	SWR3 Baden. die Pfalz und Rhein-Neckar
+9750	48.7278	9.3108	0.5	Die Neue 107.7
+9750	49.1106	9.7494	0.1	StHörfunk
+9750	49.5608	7.5428	25	SWR3 Rheinland-Pfalz/Rheinland
+9750	50.6122	10.7450	5	MDR Aktuell
+9750	50.7997	12.9656	3	Energy Sachsen Chemnitz
+9750	51.4011	8.0622	0.1	WDR 3
+9750	51.9497	7.6661	0.1	Deutschlandfunk Kultur
+9750	52.5583	8.2106	0.32	Deutschlandfunk Kultur
+9750	53.9297	9.5467	0.1	Deutschlandfunk Kultur
+9760	47.7272	10.2228	1	RSA Radio Oberallgäu
+9760	48.3381	8.1536	0.1	SWR4 Baden-Württemberg Radio Südbaden
+9760	48.6756	10.1497	0.01	SWR3 Württemberg
+9760	48.8261	9.5350	0.3	Energy Stuttgart Waiblingen
+9760	48.9464	11.4286	25	Bayern 3
+9760	49.7803	9.9069	5	Bayern 3
+9760	50.1353	8.6544	0.1	harmony.fm
+9760	50.3956	8.0228	0.4	planet radio
+9760	50.6833	11.3686	0.079	radio TOP 40
+9760	50.8847	8.0403	0.4	WDR 5
+9760	51.3167	12.4481	4	R.SA
+9760	51.3167	12.4481	4	mephisto 97.6
+9760	51.3561	7.1339	4	Radio Neandertal
+9760	51.8469	6.8656	1	Radio WMW
+9760	51.9419	8.4958	0.4	Radio Bielefeld
+9760	52.9772	9.6067	30	N-Joy
+9760	53.9256	13.0442	0.5	NDR 1 Radio MV Neubrandenburg
+9760	53.9561	14.1497	1	NDR 1 Radio MV Vorpommern
+9760	54.3325	8.7889	0.24	Westküste FM
+9770	47.4522	11.0667	0.1	Bayern 3
+9770	47.6706	8.9194	0.025	Radio SRF 2 Kultur
+9770	47.7636	12.1689	0.16	Deutschlandfunk (Dlf)
+9770	48.4956	9.2317	2	Dasding (SWR)
+9770	48.5628	13.4589	0.5	Deutschlandfunk Kultur
+9770	48.6181	10.2419	0.02	SWR4 Baden-Württemberg Schwaben Radio
+9770	49.8456	7.0533	50	SWR1 Rheinland-Pfalz
+9770	50.2531	10.9847	1	BR-Klassik
+9770	50.7972	9.4611	32	Dasding (hr)
+9770	51.4914	14.6442	2	Deutschlandfunk Kultur
+9770	52.2919	8.6411	0.2	Deutschlandfunk Kultur
+9770	52.5208	13.4092	100	Deutschlandfunk (Dlf)
+9780	48.3900	10.9919	0.5	Deutschlandfunk (Dlf)
+9780	48.5692	12.1125	0.25	Bayern 2
+9780	49.4036	8.7283	100	SWR1 Baden-Württemberg
+9780	50.7078	7.0967	0.32	Radio Bonn/Rhein-Sieg
+9780	50.8111	12.2156	10	MDR Thüringen Gera
+9780	50.9589	11.0228	1	MDR Aktuell
+9780	51.1464	8.2503	0.1	WDR 3
+9780	52.5350	7.3531	15	NDR 2 Niedersachsen
+9780	54.2172	10.7186	50	NDR 1 Welle Nord Lübeck
+9790	47.6614	11.7939	0.1	BR-Klassik
+9790	47.7806	10.6167	0.05	RSA Radio Ostallgäu
+9790	47.8725	8.0053	5	SWR Kultur Baden-Württemberg
+9790	48.3981	9.7942	0.002	SWR Kultur Baden-Württemberg
+9790	49.3233	11.3806	25	Bayern 3
+9790	50.4794	8.2736	0.05	hr4 Mittelhessen
+9790	50.5800	8.6661	0.5	Dasding (hr)
+9790	50.9464	11.3408	0.3	Antenne Thüringen Mitte
+9790	52.1142	8.1281	0.5	NDR Info Niedersachsen
+9790	53.2533	10.5083	0.1	Deutschlandfunk Kultur
+9790	53.3556	13.0947	1	Deutschlandfunk (Dlf)
+9790	53.8336	8.6481	10	NDR 2 Niedersachsen
+9800	47.5847	10.6703	0.1	RSA Radio Ostallgäu
+9800	47.8417	12.6536	5	Bayern 1 Oberbayern
+9800	48.7803	8.5653	0.01	SWR Kultur Baden-Württemberg
+9800	49.2464	7.2797	5	Dasding (SR)
+9800	49.4336	6.5961	0.1	SR 3 Saarlandwelle
+9800	49.9328	9.2408	2	BR-Klassik
+9800	50.3597	7.5781	0.63	Antenne Koblenz 98.0
+9800	50.4336	7.4594	0.32	Antenne Koblenz 98.0
+9800	51.3039	13.0094	5	Radio PSR Leipzig
+9800	51.7864	6.1111	1	Antenne Niederrhein
+9800	51.8014	10.5322	100	NDR 1 Niedersachsen Braunschweig
+9800	52.3197	14.5286	1	104.6 RTL
+9800	53.8225	12.1722	0.4	Ostseewelle West
+9810	48.8608	10.1372	50	SWR3 Württemberg
+9810	49.4125	7.7406	0.16	Deutschlandfunk Kultur
+9810	49.4581	8.2267	0.05	RPR 1. Ludwigshafen
+9810	49.6972	7.3211	0.01	SWR3 Rheinland-Pfalz/Rheinland
+9810	50.0033	8.2597	0.2	RPR 1. Mainz
+9810	50.2433	11.7972	0.1	extra-radio
+9810	50.6950	10.9369	0.3	radio hsf (Hochschulfunk)
+9810	51.1481	7.7567	35	WDR 3
+9810	53.4614	7.5067	25	NDR 2 Niedersachsen
+9810	53.5631	9.9756	0.16	Klassik Radio Hamburg
+9810	54.0844	13.3958	0.2	MEDIATOP Radio
+9810	54.0844	13.3958	0.2	Radio 98eins
+9810	54.6436	8.9439	0.05	Radio BOB! (Schleswig-Holstein) Nord/West
+9820	48.9933	12.0753	0.3	Radio Charivari Regensburg Regensburg
+9820	49.2228	7.0322	0.01	SR 1
+9820	49.7567	6.6119	0.1	SWR3 Rheinland-Pfalz/Rheinland
+9820	49.8447	7.8536	0.05	SWR1 Rheinland-Pfalz
+9820	49.8831	8.6050	0.25	Deutschlandfunk Kultur
+9820	50.3689	8.0125	0.1	SWR3 Rheinland-Pfalz/Rheinland
+9820	50.5561	6.2358	0.05	WDR 3
+9820	50.6386	12.4353	0.3	Energy Sachsen Zwickau
+9820	50.9153	11.6011	0.2	Deutschlandfunk Kultur
+9820	51.0936	14.7000	5	MDR Sachsen Bautzen
+9820	51.3406	12.4031	1	R.SA Leipzig
+9820	51.4789	9.1508	0.5	WDR 1 Live
+9820	52.2589	9.2008	1	NDR Info Niedersachsen
+9820	52.2950	8.1042	0.25	Radio Osnabrück
+9820	52.5058	13.2194	8	98.2 Radio Paradiso
+9830	47.4386	11.2697	0.01	BR-Klassik
+9830	47.7311	12.8950	0.3	Bayern 3
+9830	48.3594	10.8858	0.1	Bayern 3
+9830	48.5653	13.4333	0.2	Unser Radio Passau
+9830	50.0731	8.2550	0.1	hr1
+9830	50.3692	9.9803	100	Bayern 1 Mainfranken
+9830	50.5664	7.3233	0.1	Deutschlandfunk Kultur
+9830	50.9183	12.0758	0.2	Antenne Thüringen Ost
+9830	51.0728	6.3053	0.5	big FM NRW
+9830	51.1175	13.0983	0.2	Energy Sachsen Dresden
+9830	51.4606	11.9933	0.5	Rockland Sachsen-Anhalt Süd
+9830	52.0250	8.5372	0.1	Radio Bielefeld
+9830	52.5536	7.7464	0.5	Radio Osnabrück
+9830	53.5217	8.6492	0.1	NDR Info Niedersachsen
+9830	53.5250	12.7181	0.2	80s80s MV Ost
+9830	54.3325	10.0678	15	NDR 2 Schleswig-Holstein
+9840	48.3819	9.9486	0.1	Bayern 3
+9840	48.6106	8.2017	80	SWR3 Baden. die Pfalz und Rhein-Neckar
+9840	49.8697	8.3836	0.25	Dasding (SWR)
+9840	50.3878	12.5033	0.2	MDR Kultur
+9840	50.4950	11.3678	0.02	Bayern 1 Franken
+9840	50.8636	13.0889	0.1	R.SA Chemnitz
+9840	50.8847	8.0403	1	WDR 3
+9840	50.9986	12.4553	0.5	radio TOP 40
+9840	51.0350	13.6322	0.05	apollo radio
+9840	51.0350	13.6322	0.05	coloRadio
+9840	51.5464	10.2867	0.006	Pfarrfunk Breitenberg
+9840	51.8381	9.3958	0.5	NDR Kultur
+9840	51.9050	12.5806	5.2	Radio SAW Anhalt
+9840	52.9772	9.6067	5	NDR Info Niedersachsen
+9840	53.8336	8.6481	1	NDR 90.3
+9840	53.9561	14.1497	0.5	Deutschlandfunk (Dlf)
+9850	47.6025	8.4069	2.6	SWR3 Baden. die Pfalz und Rhein-Neckar
+9850	47.7036	12.0128	100	Bayern 3
+9850	49.6689	11.8317	1	AFN Bavaria-The Eagle ?
+9850	49.6986	9.0219	1	Radio BOB! (Hessen)
+9850	50.2186	6.7506	8	SWR3 Rheinland-Pfalz/Rheinland
+9850	50.4267	11.6133	2	Landeswelle Thüringen Ost
+9850	50.8153	8.7886	0.32	hr2-kultur
+9850	51.3353	10.5339	20	MDR Thüringen Heiligenstadt
+9850	51.3933	9.6803	0.5	Deutschlandfunk (Dlf)
+9850	51.4894	7.2439	0.5	Radio Bochum
+9850	51.9678	9.2150	0.05	NDR Info Niedersachsen
+9850	53.5919	11.4553	100	NDR 2 Mecklenburg-Vorpommern
+9850	54.7783	9.3939	0.5	Freies Radio Fratz
+9860	48.9397	8.9631	0.1	SWR Kultur Baden-Württemberg
+9860	49.3156	7.3375	0.2	SR 2 Kulturradio
+9860	49.4258	11.0389	0.32	98.6 charivari
+9860	49.4886	6.5856	0.01	SR 1
+9860	50.9481	6.9431	0.5	WDR 2 Köln
+9860	51.3389	8.5047	10	WDR 5
+9860	51.7417	13.9419	100	Antenne Brandenburg Cottbus
+9860	51.8283	10.7831	1	MDR Aktuell
+9860	53.0431	8.4581	3	NDR Info Niedersachsen
+9860	53.3319	13.8933	0.5	rbb Inforadio
+9870	47.5531	10.3169	30	SWR1 Baden-Württemberg
+9870	48.8781	12.9936	0.1	Unser Radio Deggendorf
+9870	50.2322	8.4589	60	Deutschlandfunk (Dlf)
+9870	50.4006	12.3503	3	MDR Kultur
+9870	50.6833	11.3686	0.1	Deutschlandfunk (Dlf)
+9870	51.5317	6.9528	0.5	Radio Emscher Lippe
+9870	52.1092	11.6289	0.5	Rockland Sachsen-Anhalt Nord
+9870	52.3275	9.7367	15	NDR Kultur
+9870	53.7942	12.6917	0.1	MEDIATOP Radio
+9870	53.9794	9.8494	0.5	N-Joy
+9870	54.8717	8.4697	5	NDR 2 Schleswig-Holstein
+9880	48.2261	8.3781	0.01	SWR Kultur Baden-Württemberg
+9880	49.1847	9.6656	100	SWR1 Baden-Württemberg
+9880	49.2656	12.0489	0.5	Radio Charivari Regensburg Schwandorf
+9880	49.7567	6.6119	0.1	SWR4 Rheinland-Pfalz Radio Trier
+9880	49.7769	11.2000	0.05	Radio Bamberg
+9880	50.6122	10.7450	0.1	Deutschlandfunk (Dlf)
+9880	51.1400	11.8158	10	Radio BRocken Halle
+9880	51.1814	14.4283	0.2	MDR Jump
+9880	52.3744	8.0297	8	NDR Kultur
+9880	52.5208	13.4092	1	Kiss FM
+9880	53.9069	10.6419	0.5	Lübeck FM
+9880	54.4869	9.0753	0.03	Westküste FM
+9890	48.3819	9.9486	1	Dasding (SWR)
+9890	48.7644	8.2806	0.8	SWR Kultur Baden-Württemberg
+9890	50.1006	11.4667	0.1	Radio Galaxy Oberfranken
+9890	50.2400	6.3364	0.1	SWR3 Rheinland-Pfalz/Rheinland
+9890	50.4167	7.5903	0.63	Antenne Koblenz 98.0
+9890	50.7017	11.5806	0.2	radio TOP 40
+9890	50.7078	7.0967	0.1	Deutschlandfunk Kultur
+9890	50.7817	8.0022	0.1	Radio Siegen
+9890	51.1189	8.0614	0.16	big FM NRW
+9890	51.3039	13.0094	0.5	MDR Kultur
+9890	52.8292	11.6894	10	MDR Jump
+9890	53.5217	8.6492	0.5	Cosmo
+9890	54.3017	13.0358	0.4	Schlager Radio Mecklenburg-Vorpommern
+9900	47.5653	9.6742	0.5	Antenne Bayern
+9900	47.8083	9.5858	0.1	SWR1 Baden-Württemberg
+9900	48.1544	8.6589	0.5	big FM Baden-Württemberg
+9900	48.4864	9.3969	0.1	Neckaralb Live
+9900	49.3231	6.7297	0.05	Cityradio Saarlouis
+9900	49.5053	11.2533	0.2	Star FM 107.8/99.0
+9900	49.8450	9.6231	0.1	Radio Charivari Würzburg
+9900	50.8636	13.0889	0.1	Radio Chemnitz
+9900	51.2072	9.8475	100	hr1
+9900	52.6936	7.2817	0.05	NDR Info Niedersachsen
+9900	54.2172	10.7186	1	N-Joy
+9910	47.6894	9.0700	0.05	Radio SRF 2 Kultur
+9910	48.4203	9.2472	0.1	SWR1 Baden-Württemberg
+9910	48.6756	10.1497	0.01	SWR Kultur Baden-Württemberg
+9910	48.9028	11.1625	0.1	Radio IN
+9910	49.6244	7.9236	60	SWR1 Rheinland-Pfalz
+9910	50.7878	6.0697	0.1	Hochschulradio Aachen
+9910	50.9147	13.3453	1	MDR Sachsen Chemnitz
+9910	51.0303	12.1711	0.5	Radio BRocken Halle
+9910	52.2447	8.8992	0.1	WDR 2 Bielefeld
+9910	52.2669	11.2075	1	MDR Aktuell
+9910	52.3758	13.7164	0.5	Power Radio
+9910	53.4833	13.6022	100	NDR 2 Mecklenburg-Vorpommern
+9910	53.5236	8.1047	0.25	Radio 21 Nordwest
+9920	47.8011	11.0244	13	Bayern 3
+9920	48.0133	7.7936	0.5	SWR3 Baden. die Pfalz und Rhein-Neckar
+9920	48.2869	8.3525	0.1	SWR4 Baden-Württemberg Radio Südbaden
+9920	48.5244	8.1067	0.1	Hitradio Ohr
+9920	48.6028	8.8811	0.2	Energy Stuttgart Böblingen
+9920	48.8153	9.2197	0.3	Freies Radio für Stuttgart
+9920	49.6286	6.6133	5	SWR1 Rheinland-Pfalz
+9920	50.2531	10.9847	5	Bayern 3
+9920	50.3878	8.0517	0.32	hr-info
+9920	50.5317	9.7275	0.32	Radio Teddy Hessen
+9920	50.5800	8.6661	0.2	hr-info
+9920	50.7161	12.7806	0.1	Radio Erzgebirge
+9920	50.9067	11.4400	0.05	MDR Aktuell
+9920	50.9589	11.0228	0.5	Radio Teddy Thüringen
+9920	51.3133	12.3747	0.5	Radio BLAU
+9920	51.3133	12.3747	0.5	apollo radio
+9920	51.3561	7.1339	100	WDR 2 Rhein-Ruhr
+9920	53.5192	10.1028	80	NDR Kultur
+9930	47.6725	9.4769	5	Radio Seefunk Bodensee
+9930	48.5211	12.1300	0.2	Antenne Bayern
+9930	48.5622	9.6339	0.01	SWR3 Württemberg
+9930	48.9044	8.7192	0.5	SWR3 Baden. die Pfalz und Rhein-Neckar
+9930	49.3411	7.1997	1	Classic Rock Radio
+9930	49.4144	10.3778	25	Bayern 3
+9930	50.1056	8.7631	0.25	harmony.fm
+9930	50.1497	9.6672	0.01	Bayern 3
+9930	50.9236	10.7636	0.2	Radio Teddy Thüringen
+9930	50.9864	12.9892	0.05	99drei Radio Mittweida
+9930	50.9975	13.6603	0.1	apollo radio
+9930	50.9975	13.6603	0.1	coloRadio
+9930	51.0008	9.4506	0.1	Radio BOB! (Hessen)
+9930	52.0956	9.3367	0.32	radio aktiv
+9930	52.1944	12.5608	30	rbb radioeins
+9930	52.2028	8.3414	0.32	Radio 21 Südwest
+9930	52.3828	14.4256	0.8	Radio Teddy Berlin/Brandenburg
+9930	52.6447	9.2081	0.25	N-Joy
+9930	52.8881	7.8497	1	Radio 21 Nordwest
+9940	47.4583	10.1444	0.02	Bayern 3
+9940	47.8586	12.6122	0.3	Bayernwelle Südost Traunstein
+9940	48.2806	11.8481	0.5	TOP FM Ost
+9940	48.5436	9.0381	1	Deutschlandfunk Kultur
+9940	49.6836	9.2722	0.05	Radio Primavera
+9940	49.9786	7.8917	0.1	SWR Kultur Rheinland-Pfalz
+9940	50.0300	11.8083	100	Bayern 3
+9940	50.2006	9.2333	0.32	Dasding (hr)
+9940	50.2600	7.5208	0.2	Dasding (SWR)
+9940	50.5044	7.0161	0.1	SWR3 Rheinland-Pfalz/Rheinland
+9940	51.3192	9.4700	0.5	Radio BOB! (Hessen)
+9940	51.4011	8.0622	0.1	WDR 2 Siegen
+9940	51.4908	11.2872	0.1	Radio SAW Halle
+9940	51.5975	12.5939	0.2	Deutschlandfunk Kultur
+9940	51.7661	9.3700	0.02	Triquency
+9940	52.2936	7.1464	0.05	NDR Info Niedersachsen
+9940	53.3319	13.8933	0.5	Antenne Brandenburg Prenzlau
+9940	54.1600	12.5658	0.3	N-Joy
+9940	54.1953	9.2483	15	NDR Kultur
+9950	48.0272	8.4781	1	big FM Baden-Württemberg
+9950	48.2022	9.0358	0.1	SWR4 Baden-Württemberg Radio Tübingen
+9950	48.7406	8.7250	0.01	SWR3 Alb/Bodensee
+9950	48.7856	10.6681	25	Bayern 3
+9950	49.1478	9.2622	2	SWR4 Baden-Württemberg Franken Radio
+9950	49.3369	6.7692	1	big FM Saarland
+9950	49.5647	8.6750	0.04	SWR3 Baden. die Pfalz und Rhein-Neckar
+9950	49.9050	8.7733	0.2	Radio BOB! (Hessen)
+9950	50.0494	7.1511	0.01	SWR1 Rheinland-Pfalz
+9950	50.5622	10.4275	0.2	Antenne Thüringen Süd
+9950	50.7533	13.0744	0.25	MDR Aktuell
+9950	51.0344	11.5044	0.2	Radio Teddy Thüringen
+9950	51.0936	14.7000	5	Deutschlandfunk (Dlf)
+9950	51.1197	12.4931	0.1	Radio Leipzig
+9950	51.2225	7.8819	0.05	Radio MK Süd
+9950	51.8014	10.5322	50	NDR Info Niedersachsen
+9950	52.2736	7.8181	0.5	WDR 4 Münster
+9950	53.4614	7.5067	1	Radio Nordseewelle Ostfriesland
+9950	53.5919	11.4553	2	N-Joy
+9960	47.6181	12.9925	0.3	BR-Klassik
+9960	48.7644	8.2806	0.4	SWR3 Baden. die Pfalz und Rhein-Neckar
+9960	48.7936	9.2036	0.5	SWR1 Baden-Württemberg
+9960	49.0394	12.1714	25	Bayern 3
+9960	49.2208	6.9972	0.16	Cityradio Saarbrücken
+9960	49.5608	7.5428	0.5	SWR4 Rheinland-Pfalz Radio Kaiserslautern
+9960	50.7906	12.6872	0.032	SACHSENRING
+9960	50.9508	8.5319	100	hr-info
+9960	51.1175	13.0983	0.13	MDR Kultur
+9960	51.1400	11.8158	1.6	Rockland Sachsen-Anhalt Süd
+9960	51.5286	13.1281	1	R.SA Leipzig
+9960	52.3094	8.6167	0.1	WDR 4 Bielefeld
+9960	53.6064	9.4158	0.2	N-Joy
+9970	47.6614	11.7939	0.1	Bayern 3
+9970	48.3381	8.1536	0.5	SWR3 Baden. die Pfalz und Rhein-Neckar
+9970	48.3903	9.8956	1	big FM Baden-Württemberg
+9970	49.5072	9.7822	10	SWR3 Württemberg
+9970	50.0731	8.2550	0.2	Dasding (hr)
+9970	50.2400	6.3364	0.1	SWR Kultur Rheinland-Pfalz
+9970	50.5561	6.2358	0.05	WDR 1 Live
+9970	50.6081	12.1542	0.2	R.SA Chemnitz
+9970	50.6800	6.8036	0.1	Radio Euskirchen
+9970	50.9214	7.0044	0.5	Radio Berg
+9970	50.9308	11.1072	0.5	Landeswelle Thüringen West
+9970	51.1781	10.0322	0.5	RundFunk Meissner
+9970	51.7864	6.1111	2	WDR 5
+9970	51.8381	9.3958	0.5	N-Joy
+9970	52.5208	13.4092	100	Antenne Brandenburg Potsdam
+9970	52.9925	10.5314	0.2	Radio 21 Nordost
+9970	54.3325	10.0678	0.4	NDR Info Schleswig-Holstein
+9980	48.5242	11.5350	0.1	Ilmwelle Volksfestradio
+9980	48.5242	12.1714	0.2	Radio Galaxy Landshut
+9980	48.6156	9.5964	0.1	Deutschlandfunk (Dlf)
+9980	49.8889	11.0622	25	Bayern 3
+9980	50.0639	8.7992	0.2	Deutschlandfunk Kultur
+9980	50.2981	8.2353	0.2	planet radio
+9980	50.4167	7.5903	0.5	Deutschlandfunk (Dlf)
+9980	50.8686	9.7319	0.2	Radio BOB! (Hessen)
+9980	51.2786	7.1294	1	WDR 2 Wuppertal
+9980	51.3167	12.4481	4	Energy Sachsen Leipzig
+9980	53.0431	8.4581	100	NDR 2 Niedersachsen
+9980	53.3389	10.5197	0.3	N-Joy
+9980	54.3236	13.3414	10	NDR 2 Mecklenburg-Vorpommern
+9990	47.6069	11.3164	0.1	Radio Alpenwelle
+9990	49.4036	8.7283	100	SWR3 Baden. die Pfalz und Rhein-Neckar
+9990	49.6792	12.2353	0.2	Radio Ramasuri
+9990	50.1497	9.6672	0.01	BR-Klassik
+9990	50.5317	9.7275	0.2	planet radio
+9990	50.6825	7.2481	0.5	Radio Bonn/Rhein-Sieg
+9990	51.4908	11.2872	1	MDR Aktuell
+9990	51.5697	9.9819	5	NDR Info Niedersachsen
+9990	51.6981	14.2728	1	rbb Inforadio
+9990	51.8000	10.9414	0.25	Radio BRocken Magdeburg
+9990	52.1044	9.3783	0.05	NDR Info Niedersachsen
+9990	53.1053	12.1800	10	rbb radioeins
+10000	48.4478	10.7181	15	Deutschlandfunk Kultur
+10000	49.2464	7.2797	5	Radio Salü
+10000	50.6222	12.8700	100	Radio PSR Chemnitz
+10000	50.7156	10.4561	0.1	MDR Aktuell
+10000	50.7881	8.4286	32	Hit Radio FFH Mittelhessen
+10000	50.9122	14.7864	0.5	R.SA Dresden
+10000	50.9342	6.9536	0.09	Kölncampus
+10000	50.9908	10.3300	0.2	MDR Aktuell
+10000	51.3214	14.9772	0.2	R.SA Dresden
+10000	51.9650	7.3597	25	WDR 4 Münster
+10000	52.3928	9.7994	0.3	Radio Hannover
+10000	53.5631	9.9756	0.1	R.SH Hamburg
+10000	54.0461	13.7550	0.5	Ostseewelle Ost
+10000	54.1803	7.8831	0.05	R.SH Heide
+10010	48.4450	8.5300	1	Freies Radio Freudenstadt
+10010	48.8169	13.2175	100	Deutschlandfunk (Dlf)
+10010	49.2639	9.8733	50	Hitradio Antenne 1 Heilbronn
+10010	49.8456	7.0533	50	RPR 1. Trier
+10010	50.7456	6.0431	1	Antenne AC
+10010	51.1464	8.2503	0.1	WDR 1 Live
+10010	51.3122	9.4289	0.5	Dasding (hr)
+10010	51.3769	10.8317	0.05	MDR Thüringen Heiligenstadt
+10010	51.9503	13.9183	3	94.3 rs2 Cottbus + Lausitz
+10010	52.0364	11.6653	20	Radio SAW Magdeburg/Altmark
+10010	53.2294	14.2075	50	rbb Fritz
+10010	53.2533	10.5083	0.1	N-Joy
+10010	53.6869	7.7017	1	Radio Nordseewelle Ostfriesland
+10020	47.4942	10.3650	0.05	RSA Radio Oberallgäu
+10020	47.6928	7.8736	0.5	SWR4 Baden-Württemberg Radio Südbaden
+10020	48.9464	11.4286	25	Antenne Bayern
+10020	49.4294	7.6836	5	Deutschlandfunk (Dlf)
+10020	50.1353	8.6544	1	planet radio
+10020	50.8778	8.0036	0.05	Deutschlandfunk Kultur
+10020	50.9308	11.1072	3	Antenne Thüringen Mitte
+10020	51.0400	13.8386	5	Energy Sachsen Dresden
+10020	51.2300	7.6147	0.5	Radio MK Süd
+10020	52.1189	14.5681	1	Deutschlandfunk (Dlf)
+10020	52.1944	12.5608	10	rbb Kultur
+10020	53.0847	7.3908	0.5	NDR Info Niedersachsen
+10020	54.2092	10.7239	50	R.SH Lübeck
+10030	47.4583	10.1444	0.02	Bayern 2
+10030	47.8056	12.9042	15	Deutschlandfunk (Dlf)
+10030	48.6644	9.8650	5	big FM Baden-Württemberg
+10030	49.4661	6.3967	5	Radio Salü
+10030	49.6811	7.3281	1	RPR 1. Mainz
+10030	49.7800	9.9022	0.1	Deutschlandfunk (Dlf)
+10030	50.0300	11.8083	100	Deutschlandfunk (Dlf)
+10030	50.8861	9.5122	50	planet radio
+10030	52.2175	10.7825	15	Radio 38
+10030	53.0956	8.7917	1	Deutschlandfunk Kultur
+10030	54.3650	12.7089	0.13	Deutschlandfunk (Dlf)
+10030	54.8639	8.9203	2	Antenne Sylt
+10040	47.5653	9.6742	0.1	BR24
+10040	47.8011	11.0244	12.5	BR-Klassik
+10040	48.6106	8.2017	80	Radio Regenbogen Karlsruhe
+10040	49.9447	9.1964	1	Radio Primavera
+10040	50.3478	8.7636	1	harmony.fm
+10040	50.3747	8.0144	0.1	big FM Rheinland-Pfalz
+10040	50.7078	7.0967	50	WDR 2 Köln
+10040	51.3167	12.4481	2	Deutschlandfunk Kultur
+10040	51.4208	14.2836	30.2	MDR Sachsen Bautzen/Sorbisches Prog.
+10040	51.5117	10.7594	0.1	Radio ENNO
+10040	53.3958	12.4636	4	NDR Info Mecklenburg-Vorpommern
+10040	54.1953	9.2483	15	delta radio Nord/West
+10050	47.5761	7.9475	0.5	Radio Argovia
+10050	47.8100	12.4922	0.01	Camp FM
+10050	48.0986	9.8017	0.5	Deutschlandfunk (Dlf)
+10050	49.5072	9.7822	0.04	Dasding (SWR)
+10050	49.6986	9.0219	0.2	Deutschlandfunk (Dlf)
+10050	49.9053	7.0739	0.063	big FM Rheinland-Pfalz
+10050	50.0628	10.2447	0.5	Radio Primaton
+10050	50.5856	8.4542	0.32	Rock Antenne
+10050	50.5992	12.2219	1	Vogtland Radio
+10050	51.0433	11.7036	0.2	MDR Kultur
+10050	51.1572	12.9147	0.2	R.SA Leipzig
+10050	51.3633	11.3028	0.04	Kyffhäuser Radio Artern
+10050	51.9058	8.8217	100	WDR 4 Bielefeld
+10050	52.5972	11.8358	0.5	Radio SAW Magdeburg/Altmark
+10050	53.9561	14.1497	1	NDR Info Mecklenburg-Vorpommern
+10060	47.9358	8.8267	40	Deutschlandfunk (Dlf)
+10060	48.0469	12.2256	0.05	Radio Charivari Rosenheim
+10060	49.2789	7.1317	0.1	Classic Rock Radio
+10060	49.3233	11.3806	25	Antenne Bayern
+10060	49.5308	9.3328	0.1	Dasding (SWR)
+10060	49.9419	8.1711	20	RPR 1. Mainz
+10060	51.1781	10.0322	0.5	Deutschlandfunk (Dlf)
+10060	51.2592	12.7178	0.2	MDR Aktuell
+10060	51.2822	6.3472	1	Welle Niederrhein Viersen
+10060	52.5208	13.4092	10	FluxFM Berlin
+10060	53.3964	9.8656	20	Radio ffn Hamburg
+10060	53.4658	7.4658	1	Radio 21 Nordwest
+10070	47.7497	11.5744	0.1	BR-Klassik
+10070	48.0806	7.6692	1	SWR4 Baden-Württemberg Radio Südbaden
+10070	49.0344	8.9975	20	Energy Stuttgart Ludwigsburg
+10070	49.5647	8.6750	0.1	SWR4 Baden-Württemberg Studio Mannheim
+10070	50.7736	11.1828	60	MDR Kultur
+10070	50.9439	8.2128	15	WDR 4 Siegen
+10070	50.9678	13.4322	1	Deutschlandfunk Kultur
+10070	51.3933	9.6803	0.5	Radio ffn Göttingen
+10070	51.6175	7.4161	0.4	Radio Vest Testschleife
+10070	52.6142	11.2022	5	Sputnik (MDR)
+10070	52.6936	7.2817	0.32	Deutschlandfunk Kultur
+10070	53.8714	11.2331	0.5	NDR 1 Radio MV Schwerin
+10080	48.6833	10.1600	0.1	Deutschlandfunk Kultur
+10080	49.1453	7.5869	5	SWR1 Rheinland-Pfalz
+10080	49.4344	10.3128	0.1	Radio 8
+10080	49.7042	9.2436	0.05	Radio Galaxy Aschaffenburg
+10080	49.8714	8.6439	0.5	Radio Frankfurt 95.1
+10080	50.3350	7.2100	0.2	Deutschlandfunk (Dlf)
+10080	50.7786	6.2436	20	WDR 2 Aachen
+10080	51.5953	11.9572	5	MDR Sachsen-Anhalt Halle
+10080	52.2589	9.2008	25	NDR 1 Niedersachsen Hannover
+10080	53.5217	8.6492	25	Bremen Vier
+10080	54.0842	9.9744	0.5	Freies Radio Neumünster
+10080	54.1294	12.1264	130	80s80s MV Nord
+10090	48.5436	9.0381	1	Neckaralb Live
+10090	48.7644	8.2806	0.8	Die neue Welle Baden-Baden
+10090	48.7878	9.8036	0.1	SWR4 Baden-Württemberg Schwaben Radio
+10090	48.8169	13.2175	100	BR-Klassik
+10090	49.3903	6.8808	1	Classic Rock Radio
+10090	50.4603	10.0067	50	Hit Radio FFH Osthessen
+10090	50.8111	12.2156	30	MDR Jump
+10090	51.5022	8.1253	1	Hellweg Radio Soest
+10090	51.9044	10.1669	0.5	Antenne Niedersachsen Braunschweig
+10090	51.9589	14.6781	6.3	Antenne Brandenburg Cottbus
+10090	53.2294	14.2075	5	Berliner Rundfunk 91.4 Uckermark
+10090	53.4994	10.1903	0.1	Energy Hamburg
+10100	47.5531	10.3169	100	BR-Klassik
+10100	50.4225	6.4589	20	WDR 2 Aachen
+10100	50.6372	13.3561	0.5	R.SA Chemnitz
+10100	50.8247	8.7939	0.1	planet radio
+10100	51.0936	14.7000	30	Radio PSR Dresden
+10100	51.5828	9.9558	0.1	Deutschlandfunk (Dlf)
+10100	51.8689	9.1983	0.5	Radio Lippe
+10100	52.8292	11.6894	60	Radio BRocken Altmark
+10100	54.0844	13.3958	0.16	NDR 1 Radio MV Vorpommern
+10100	54.4869	9.0753	0.1	Deutschlandfunk Kultur
+10110	47.6806	11.7439	0.5	Antenne Bayern
+10110	47.7775	7.7014	8.4	Radio Regenbogen Freiburg
+10110	49.6244	7.9236	60	SWR3 Rheinland-Pfalz/Rheinland
+10110	49.8528	11.0603	25	Antenne Bayern
+10110	50.9464	10.6892	0.2	Schlager Radio Thüringen
+10110	50.9908	10.3300	0.2	Schlager Radio Thüringen
+10110	51.0433	11.7036	0.1	MDR Thüringen Gera
+10110	51.1464	8.2503	0.1	WDR 4 Siegen
+10110	51.4792	13.1253	1	Deutschlandfunk Kultur
+10110	51.4908	11.2872	0.1	MDR Sachsen-Anhalt Halle
+10110	52.2239	7.8478	0.5	Deutschlandfunk Kultur
+10110	52.3214	14.0375	0.5	Schlager Radio Brandenburg-Ost
+10110	53.8131	10.0419	20	Radio BOB! (Schleswig-Holstein) Hamburg
+10120	48.0878	8.4697	0.1	Radio 7 Tuttlingen
+10120	48.0925	9.2233	0.1	SWR4 Baden-Württemberg Bodensee Radio
+10120	48.7328	11.1681	0.2	hitradio.rt1 Neuburg-Schrobenhausen
+10120	49.6286	6.6133	10	SWR4 Rheinland-Pfalz Radio Trier
+10120	49.7575	9.5222	0.1	SWR4 Baden-Württemberg Franken Radio
+10120	50.3747	8.0144	0.1	RPR 1. Koblenz
+10120	50.4006	12.3503	30	MDR Jump
+10120	50.8847	8.0403	0.5	WDR 4 Siegen
+10120	51.3139	9.3458	20	hr3
+10120	53.0956	8.7917	100	Bremen Vier
+10120	54.3006	10.1183	0.08	Kiel FM
+10130	48.1742	11.5536	0.32	Antenne Bayern
+10130	48.7633	9.2056	75	Hitradio Antenne 1 Stuttgart
+10130	49.0394	12.1714	0.2	Deutschlandfunk Kultur
+10130	49.7800	9.9022	0.1	Deutschlandfunk Kultur
+10130	50.3772	9.5603	0.2	Radio BOB! (Hessen)
+10130	50.5856	8.4542	0.32	harmony.fm
+10130	50.6122	10.7450	1	radio TOP 40
+10130	51.1175	13.0983	1	Deutschlandfunk Kultur
+10130	51.3561	7.1339	100	WDR 4 Rhein-Ruhr
+10130	52.5208	13.4092	4	Klassik Radio Berlin
+10130	53.5864	6.6608	0.1	Radio Nordseewelle Ostfriesland
+10130	53.5919	11.4553	100	80s80s MV West
+10140	47.7478	11.3719	0.1	Radio Oberland
+10140	49.2336	12.6633	0.1	Deutschlandfunk Kultur
+10140	50.0683	8.2286	0.5	Radio BOB! (Hessen)
+10140	50.1353	8.6544	0.2	Radio BOB! (Hessen)
+10140	51.8000	10.6142	100	Radio SAW BRocken
+10140	54.5133	13.5997	8	Deutschlandfunk Kultur
+10140	54.7394	9.5075	20	R.SH Flensburg
+10150	48.0122	12.5472	0.32	Bayernwelle Südost Traunstein
+10150	48.7942	13.5364	0.1	Unser Radio Passau
+10150	49.4344	10.3128	25	Antenne Bayern
+10150	50.3089	7.5694	40	RPR 1. Koblenz
+10150	50.3278	11.6694	0.05	Radio Euroherz
+10150	50.4267	10.2147	1	Radio Primaton
+10150	50.7292	9.3225	0.32	Radio BOB! (Hessen)
+10150	50.9986	12.4553	1	MDR Aktuell
+10150	52.3828	14.4256	30	rbb Fritz
+10150	52.5350	7.3531	15	Radio ffn Emsland
+10150	53.7431	10.7042	20	R.SH Lübeck
+10150	53.9256	13.0442	0.1	NDR Info Mecklenburg-Vorpommern
+10160	47.6836	12.4883	0.1	Antenne Bayern
+10160	48.3381	8.1536	0.5	Hitradio Ohr
+10160	48.9464	11.4286	25	Bayern 1 Oberbayern
+10160	49.5397	8.8036	50	hr4 Rhein-Main
+10160	50.1006	11.4667	5	Radio Plassenburg
+10160	50.7017	11.5806	0.2	MDR Aktuell
+10160	51.9050	12.5806	55	MDR Jump
+10160	52.1450	8.7244	1.4	BFBS Germany
+10160	53.5722	9.6900	0.1	Energy Hamburg
+10160	53.8089	8.8836	2	Deutschlandfunk (Dlf)
+10160	54.1803	7.8831	0.15	Radio BOB! (Schleswig-Holstein) Nord/West
+10170	48.1472	11.5497	0.3	Deutschlandfunk (Dlf)
+10170	49.2911	6.9214	100	Radio Salü
+10170	50.5014	12.4089	0.4	MDR Aktuell
+10170	50.9342	6.9536	0.03	domradio
+10170	50.9864	11.8992	1	MDR Aktuell
+10170	51.2072	9.8475	100	hr4 Nord-Osthessen
+10170	51.7864	6.1111	2	WDR 4 Rhein-Ruhr
+10170	52.9772	9.6067	10	Radio ffn Heide
+10170	54.3325	8.7889	0.5	Deutschlandfunk Kultur
+10180	47.6614	11.7939	0.1	BR24
+10180	47.6711	9.1808	10	Radio Seefunk Bodensee
+10180	48.1294	8.0367	0.1	SWR4 Baden-Württemberg Radio Südbaden
+10180	48.3903	9.8956	10	Radio 7 Ulm
+10180	48.9567	8.4517	25	Die neue Welle Karlsruhe
+10180	49.0094	9.4631	1	Energy Stuttgart Waiblingen
+10180	49.9589	7.9006	0.32	harmony.fm
+10180	50.1919	8.5819	0.1	Deutschlandfunk Kultur
+10180	50.4458	11.6525	0.5	MDR Aktuell
+10180	50.9439	8.2128	15	WDR 2 Siegen
+10180	51.3039	13.0094	5	MDR Sachsen Leipzig
+10180	52.2950	8.1042	0.5	Deutschlandfunk (Dlf)
+10180	53.4614	7.5067	100	Deutschlandfunk (Dlf)
+10180	53.4833	13.6022	100	NDR Info Mecklenburg-Vorpommern
+10190	47.6481	7.8264	0.1	Radio Seefunk Hochrhein
+10190	49.2489	12.8908	50	Antenne Bayern
+10190	49.6811	7.3281	1	big FM Rheinland-Pfalz
+10190	50.4603	10.0067	100	Antenne Bayern
+10190	50.7786	6.2436	20	WDR 5
+10190	50.8803	11.5661	1	MDR Jump
+10190	51.3769	10.8317	0.1	Deutschlandfunk (Dlf)
+10190	51.4997	14.6331	0.5	R.SA Dresden
+10190	51.5317	6.9528	2	big FM NRW
+10190	52.2833	9.4206	25	Radio ffn Hannover
+10190	52.5208	13.4092	0.5	Radyo Metropol FM Berlin
+10190	54.2092	10.7239	87	Deutschlandfunk (Dlf)
+10200	47.6069	11.3164	0.1	Antenne Bayern
+10200	47.6206	8.2267	0.5	Radio SRF 1 Aargau/Solothurn
+10200	48.0878	8.4697	3	Antenne 1 Neckarburg Rock & Pop
+10200	49.1464	7.0519	0.02	Radio Schlagerparadies
+10200	49.3233	11.3806	25	BR24
+10200	49.4903	7.2528	0.009	Kerwe Radio
+10200	49.8831	8.6050	0.4	Radyo Metropol FM Hessen
+10200	50.0683	8.2286	0.1	Hit Radio FFH Wiesbaden
+10200	50.3956	8.0228	0.5	Radio BOB! (Hessen)
+10200	50.4703	12.1561	1	MDR Aktuell
+10200	50.4875	11.3708	0.02	Antenne Bayern
+10200	50.5800	8.6661	0.5	harmony.fm
+10200	52.0364	11.6653	20	Deutschlandfunk (Dlf)
+10200	52.3828	14.4256	1.6	rbb Inforadio
+10200	52.5350	7.3531	25	Deutschlandfunk (Dlf)
+10200	53.4994	10.1903	0.1	R.SH Hamburg
+10210	48.3594	10.8858	0.1	BR-Klassik
+10210	48.5342	13.4025	1	Antenne Bayern
+10210	49.5067	9.1150	25	Rock FM Heilbronn
+10210	50.2186	6.7506	20	RPR 1. Trier
+10210	50.7997	12.9656	3	Radio Chemnitz
+10210	51.0892	6.6056	0.25	NE-WS 89.4
+10210	51.3389	8.5047	10	WDR 2 Siegen
+10210	52.3967	13.0767	0.63	Power Radio
+10210	53.2294	14.2075	20	BB Radio Nord-Ost
+10210	54.2381	12.4458	0.2	Deutschlandfunk (Dlf)
+10220	49.3764	8.1211	25	Dasding (SWR)
+10220	50.8514	10.4653	100	Antenne Thüringen West
+10220	51.4133	7.0361	0.3	Radio Essen
+10220	51.6981	14.2728	3	Berliner Rundfunk 91.4 Lausitz
+10220	51.7281	9.4872	0.5	Radio ffn Göttingen
+10220	51.9600	7.3656	0.4	Radio Kiepenkerl
+10220	52.1283	8.2228	0.2	Radio Osnabrück
+10220	53.0653	11.4428	35	Deutschlandfunk (Dlf)
+10220	53.9297	9.5467	0.4	Deutschlandfunk (Dlf)
+10230	47.7036	12.0128	100	BR-Klassik
+10230	48.0806	7.6692	1	Radio Dreyeckland
+10230	48.7633	9.2056	100	AFN Stuttgart-The Eagle ?
+10230	50.0300	11.8083	30	BR-Klassik
+10230	50.9508	8.5319	10	Dasding (hr)
+10230	51.4619	7.5433	1	Antenne Unna
+10230	51.9050	12.5806	4	Radio BRocken Anhalt
+10230	53.0431	8.4581	100	Radio ffn Oldenburg
+10230	54.3325	8.7889	0.2	Deutschlandfunk (Dlf)
+10240	47.5486	10.5703	0.05	BR-Klassik
+10240	49.7800	9.9022	0.3	Radio Charivari Würzburg
+10240	50.7078	7.0967	50	WDR 1 live
+10240	51.0400	13.8386	100	Radio PSR Dresden
+10240	51.8086	10.5347	100	Radio ffn Braunschweig
+10240	53.3958	12.4636	3	Deutschlandfunk (Dlf)
+10240	54.3006	10.1183	15	R.SH Kiel
+10250	47.9358	8.8267	40	Radio 7 Tuttlingen
+10250	49.3233	11.3806	10	Bayern 2
+10250	50.2322	8.4589	100	hr4 Rhein-Main
+10250	50.8111	12.2156	30	Antenne Thüringen Ost
+10250	52.2736	7.8181	0.5	WDR 1 live
+10250	53.3744	10.5569	1	R.SH Lübeck
+10250	54.3236	13.3414	50	NDR 1 Radio MV Vorpommern
+10260	47.7714	9.6178	0.3	Radio Seefunk Bodensee
+10260	48.3903	9.8956	1	Free FM
+10260	48.7803	8.5653	0.1	Die neue Welle Pforzheim
+10260	49.1106	9.7494	3	Radio Ton Hohenlohe
+10260	49.3450	12.7092	0.32	Radio Charivari Regensburg Cham
+10260	49.6286	6.6133	20	RPR 1. Trier
+10260	50.9464	11.3408	2	MDR Aktuell
+10260	51.2794	8.9047	0.5	hr2-kultur
+10260	52.2589	9.2008	25	NDR 2 Niedersachsen
+10260	52.5208	13.4092	15	rbb Fritz
+10260	53.8089	8.8836	20	Radio ffn Cuxhaven
+10270	47.4211	10.9847	2	Antenne Bayern
+10270	48.5533	8.7328	0.1	Die neue Welle Pforzheim
+10270	49.3081	10.5808	0.2	Deutschlandfunk Kultur
+10270	50.4467	11.0042	60	Antenne Thüringen Süd
+10270	50.7456	6.0431	0.5	Deutschlandfunk (Dlf)
+10270	50.7997	12.9656	1	Radio T
+10270	50.7997	12.9656	1	apollo radio
+10270	51.1481	7.7567	20	Deutschlandfunk (Dlf)
+10270	51.7431	14.6289	0.5	Radio Cottbus
+10270	53.0653	10.8972	25	Radio ffn Heide
+10270	53.9561	14.1497	1	NDR Kultur
+10280	48.0039	7.8214	0.5	big FM Baden-Württemberg
+10280	49.3369	6.7692	1	Classic Rock Radio
+10280	49.4028	8.7306	50	Radio Regenbogen Mannheim
+10280	50.8153	8.7886	1	hr4 Mittelhessen
+10280	51.4481	14.2644	1	Lausitzwelle
+10280	51.5828	9.9558	5	Radio ffn Göttingen
+10280	51.6489	6.5778	50	Deutschlandfunk (Dlf)
+10280	51.7244	11.4650	1	MDR Aktuell
+10280	52.2650	12.2939	2	Radio SAW Magdeburg/Altmark
+10280	53.2050	8.2350	1	Deutschlandfunk Kultur
+10280	54.1294	12.1264	100	NDR Info Mecklenburg-Vorpommern
+10280	54.9108	8.3069	5	R.SH Sylt
+10290	47.7636	11.5544	0.2	Antenne Bayern
+10290	49.7542	6.6647	0.1	RPR 1. Trier
+10290	49.8889	11.0622	25	BR-Klassik
+10290	50.6636	7.9592	15	RPR 1. Koblenz
+10290	50.8686	9.7319	0.3	hr3
+10290	51.1844	12.2853	100	Radio PSR Leipzig
+10290	51.1986	10.4808	0.5	Radio Teddy Thüringen
+10290	52.5111	7.2872	0.25	Deutschlandfunk Kultur
+10290	53.5919	11.4553	0.16	Radio Teddy Mecklenburg-Vorpommern
+10290	53.8131	10.0419	20	R.SH Hamburg
+10300	47.4450	11.2628	0.05	Antenne Bayern
+10300	47.5531	10.3169	30	SWR3 Alb/Bodensee
+10300	48.2869	13.0392	0.05	Radio Trausnitz
+10300	48.6156	9.5964	1	Klassik Radio
+10300	48.6242	8.7567	0.01	Die neue Welle Pforzheim
+10300	48.7106	8.7378	0.3	Die neue Welle Pforzheim
+10300	48.9933	12.0753	25	Antenne Bayern
+10300	49.2147	7.6117	0.375	AFN Kaiserslautern-The Eagle ?
+10300	49.4336	6.5961	0.1	Radio Salü
+10300	49.9328	9.2408	25	Antenne Bayern
+10300	51.0936	14.7000	2	Deutschlandfunk Kultur
+10300	51.1781	10.0322	0.5	Radio BOB! (Hessen)
+10300	51.5117	10.7594	0.1	radio TOP 40
+10300	52.0144	8.4742	70	big FM NRW
+10300	52.1092	11.6289	0.2	MDR Jump
+10300	53.8489	13.6917	1.3	N-Joy
+10310	47.5706	7.7119	5	Radio Seefunk Hochrhein
+10310	48.4956	9.2317	0.1	Hitradio Antenne 1 Reutlingen
+10310	49.5608	7.5428	25	RPR 1. Kaiserslautern
+10310	50.5800	8.6661	0.63	Radio BOB! (Hessen)
+10310	50.9308	11.1072	2	Deutschlandfunk (Dlf)
+10310	52.2269	10.4742	15	Radio ffn Braunschweig
+10310	53.1053	12.1800	60	rbb Fritz
+10310	53.4614	7.5067	25	Radio ffn Meer
+10310	54.2092	10.7239	0.2	Deutschlandfunk Kultur
+10320	48.2506	11.7508	25	BR-Klassik
+10320	49.1117	9.2508	25	Radio Ton Heilbronn
+10320	50.0225	8.2769	1	SWR Kultur Rheinland-Pfalz
+10320	50.0300	11.8083	100	Antenne Bayern
+10320	51.3139	9.3458	20	hr4 Nord-Osthessen
+10320	51.7417	13.9419	100	rbb Fritz
+10320	53.3964	9.8656	20	NDR 1 Niedersachsen Lüneburg
+10320	53.4833	13.6022	1.3	N-Joy
+10330	48.7658	10.5069	25	Antenne Bayern
+10330	49.0956	7.9986	0.25	RPR 1. Ludwigshafen
+10330	49.2394	7.3864	1.9	RPR 1. Kaiserslautern
+10330	49.5661	8.1356	0.05	RPR 1. Ludwigshafen
+10330	49.7058	8.6297	0.2	Radio BOB! (Hessen)
+10330	50.4603	10.0067	100	Deutschlandfunk (Dlf)
+10330	50.8636	13.0889	0.5	Radio Erzgebirge
+10330	51.3561	7.1339	100	Cosmo
+10330	51.5953	11.9572	5	Radio SAW Halle
+10330	52.6447	9.2081	0.65	Radio Mittelweser
+10330	53.9561	14.1497	2	Ostseewelle Ost
+10330	54.3833	12.4300	0.63	Schlager Radio Mecklenburg-Vorpommern
+10330	54.7394	9.5075	20	Deutschlandfunk (Dlf)
+10340	47.6181	12.9925	0.1	Deutschlandfunk Kultur
+10340	48.3058	8.9922	50	Hitradio Antenne 1 Reutlingen
+10340	49.8714	8.6439	0.32	Radio Darmstadt
+10340	49.9589	7.9006	0.2	planet radio
+10340	50.6686	12.5014	0.5	Radio Zwickau
+10340	50.6942	8.3106	0.5	Dasding (hr)
+10340	50.8803	11.5661	0.32	Offener Kanal Jena
+10340	50.9381	14.6308	0.32	MDR Kultur
+10340	51.0833	12.3631	0.5	R.SA Leipzig
+10340	52.3744	8.0297	10	Radio ffn Osnabrück
+10340	52.5208	13.4092	8	Energy Berlin
+10340	53.5217	8.6492	0.5	Deutschlandfunk (Dlf)
+10340	53.8714	11.2331	5	N-Joy
+10350	48.3903	9.8956	0.5	Deutschlandfunk (Dlf)
+10350	48.8169	13.2175	100	Antenne Bayern
+10350	49.5072	9.7822	20	Radio Ton Main-Tauber
+10350	50.3878	12.5033	0.05	Vogtland Radio
+10350	50.4311	7.0703	30	RPR 1. Köln
+10350	50.6503	13.1564	0.5	Radio Erzgebirge
+10350	50.8247	8.7939	0.5	Radio Teddy Hessen
+10350	51.0400	13.8386	2	Radio Dresden
+10350	51.8086	10.5347	100	Deutschlandfunk (Dlf)
+10350	53.2050	8.2350	0.5	Energy Bremen Oldenburg
+10350	53.7942	12.6917	1	NDR Info Mecklenburg-Vorpommern
+10350	54.1803	7.8831	0.05	delta radio Nord/West
+10360	47.5653	9.6742	0.5	RSA Radio Bodensee
+10360	48.4614	11.1247	0.02	Radio Fantasy
+10360	49.3194	8.0817	25	RPR 1. Ludwigshafen
+10360	50.0789	9.1103	0.25	Radio Galaxy Aschaffenburg
+10360	50.7736	11.1828	60	MDR Thüringen Gera
+10360	51.6600	8.3339	0.1	Hellweg Radio Lippstadt
+10360	52.2114	7.0197	0.1	Radio WMW
+10360	53.5192	10.1028	80	Radio Hamburg
+10360	54.3017	13.0358	0.25	Radio Paradiso
+10370	47.7353	12.8992	0.3	Antenne Bayern
+10370	47.8586	12.6122	5	Antenne Bayern
+10370	48.2183	8.4144	0.1	Antenne 1 Neckarburg Rock & Pop
+10370	48.8608	10.1372	50	Radio 7 Aalen
+10370	49.2911	6.9214	100	Dasding (SR)
+10370	49.6792	12.2353	0.1	Deutschlandfunk Kultur
+10370	50.0764	8.2706	0.5	AFN Wiesbaden-The Eagle ?
+10370	50.5856	8.4542	0.5	planet radio
+10370	51.3039	13.0094	5	MDR Jump
+10370	51.3139	9.3458	20	Hit Radio FFH Nordhessen
+10370	51.7864	6.1111	2	WDR 1 live
+10370	52.1189	14.5681	0.63	BB Radio Oderland
+10370	52.7458	12.3519	0.2	Deutschlandfunk Kultur
+10370	52.8881	7.8497	1.6	NDR Info Niedersachsen
+10370	54.1064	11.7661	5	N-Joy
+10380	47.8011	11.0244	25	Antenne Bayern
+10380	48.7525	8.2022	2	big FM Baden-Württemberg
+10380	49.6575	9.0689	5	hr4 Rhein-Main
+10380	50.3019	12.3231	0.5	Vogtland Radio
+10380	50.3553	10.9153	5	Antenne Bayern
+10380	51.1481	7.7567	35	WDR 4 Siegen
+10380	51.5003	11.5072	0.5	Deutschlandfunk (Dlf)
+10380	51.5833	13.9897	1.3	Lausitzwelle
+10380	52.2833	9.4206	25	Antenne Niedersachsen Hannover
+10380	53.4833	13.6022	100	80s80s MV Ost
+10380	54.1953	9.2483	15	R.SH Heide
+10390	47.6392	10.0772	10	Radio Seefunk Bodensee
+10390	48.8153	9.2197	2	Klassik Radio
+10390	48.9028	11.8694	0.5	Radio Charivari Regensburg Kelheim
+10390	49.4578	11.8725	0.1	Radio Ramasuri
+10390	50.1122	8.6722	0.5	hr-info
+10390	50.5336	9.7225	0.3	hr4 Nord-Osthessen
+10390	50.8111	12.2156	30	MDR Kultur
+10390	50.8247	8.7939	0.1	Radio BOB! (Hessen)
+10390	51.3478	10.2803	5	Antenne Thüringen Nord
+10390	51.7431	14.6289	6.3	94.3 rs2 Cottbus + Lausitz
+10390	52.1431	7.3225	0.5	Radio Q
+10390	52.4433	13.7747	0	Radio Industry
+10390	52.7461	11.3533	5	Radio SAW Magdeburg/Altmark
+10390	53.2639	7.4364	0.2	Radio Ostfriesland
+10390	53.5919	11.4553	0.2	Radio Paradiso
+10390	54.9108	8.3069	0.2	Deutschlandfunk Kultur
+10400	47.8725	8.0053	5	SWR4 Baden-Württemberg Radio Südbaden
+10400	48.1472	11.5497	0.1	Radio Arabella
+10400	49.4144	10.3778	25	BR24
+10400	50.3089	7.5694	40	big FM Rheinland-Pfalz
+10400	50.7292	9.3225	0.1	hr2-kultur
+10400	51.8381	9.3958	0.5	Radio 21 Süd
+10400	51.9050	12.5806	100	MDR Kultur
+10400	52.2239	7.8478	1	Radio RST
+10400	53.5631	9.9756	0.16	Byte FM
+10400	53.5631	9.9756	0.16	FluxFM Hamburg
+10400	53.7064	7.1594	0.05	Radio Nordseewelle Ostfriesland
+10400	54.5133	13.5997	8	Deutschlandfunk (Dlf)
+10410	47.6067	11.3161	0.1	BR-Klassik
+10410	48.5242	12.1714	1	Radio Trausnitz
+10410	49.4036	8.7283	50	SWR4 Baden-Württemberg Studio Mannheim
+10410	51.1264	14.1850	0.2	MDR Aktuell
+10410	51.3192	9.4700	0.5	Rock Antenne
+10410	51.3389	8.5047	10	WDR 4 Siegen
+10410	52.2269	10.4742	1	Radio 21 Ost
+10410	52.4956	13.3575	0.63	lulu.fm
+10410	53.2050	8.2350	0.24	Radio 21 Nordwest
+10410	53.7253	14.0564	1.6	N-Joy
+10410	54.2092	10.7239	50	delta radio Ost
+10420	47.6417	12.1897	0.3	Radio Charivari Rosenheim
+10420	47.6894	9.0700	0.05	Radio SRF 3
+10420	47.8311	12.3000	0.05	Radio Charivari Rosenheim
+10420	48.0914	9.1983	1	Radio Seefunk Bodensee
+10420	48.3594	10.8858	0.05	Antenne Bayern
+10420	48.6833	10.1600	0.1	Radio Ton Ostwürttemberg
+10420	49.1453	7.5869	5	SWR4 Rheinland-Pfalz Radio Kaiserslautern
+10420	49.4886	6.5856	0.1	Radio Salü
+10420	49.8061	9.6550	0.5	Antenne Bayern
+10420	50.7817	6.9072	0.2	Radio Bonn/Rhein-Sieg
+10420	50.8514	10.4653	100	Landeswelle Thüringen West
+10420	50.9147	13.3453	0.2	Radio Dresden
+10420	51.2361	6.8722	1.3	Antenne Düsseldorf
+10420	51.4667	7.3694	0.1	Radio Ennepe Ruhr Nord-Kreis
+10420	52.2319	8.3514	0.25	Radio Osnabrück
+10420	52.3828	14.4256	20	Berliner Rundfunk 91.4 Oderland
+10420	52.9772	9.6067	10	Antenne Niedersachsen Hannover
+10420	54.8639	8.9203	0.3	Deutschlandfunk Kultur
+10430	47.6008	7.6397	0.1	Radio Seefunk Hochrhein
+10430	47.6806	11.7439	0.5	Radio Alpenwelle
+10430	48.7222	8.9939	4	Energy Stuttgart Böblingen
+10430	48.8903	8.6828	0.001	Autokino Pforzheim
+10430	49.8831	8.6050	0.8	Dasding (hr)
+10430	49.9667	11.6444	10	Radio Mainwelle
+10430	50.5086	13.0189	1	Deutschlandfunk Kultur
+10430	50.9508	8.5319	100	hr4 Mittelhessen
+10430	51.9044	10.1669	0.32	Radio ffn Göttingen
+10430	52.5350	7.3531	15	Antenne Niedersachsen Osnabrück
+10430	53.1053	12.1800	100	BB Radio Prignitz
+10430	53.5217	8.6492	8	Energy Bremen Bremerhaven
+10430	54.0844	13.3958	0.2	Deutschlandfunk (Dlf)
+10440	47.5531	10.3169	100	Antenne Bayern
+10440	49.2489	12.8908	50	BR24
+10440	49.4664	8.1703	0.05	RPR 1. Wurstmarkt-Radio
+10440	49.7803	9.9028	5	Antenne Bayern
+10440	50.4225	6.4589	20	WDR 4 Aachen
+10440	51.4619	7.5433	0.2	Deutschlandfunk (Dlf)
+10440	51.5953	11.9572	10	Sputnik (MDR)
+10440	51.7417	13.9419	60	rbb Kultur
+10440	52.2589	9.2008	25	NDR Kultur
+10440	53.2294	14.2075	10	rbb Kultur
+10440	53.8225	12.1722	0.63	N-Joy
+10440	54.1953	9.2483	0.6	Deutschlandfunk (Dlf)
+10450	47.6928	7.8736	0.5	Freies Radio Wiesental
+10450	48.8017	9.4203	2	Energy Stuttgart Waiblingen
+10450	48.8683	9.4081	0.1	Energy Stuttgart Waiblingen
+10450	49.3233	11.3806	2	Bayern 1 Niederbayern/Oberpfalz
+10450	49.9419	8.1711	20	big FM Rheinland-Pfalz
+10450	50.8747	12.0633	0.1	Vogtland Radio
+10450	50.8803	11.5661	0.32	Deutschlandfunk (Dlf)
+10450	51.3353	10.5339	10	Landeswelle Thüringen Nord
+10450	51.4292	6.7847	0.2	CampusFM
+10450	51.4789	9.1508	0.5	WDR 4 Bielefeld
+10450	51.9497	7.6661	0.32	Deutschlandfunk (Dlf)
+10450	53.2639	7.4364	0.32	Radio 21 Nordwest
+10450	53.5744	10.5408	20	NDR 1 Welle Nord Lübeck
+10460	47.6069	11.3164	0.1	Radio Oberland
+10460	48.0986	9.8017	0.32	Donau 3 FM Biberach
+10460	48.3022	8.5839	1	Antenne 1 Neckarburg Rock & Pop
+10460	49.5228	9.3311	0.1	Radio Regenbogen Mannheim
+10460	49.6286	6.6133	20	Deutschlandfunk (Dlf)
+10460	49.6986	9.0219	0.1	harmony.fm
+10460	50.1361	9.9317	0.32	Radio Primaton
+10460	50.3747	8.7281	0.5	planet radio
+10460	50.6386	12.4353	0.2	Deutschlandfunk Kultur
+10460	50.6833	11.3686	0.1	MDR Aktuell
+10460	51.1781	10.0322	0.5	planet radio
+10460	51.3192	9.4700	0.5	planet radio
+10460	52.2269	10.4742	0.5	Radio Okerwelle
+10460	52.5208	13.4092	25	104.6 RTL
+10460	53.8089	8.8836	20	Antenne Niedersachsen Oldenburg/Küste
+10470	47.5486	10.5703	0.05	Antenne Bayern
+10470	48.6336	9.8311	0.1	Die Neue 107.7
+10470	49.1453	7.5869	5	RPR 1. Kaiserslautern
+10470	49.1478	9.2622	0.2	big FM Baden-Württemberg
+10470	49.3500	10.1708	0.05	Radio 8
+10470	49.7653	9.5264	0.1	Radio Ton Main-Tauber
+10470	49.8872	10.8592	0.5	Radio Galaxy Oberfranken
+10470	49.9050	8.7733	0.2	harmony.fm
+10470	51.1481	7.7567	35	WDR 1 live
+10470	51.3039	13.0094	5	Hitradio RTL Sachsen Leipzig
+10470	51.4117	11.0761	3	Antenne Thüringen Nord
+10470	54.3006	10.1183	0.2	Deutschlandfunk Kultur
+10480	47.6836	12.4883	0.1	BR24
+10480	48.4011	9.9844	0.1	Antenne Bayern
+10480	48.4956	9.2317	1	Neckaralb Live
+10480	48.5431	11.4311	0.2	Radio IN
+10480	48.9567	8.4517	1	Querfunk
+10480	49.1350	10.0756	0.1	StHörfunk
+10480	49.8267	7.8336	0.2	big FM Rheinland-Pfalz
+10480	49.8903	11.9506	0.05	Radio Ramasuri
+10480	50.3019	12.3231	0.5	MDR Sachsen Chemnitz
+10480	50.4603	10.0067	50	hr1
+10480	50.4950	11.3678	0.02	BR24
+10480	50.5681	13.0028	0.5	R.SA Chemnitz
+10480	51.5642	8.5447	0.1	Radio Hochstift
+10480	51.7281	9.4872	0.5	Radio Hochstift
+10480	52.1808	8.0367	1	osradio 104.8
+10480	52.6464	11.8347	1	Sputnik (MDR)
+10480	53.0956	8.7917	0.2	Radio Teddy Bremen
+10480	54.1294	12.1264	100	Ostseewelle Nord
+10480	54.9108	8.3069	5	delta radio Nord/West
+10490	47.4522	11.0667	0.1	BR24
+10490	48.4192	7.9642	5	Hitradio Ohr
+10490	49.4736	10.3767	0.375	AFN Bavaria-The Eagle ?
+10490	50.4311	7.0703	30	big FM Rheinland-Pfalz
+10490	50.8247	8.7939	0.1	Rock Antenne
+10490	51.1128	14.4131	0.5	Energy Sachsen Dresden
+10490	51.1844	12.2853	100	Radio SAW Halle
+10490	51.3475	8.2750	0.1	Radio Sauerland
+10490	52.3928	9.7994	0.3	Radio 21 Mitte
+10490	52.8233	13.8333	0.8	Schlager Radio Brandenburg-Ost
+10490	53.4614	7.5067	25	Antenne Niedersachsen Oldenburg/Küste
+10490	53.9297	9.5467	1	Radio BOB! (Schleswig-Holstein) Nord/West
+10500	47.6392	10.0772	50	Radio 7 Ravensburg
+10500	47.7311	12.8950	0.3	Bayern 1 Oberbayern
+10500	49.0394	12.1714	25	BR24
+10500	49.3611	7.1933	5	Deutschlandfunk Kultur
+10500	49.6839	8.7306	20	Hit Radio FFH Südhessen
+10500	50.5561	6.2358	0.05	Antenne AC
+10500	50.5856	8.4542	0.5	Radio Frankfurt 95.1
+10500	50.7533	13.0744	0.2	Radio Erzgebirge
+10500	51.4475	6.9967	0.1	Radio Essen
+10500	51.6661	7.8169	0.2	Radio Lippe Welle Hamm
+10500	51.7703	8.7208	0.3	BFBS Germany
+10500	52.3256	12.5933	3	BB Radio Brandenburg
+10500	52.5583	8.2106	1	N-Joy
+10500	52.7461	11.3533	1	Sputnik (MDR)
+10500	54.4806	9.6611	0.16	Deutschlandfunk Kultur
+10510	47.7775	7.7014	10	Deutschlandfunk (Dlf)
+10510	48.7858	9.9539	0.32	big FM Baden-Württemberg
+10510	49.4258	11.0389	0.5	Klassik Radio Bayern
+10510	49.4294	7.6836	2	AFN Kaiserslautern-The Eagle ?
+10510	49.4336	6.5961	0.1	Radio Saarschleifenland 106.1
+10510	49.9364	12.1133	0.5	Radio Ramasuri
+10510	49.9836	6.6919	1	AFN Spangdahlem-The Eagle ?
+10510	50.3956	8.0228	0.32	Deutschlandfunk Kultur
+10510	50.5647	11.8022	0.2	MDR Aktuell
+10510	51.1956	14.9503	1	R.SA Dresden
+10510	51.2072	9.8475	100	Hit Radio FFH Nordhessen
+10510	51.5336	6.5803	1	big FM NRW
+10510	52.3050	13.6133	0.8	Sender KW
+10510	53.3964	9.8656	20	Antenne Niedersachsen Hamburg
+10510	54.3236	13.3414	50	80s80s MV Nord
+10520	47.4583	10.1444	0.02	Radio Horeb
+10520	47.8606	10.3956	0.1	RSA Radio Ostallgäu
+10520	48.2506	11.7508	25	Radio Arabella
+10520	48.8075	8.6242	20	big FM Baden-Württemberg
+10520	50.0225	8.2769	1	Dasding (SWR)
+10520	50.5800	8.6661	0.5	Radio Frankfurt 95.1
+10520	50.6833	11.3686	0.3	SRB.FM
+10520	51.0322	7.3883	4	Radio Berg
+10520	51.0400	13.8386	100	Hitradio RTL Sachsen Dresden
+10520	51.6619	7.0161	0.1	Radio Vest
+10520	52.0364	11.6653	1.5	Sputnik (MDR)
+10520	52.1000	7.2636	4	Radio RST
+10520	52.1675	9.1328	0.1	N-Joy
+10520	53.2294	14.2075	6.3	Deutschlandfunk (Dlf)
+10520	54.2072	9.0972	0.05	Westküste FM
+10530	47.7344	8.8250	0.3	Radio Seefunk Bodensee
+10530	47.8056	12.9042	1	Antenne Bayern
+10530	49.6111	6.5489	0.1	Deutschlandfunk Kultur
+10530	50.3692	9.9803	100	BR24
+10530	50.4167	7.5903	0.32	Deutschlandfunk Kultur
+10530	52.1319	9.9325	1	Radio Tonkuhle
+10530	53.5919	11.4553	100	NDR Info Mecklenburg-Vorpommern
+10530	53.5969	7.2061	0.25	Deutschlandfunk Kultur
+10540	47.4942	10.3650	0.05	Antenne Bayern
+10540	47.5858	11.1031	0.1	Radio Oberland
+10540	47.6272	8.2639	0.1	Radio Seefunk Hochrhein
+10540	48.2108	8.9189	0.3	Hitradio Antenne 1 Reutlingen
+10540	48.6178	9.7853	1	Hitradio Antenne 1 Göppingen
+10540	49.0150	11.4756	0.1	Radio IN
+10540	49.4028	8.7306	0.05	bermuda/R-Aktiv
+10540	50.2981	8.2353	0.2	harmony.fm
+10540	50.6222	12.8700	100	Hitradio RTL Sachsen Chemnitz
+10540	51.0825	8.2250	4	Radio Siegen
+10540	51.2150	6.7822	0.2	Antenne Düsseldorf
+10540	51.8283	10.7831	0.5	Radio BRocken Magdeburg
+10540	53.8336	8.6481	20	NDR 1 Niedersachsen Oldenburg
+10540	53.9561	14.1497	2.5	80s80s MV Ost
+10550	47.6214	13.0239	0.1	Antenne Bayern
+10550	48.6622	12.7000	0.32	Radio Trausnitz
+10550	48.6889	8.1906	0.5	Hitradio Ohr
+10550	49.1883	13.0486	0.1	Radio Charivari Regensburg Cham
+10550	49.4578	11.8725	0.063	Radio Galaxy Amberg/Weiden
+10550	49.5072	9.7822	10	SWR4 Baden-Württemberg Franken Radio
+10550	50.4225	6.4589	20	WDR 1 live
+10550	50.5797	8.5008	0.32	Dasding (hr)
+10550	51.9058	8.8217	100	WDR 1 live
+10550	52.5208	13.4092	5	105'5 Spreeradio
+10550	53.8131	10.0419	0.1	Deutschlandfunk Kultur
+10560	49.4258	11.0389	0.1	Deutschlandfunk Kultur
+10560	49.6244	7.9236	60	SWR4 Rheinland-Pfalz Radio Kaiserslautern
+10560	50.7292	9.3225	0.1	hr3
+10560	50.7736	11.1828	60	MDR Jump
+10560	51.0936	14.7000	30	Hitradio RTL Sachsen Löbau
+10560	51.4639	7.0075	0.05	CampusFM
+10560	53.3744	10.5569	1	delta radio Ost
+10560	54.1294	12.1264	0.2	lounge plus chillout radio
+10560	54.7394	9.5075	20	delta radio Nord/West
+10570	47.7036	12.0128	100	BR24
+10570	48.7556	9.1900	80	SWR Kultur Baden-Württemberg
+10570	49.7803	9.9069	0.13	BR24
+10570	50.5317	9.7275	0.3	Radio BOB! (Hessen)
+10570	50.8731	7.6319	1	Radio Berg
+10570	50.9736	9.7533	0.32	hr3
+10570	51.1589	8.6111	0.1	WDR 1 live
+10570	51.2669	6.7758	0.2	big FM NRW
+10570	51.3111	7.3317	0.1	Radio Ennepe Ruhr Süd-Kreis
+10570	51.5150	6.3186	0.5	Antenne Niederrhein
+10570	51.7281	9.4872	0.5	Antenne Niedersachsen Hannover
+10570	52.0364	11.6653	15	Radio BRocken Magdeburg
+10570	53.0431	8.4581	100	Antenne Niedersachsen Oldenburg/Küste
+10580	49.2892	10.5719	0.1	Radio Galaxy Mittelfranken
+10580	49.7542	6.6647	0.1	Rockland Radio Trier
+10580	50.3639	11.1886	0.1	MDR Aktuell
+10580	50.8747	12.0633	1	Landeswelle Thüringen Ost
+10580	50.9469	6.9319	2	Radio Erft
+10580	51.2125	10.4597	0.1	MDR Aktuell
+10580	51.3192	9.4700	0.5	Freies Radio Kassel
+10580	51.5117	10.7594	0.1	Landeswelle Thüringen Nord
+10580	52.0619	9.9608	1	Radio 21 Mitte
+10580	52.3953	12.5461	0	POP ONE
+10580	53.4833	13.6022	100	Ostseewelle Ost
+10580	53.6425	10.2633	0.5	HAMBURG ZWEI
+10580	53.8714	11.2331	0.16	80s80s MV West
+10590	48.3903	9.8956	5	Donau 3 FM Ulm
+10590	48.5628	13.4589	0.3	BR24
+10590	49.4425	12.1678	0.32	Radio Charivari Regensburg Schwandorf
+10590	50.2322	8.4589	100	Hit Radio FFH Rhein-Main
+10590	51.3039	13.0094	30	MDR Aktuell
+10590	52.3744	8.0297	10	Antenne Niedersachsen Osnabrück
+10590	52.3828	14.4256	1.6	105.9 Radio Paradiso
+10590	54.3006	10.1183	15	delta radio Mitte
+10600	47.5725	9.9358	0.1	Antenne Bayern
+10600	47.7775	7.7014	8.4	baden.fm
+10600	48.1544	8.6589	0.05	Deutschlandfunk (Dlf)
+10600	49.4881	9.7544	0.1	Hitradio Antenne 1 Heilbronn
+10600	50.4006	12.3503	30	Hitradio RTL Sachsen Vogtland
+10600	51.2822	6.3472	0.2	big FM NRW
+10600	51.4964	7.4764	3.2	big FM NRW
+10600	51.5828	9.9558	5	Antenne Niedersachsen Göttingen
+10600	52.5208	13.4092	1	Schlager Radio Berlin/Umland
+10600	53.4669	7.4831	0.006	Radio Lamberti
+10600	53.4747	9.6953	0.5	Radio 21 Nordost
+10600	53.4747	9.6953	1	Radio 21 Nordost
+10600	53.8225	12.1722	0.8	Deutschlandfunk (Dlf)
+10610	48.7183	9.6569	1	Die Neue 107.7
+10610	48.9464	11.4286	10	BR24
+10610	49.2139	7.6017	0.4	Deutschlandfunk (Dlf)
+10610	49.4028	8.7306	1	Rock FM Mannheim
+10610	49.4917	6.5919	0.1	Radio Saarschleifenland 106.1
+10610	49.6219	7.3328	0.02	AFN Kaiserslautern-The Eagle ?
+10610	49.7783	7.4589	0.1	SWR4 Rheinland-Pfalz Radio Trier
+10610	49.9900	11.0694	0.1	Radio Bamberg
+10610	50.4225	6.4589	20	Deutschlandfunk Kultur
+10610	50.8264	10.9417	0.5	MDR Aktuell
+10610	50.8803	11.5661	1	Landeswelle Thüringen Mitte
+10610	51.0097	14.5686	0.5	R.SA Dresden
+10610	51.0400	13.8386	0.5	MDR Aktuell
+10610	51.3389	8.5047	10	Deutschlandfunk Kultur
+10610	51.7892	6.2944	0.1	big FM NRW
+10610	52.2589	9.2008	1	Deutschlandfunk (Dlf)
+10610	52.6847	7.6031	0.006	Kirchenfunk
+10610	53.0653	10.8972	25	Antenne Niedersachsen Hamburg
+10610	53.2294	14.2075	63	rbb radioeins Frankfurt
+10620	47.4522	11.0667	0.2	Radio Oberland
+10620	47.7414	11.8728	0.1	Radio Alpenwelle
+10620	48.1603	9.4425	0.5	Donau 3 FM Biberach
+10620	49.4661	6.3967	5	Deutschlandfunk Kultur
+10620	49.9594	7.1111	0.2	Deutschlandfunk Kultur
+10620	50.4603	10.0067	50	hr3
+10620	51.2808	14.0928	0.2	R.SA Dresden
+10620	51.5028	6.8242	0.1	Radio Oberhausen
+10620	52.0250	8.5372	0.1	Deutschlandfunk Kultur
+10620	52.1944	12.5608	100	Antenne Brandenburg Potsdam
+10620	53.5217	8.6492	5	Deutschlandfunk Kultur
+10620	53.9256	13.0442	0.5	Deutschlandfunk Kultur
+10620	54.2092	10.7239	0.13	Radio BOB! (Schleswig-Holstein) Ost
+10630	47.6128	10.5897	0.5	RSA Radio Ostallgäu
+10630	48.6106	8.2017	80	Deutschlandfunk (Dlf)
+10630	49.4344	10.3128	0.2	Deutschlandfunk (Dlf)
+10630	49.9589	7.9006	0.2	Deutschlandfunk Kultur
+10630	50.3697	11.3417	0.02	Radio Eins
+10630	50.6636	7.9592	25	SWR4 Rheinland-Pfalz Radio Koblenz
+10630	50.7997	12.9656	0.5	Deutschlandfunk Kultur
+10630	51.5958	14.3622	4	94.3 rs2 Cottbus + Lausitz
+10630	51.8086	10.5347	100	Antenne Niedersachsen Braunschweig
+10630	51.8278	7.2819	0.19	Radio Kiepenkerl Süd
+10630	53.3675	7.2103	0.25	Radio Nordseewelle Ostfriesland
+10630	53.5919	11.4553	2	Deutschlandfunk (Dlf)
+10640	47.5761	7.9475	0.25	Radio SRF 1 Aargau/Solothurn
+10640	47.6181	12.9925	0.3	BR24
+10640	48.1319	11.2239	5	TOP FM West
+10640	48.3156	12.4683	0.3	Inn-Salzach-Welle
+10640	49.5992	11.6194	0.1	Radio Ramasuri
+10640	49.6811	7.3281	1	SWR4 Rheinland-Pfalz Radio Trier
+10640	49.7542	6.6647	0.1	big FM Rheinland-Pfalz
+10640	49.9328	9.2408	25	BR24
+10640	50.3019	12.3231	0.5	MDR Kultur
+10640	50.7786	6.2436	20	WDR 1 live
+10640	50.9122	14.7864	0.2	MDR Aktuell
+10640	51.3183	13.2636	2	R.SA Dresden
+10640	51.7631	11.9686	0.3	MDR Aktuell
+10640	51.9011	8.1922	0.01	Radio St. Laurentius
+10640	52.4953	13.4614	0.2	Evosonic Radio
+10640	52.4994	13.3836	0.35	106.4 pure fm - Berlins Klubradio
+10640	52.5583	8.2106	0.5	NDR Info Niedersachsen
+10640	53.9794	9.8494	20	NDR 1 Welle Nord Norderstedt
+10650	48.6614	9.4567	0.15	Die Neue 107.7
+10650	49.4044	8.6633	0.4	Deutschlandfunk (Dlf)
+10650	49.4514	11.0742	0.1	max neo
+10650	49.8267	7.8336	0.05	Rockland Radio Bad Kreuznach
+10650	50.9908	10.3300	0.5	Deutschlandfunk (Dlf)
+10650	51.1128	14.4131	1	R.SA Dresden
+10650	51.1589	8.6111	0.5	Radio Sauerland
+10650	51.1844	12.2853	30	MDR Sachsen-Anhalt Halle
+10650	51.4011	8.0622	0.25	Radio Sauerland
+10650	52.3928	9.7994	0.3	leibniz.fm
+10650	53.2050	8.2350	1	oldenburg eins
+10650	54.1294	12.1264	0.63	Schlager Radio Mecklenburg-Vorpommern
+10650	54.8336	9.4094	0.1	Klassik Radio
+10660	47.8511	12.1219	0.1	Radio Galaxy Rosenheim
+10660	47.9011	8.1842	0.25	baden.fm
+10660	48.5692	12.1125	1	BR24
+10660	48.9028	11.1625	0.5	Antenne Bayern
+10660	49.1847	9.6656	50	SWR4 Baden-Württemberg Franken Radio
+10660	49.2394	7.3864	0.1	big FM Rheinland-Pfalz
+10660	50.0033	8.2597	0.32	Antenne Mainz Mainz
+10660	50.2186	6.7506	9.5	big FM Rheinland-Pfalz
+10660	50.3747	8.7281	0.5	Radio BOB! (Hessen)
+10660	50.5336	9.7225	0.3	hr2-kultur
+10660	50.5681	13.0028	1	Radio Erzgebirge
+10660	50.9464	11.3408	2	Radio LOTTE
+10660	51.1358	9.2931	0.1	harmony.fm
+10660	51.1781	10.0322	0.1	Dasding (hr)
+10660	51.4564	11.0153	0.48	Radio SAW BRocken
+10660	51.4789	9.1508	0.2	Deutschlandfunk (Dlf)
+10660	51.9939	8.9303	1	Radio Lippe
+10660	52.3094	8.6167	0.2	Radio Westfalica
+10660	52.9939	7.6319	0.01	Kirchenfunk Esterwegen
+10660	53.1053	12.1800	100	Antenne Brandenburg Perleberg
+10660	53.8561	8.6775	0.63	Radio 21 Nordost
+10670	47.5858	11.1031	2	BR24
+10670	47.6844	12.0056	0.1	Antenne Bayern
+10670	49.3194	8.0817	20	big FM Rheinland-Pfalz
+10670	50.4467	11.0042	60	Landeswelle Thüringen Süd
+10670	51.2264	13.9578	0.5	Deutschlandfunk Kultur
+10670	51.3561	7.1339	80	WDR 1 live
+10670	51.3933	9.6803	0.5	Antenne Niedersachsen Göttingen
+10670	51.8961	11.3081	0.5	MDR Aktuell
+10670	52.6447	9.2081	0.25	NDR Info Niedersachsen
+10680	48.6325	9.3206	1	Die Neue 107.7
+10680	50.1756	8.8331	0.5	harmony.fm
+10680	50.6444	8.1489	32	Hit Radio FFH Mittelhessen
+10680	51.5117	10.7594	0.1	Antenne Thüringen Nord
+10680	52.1044	9.3783	0.05	Antenne Niedersachsen Hannover
+10680	52.1064	8.2944	0.4	Radio Gütersloh
+10680	52.5058	13.2194	2	JazzRadio
+10680	53.6256	10.1961	50	Rock Antenne Hamburg
+10680	54.0844	13.3958	0.16	Ostseewelle Ost
+10690	47.5531	10.3169	100	BR24
+10690	48.7758	9.0000	0.1	Hitradio Antenne 1 Stuttgart
+10690	48.8169	13.2175	100	BR24
+10690	49.4258	11.0389	0.3	Energy Nürnberg
+10690	49.7803	9.9028	5	106.9 Radio Gong
+10690	49.9589	7.9006	0.32	Hit Radio FFH Wiesbaden
+10690	50.5256	6.4936	4	Radio Euskirchen
+10690	50.8686	9.7319	0.32	hr2-kultur
+10690	51.0944	14.9086	1	MDR Aktuell
+10690	51.1844	12.2853	100	Hitradio RTL Sachsen Leipzig
+10690	51.5200	9.3492	0.32	Deutschlandfunk (Dlf)
+10690	52.2269	10.4742	13	Antenne Niedersachsen Braunschweig
+10690	52.3197	14.5286	0.2	Schlager Radio Brandenburg-Ost
+10690	52.5350	7.3531	0.5	Radio 21 Südwest
+10690	53.4658	7.4658	1	Deutschlandfunk Kultur
+10700	47.6025	8.4069	5	Radio Seefunk Hochrhein
+10700	48.0133	7.7936	0.1	SWR1 Baden-Württemberg
+10700	48.8678	11.4475	0.5	Deutschlandfunk (Dlf)
+10700	48.9044	8.7192	1	Hitradio Antenne 1 Pforzheim
+10700	49.8831	8.6050	5	hr-info
+10700	50.9975	13.6603	0.2	Radio Dresden
+10700	51.0725	14.4519	0.2	R.SA Dresden
+10700	51.2131	10.4597	1	Deutschlandfunk (Dlf)
+10700	51.3389	8.5047	10	WDR 1 live
+10700	53.3958	12.4636	60	NDR 2 Mecklenburg-Vorpommern
+10710	47.6706	8.9194	0.025	Radio SRF 3
+10710	47.7311	12.8950	0.05	BR24
+10710	47.8417	12.6536	5	BR24
+10710	48.8608	10.1372	20	Radio Ton Ostwürttemberg
+10710	49.2947	8.7117	0.1	Rock FM Rhein-Neckar
+10710	49.8456	7.0533	25	SWR4 Rheinland-Pfalz Radio Trier
+10710	50.0300	11.8083	30	BR24
+10710	50.9122	14.7864	0.5	MDR Jump
+10710	50.9342	6.9536	0.5	Radio Köln
+10710	51.4908	11.2872	0.1	Radio BRocken Halle
+10710	51.5828	9.9558	1	Stadtradio Göttingen
+10710	51.8203	12.3042	0.3	Deutschlandfunk (Dlf)
+10710	53.0956	8.7917	100	Deutschlandfunk (Dlf)
+10710	53.9561	14.1497	0.5	Deutschlandfunk Kultur
+10720	47.8083	9.5858	0.1	Dasding (SWR)
+10720	48.1742	11.5536	1	Klassik Radio Bayern
+10720	49.1453	7.5869	5	SWR3 Rheinland-Pfalz/Rheinland
+10720	49.6986	9.0219	0.1	Deutschlandfunk Kultur
+10720	50.0225	8.2769	0.4	Deutschlandfunk Kultur
+10720	50.5086	13.0189	0.16	Radio Erzgebirge
+10720	50.9439	8.2128	15	WDR 1 live
+10720	51.0136	11.2586	0.25	radio TOP 40
+10720	51.3847	7.2092	0.16	big FM NRW
+10720	51.7417	13.9419	100	BB Radio Niederlausitz
+10720	51.8961	11.3081	2.4	Rockland Sachsen-Anhalt Nord
+10720	51.9514	7.9806	1	Deutschlandfunk (Dlf)
+10720	52.1842	9.4094	0.2	radio aktiv
+10720	54.8639	8.9203	0.16	Radio BOB! (Schleswig-Holstein) Nord/West
+10730	47.4583	10.1444	0.02	BR24
+10730	47.8889	10.6803	0.1	Deutschlandfunk Kultur
+10730	48.3058	8.9922	25	SWR4 Baden-Württemberg Radio Tübingen
+10730	49.1108	8.6114	0.1	Die neue Welle Karlsruhe
+10730	49.2656	12.0489	0.1	Deutschlandfunk Kultur
+10730	49.3139	10.6392	0.5	AFN Bavaria-The Eagle ?
+10730	50.4603	10.0067	50	hr4 Nord-Osthessen
+10730	50.8556	12.7564	0.1	Radio Chemnitz
+10730	50.8747	12.0633	0.5	Schlager Radio Thüringen
+10730	51.4808	11.9642	0.1	MDR Kultur
+10730	51.5117	7.8864	0.2	Hellweg Radio Soest
+10730	51.7281	9.4872	0.5	WDR 1 live
+10730	53.2294	14.2075	20	94.3 rs2 Schwedt + Uckermark
+10730	53.5919	11.4553	100	Ostseewelle West
+10740	48.3483	7.8572	5	Hitradio Ohr
+10740	48.3819	9.9486	0.1	BR24
+10740	48.4050	12.8858	1	Radio Trausnitz
+10740	48.5764	9.6825	0.1	Die Neue 107.7
+10740	50.2600	7.5208	40	SWR4 Rheinland-Pfalz Radio Koblenz
+10740	50.5578	6.7550	0.1	Radio Euskirchen
+10740	51.2592	12.7178	2	R.SA Leipzig
+10740	51.2794	8.9047	0.2	harmony.fm
+10740	51.2800	7.1322	1	Radio Wuppertal
+10740	51.5117	10.7594	0.2	Radio Teddy Thüringen
+10740	51.9417	7.1506	1	Radio Kiepenkerl Nord
+10740	52.0500	9.0608	1	Radio Lippe
+10740	52.2200	11.8400	30	MDR Kultur
+10740	52.3928	9.7994	0.15	Klassik Radio
+10740	53.8131	10.0419	16	delta radio Süd
+10740	53.8489	13.6917	1	Deutschlandfunk (Dlf)
+10750	47.5278	10.2453	0.1	BR24
+10750	49.2203	7.0028	0.4	Deutschlandfunk Kultur
+10750	49.5308	9.3328	25	SWR4 Baden-Württemberg Studio Mannheim
+10750	49.7058	8.6297	0.2	harmony.fm
+10750	50.1419	8.6578	0.2	Radio Teddy Hessen
+10750	50.5800	8.6661	0.32	Deutschlandfunk Kultur
+10750	50.8847	8.0403	0.5	WDR 1 live
+10750	50.9586	6.2681	0.1	Radio Rur
+10750	50.9986	12.4553	0.5	Vogtland Radio
+10750	51.1522	13.4517	0.2	Radio Dresden
+10750	51.3122	9.4289	1	hr-info
+10750	51.8053	8.2164	1	Radio Gütersloh
+10750	52.5208	13.4092	40	BB Radio Potsdam/Berlin
+10750	52.7939	10.5325	0.5	Deutschlandfunk (Dlf)
+10750	53.5236	8.1047	0.4	Radio Nordseewelle Wilhelmshaven/Jever
+10760	47.9653	8.8211	0.1	Antenne 1 Neckarburg Rock & Pop
+10760	48.7856	10.6681	20	BR24
+10760	49.5608	7.5428	25	big FM Rheinland-Pfalz
+10760	50.7736	11.1828	60	Antenne Thüringen Mitte
+10760	51.0294	6.9914	0.1	Radio Leverkusen
+10760	51.0936	14.7000	30	Radio Lausitz
+10760	51.3339	8.0089	0.5	Radio Sauerland
+10760	51.6489	6.5778	0.2	Radio K.W. Wesel
+10760	52.1044	9.3783	0.05	Radio ffn Hannover
+10760	52.2950	8.1042	0.63	Radio Osnabrück
+10760	52.3744	8.0297	0.1	Radio Osnabrück
+10760	52.9244	7.6403	0.01	Kirchenfunk Lorup
+10760	53.0956	8.7917	0.2	Radio 21 Bremen
+10760	54.3236	13.3414	50	Ostseewelle Nord
+10770	47.7478	12.2497	50	Antenne Bayern
+10770	47.9744	7.9086	0.5	baden.fm
+10770	48.7633	9.2056	4	Die Neue 107.7
+10770	49.5494	8.6856	0.1	Rock FM Rhein-Neckar
+10770	49.6425	11.7961	0.25	AFN Bavaria-The Eagle ?
+10770	50.1756	8.8331	0.32	Deutschlandfunk Kultur
+10770	50.4292	12.9542	2	R.SA
+10770	50.4292	12.9542	2	Radio Erzgebirge R.SA 107.7
+10770	50.5639	7.2867	0.05	Ahrtalradio
+10770	50.8050	7.9192	0.5	big FM Rheinland-Pfalz
+10770	51.0247	9.0200	20	Hit Radio FFH Nordhessen
+10770	51.3406	7.4664	0.2	Radio Hagen
+10770	51.4936	8.3275	0.2	Hellweg Radio Lippstadt
+10770	51.9050	12.5806	0.5	Deutschlandfunk Kultur
+10770	52.2447	8.8992	0.1	WDR 1 live
+10770	53.4994	10.1903	0.1	delta radio Süd
+10770	53.8089	8.8836	20	Deutschlandfunk Kultur
+10770	53.8225	12.1722	1.3	80s80s MV West
+10780	47.5486	10.5703	0.05	BR24
+10780	49.2836	10.9867	0.32	Star FM 107.8/99.0
+10780	50.4167	7.5903	0.32	Radyo Metropol FM Südwest
+10780	50.7786	6.2436	0.4	Antenne AC
+10780	51.1178	7.9158	0.63	big FM NRW
+10780	51.8000	10.6142	10	MDR Kultur
+10780	52.3828	14.4256	30	BB Radio Oderland
+10780	54.0842	9.9744	0.5	Deutschlandfunk Kultur
+10790	47.5858	11.1031	0.1	Bayern 1 Oberbayern
+10790	48.0428	10.8700	0.05	Deutschlandfunk Kultur
+10790	48.7525	8.2022	0.1	Deutschlandfunk Kultur
+10790	48.7850	11.5081	0.1	Radio Galaxy Ingolstadt
+10790	48.8169	13.2175	0.2	Unser Radio Deggendorf
+10790	49.0761	9.1586	0.1	Die neue Welle Karlsruhe
+10790	49.3903	6.8808	0.16	Deutschlandfunk Kultur
+10790	49.9636	6.5231	0.1	Rockland Radio Bitburg
+10790	50.1092	8.1333	6.2	Rockland Radio Mainz/Wiesbaden
+10790	50.3692	9.9803	100	BR-Klassik
+10790	50.4267	11.6133	2	MDR Jump
+10790	50.5014	12.4089	0.1	R.SA Chemnitz
+10790	50.5517	7.1711	0.1	Ahrtalradio
+10790	50.7853	7.5611	0.1	Radio Bonn/Rhein-Sieg
+10790	50.8972	12.3444	0.2	MDR Aktuell
+10790	51.1175	13.0983	1	R.SA Leipzig
+10790	51.1856	7.2211	0.1	Radio RSG
+10790	51.9650	7.3597	25	WDR 1 live
+10790	52.9983	13.1533	5	BB Radio Nord/Ost
+10790	53.5217	8.6492	0.32	Radio Teddy Bremen
+10790	53.7431	10.7042	20	delta radio Ost
+10790	53.9256	13.0442	0.2	Ostseewelle Ost

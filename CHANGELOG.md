@@ -4,6 +4,19 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.5] - 2026-10-31 (DABplay+ FM)
+
+### New
+- **FM station names from a transmitter list**: the app carries the German Wikipedia's list of FM transmitters
+  (offline, CC BY-SA 4.0, see assets/licenses). Where the stock radio app keeps the RDS names to itself, FM stations
+  get their names from it, and DAB stations find their FM frequency by that name.
+- **FM nearby**: with the head unit's location (asked for at the first FM scan), Scan FM fills the list with the
+  programmes in reach at once, without seeking, and again after 15 km of driving. Without a location the seek scan
+  runs as before; the place is then estimated from the frequencies it found, and stops that no transmitter there
+  explains are dropped as noise.
+- **The strongest FM frequency as you drive**: a station on FM moves to its programme's strongest frequency once the
+  one playing is out of reach (checked every minute).
+
 ## [1.4.0-fm.4] - 2026-10-31 (DABplay+ FM)
 
 ### Changed

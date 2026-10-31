@@ -1,0 +1,10 @@
+assets/fm/de.tsv: FM transmitters in Germany
+
+Source: German Wikipedia, "Liste der UKW-Hörfunksender in Deutschland",
+https://de.wikipedia.org/wiki/Liste_der_UKW-H%C3%B6rfunksender_in_Deutschland
+by the Wikipedia authors (see the page's history). Licence: Creative Commons
+Attribution-ShareAlike 4.0 (CC BY-SA 4.0), https://creativecommons.org/licenses/by-sa/4.0/
+
+Changes: reduced to frequency, coordinates, power and programme name; rows without
+a programme or coordinates left out (tools/gen_fm_list.py). This file, as an adaptation,
+is under CC BY-SA 4.0 too; the app's code stays under its own licence.

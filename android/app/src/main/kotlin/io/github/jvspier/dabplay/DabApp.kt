@@ -1,6 +1,8 @@
 package io.github.jvspier.dabplay
 
 import android.app.Application
+import io.github.jvspier.dabplay.data.FmTransmitters
+import io.github.jvspier.dabplay.playback.CarLocation
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -62,6 +64,13 @@ class DabApp : Application() {
         "$k=${v.ifEmpty { "-" }}"
     }
 
+    /** The offline FM transmitter list (Germany), for FM station names and FM nearby; null if it won't load. */
+    val fmList: FmTransmitters? by lazy {
+        runCatching { assets.open("fm/de.tsv").bufferedReader().use { FmTransmitters.parse(it.readText()) } }
+            .onFailure { events.w("Radio", "FM transmitter list didn't load", it) }.getOrNull()
+    }
+    val carLocation by lazy { CarLocation(this) }
+
     /** MainActivity is on screen (started, not stopped): a dongle appearing then connects without opening anything. */
     @Volatile var uiVisible = false
     /** How long the CPU had been in deep sleep when the screen last went off (see [woke]). */
@@ -82,6 +91,9 @@ class DabApp : Application() {
         radio = RadioController(engine, fmRadio, store, events,
             trafficAnnouncements = { settings.state.value.trafficAnnouncements },
             uiVisible = { uiVisible },
+            fmList = { fmList },
+            location = carLocation::now,
+            rememberEstimate = carLocation::rememberEstimate,
             bringBack = {
                 runCatching { startActivity(Intent(this, MainActivity::class.java)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_NO_ANIMATION)) }
