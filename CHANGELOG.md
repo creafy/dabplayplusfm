@@ -4,6 +4,13 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.7] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- Sometimes the wrong FM station played: the stock radio app tunes its own last station when it powers the tuner up,
+  at times after the app's command. A frequency change the app didn't ask for is now undone (unless the transmitter
+  list says the new frequency carries the same programme, as when the radio app's AF moves it).
+
 ## [1.4.0-fm.6] - 2026-10-31 (DABplay+ FM)
 
 ### Fixed

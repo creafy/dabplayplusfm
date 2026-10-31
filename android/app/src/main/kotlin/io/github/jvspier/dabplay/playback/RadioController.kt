@@ -198,6 +198,7 @@ class RadioController(
     private fun byHand(cmd: () -> Unit) {
         if (active != Source.FM) return
         tunedByHand = currentStation()
+        fmTarget = null
         scope.launch {
             fmJob?.join()
             if (fm.tunerInRadioApp && !radioScreenSeen) openRadioScreen(fm.state.value.freq.takeIf { it > 0 } ?: FM_START)
@@ -285,6 +286,7 @@ class RadioController(
         val stillOurs = now != 0 && list.nameAt(now, here)?.let { FmLinking.namesMatch(it, st.label) } == true
         if (best != now && !stillOurs) {
             log.i(TAG, "${st.label}: ${Station.fmText(best)} is the stronger FM frequency here")
+            fmTarget = best; retunes = 0
             fm.tune(best)
         }
     }
@@ -326,6 +328,7 @@ class RadioController(
 
     private fun startFm(freq: Int) {
         if (!fmAvailable) return
+        fmTarget = freq; retunes = 0
         active = Source.FM; fmPlaying = true
         fmSourceSeen = false; sourceTakenSince = 0
         if (fm.tunerInRadioApp) fm.wakeRadioApp()
@@ -380,6 +383,7 @@ class RadioController(
 
     private fun stopFm() {
         fmJob?.cancel()
+        fmTarget = null
         if (active == Source.FM || fmPlaying) fm.releaseSource()
         active = Source.DAB; fmPlaying = false; tunedByHand = null
     }
@@ -441,7 +445,34 @@ class RadioController(
     /** Not during a DAB scan (the engine isn't playing anything then). */
     private fun fmPlayingAllowed(e: EngineState) = e.scan == null
 
+    /**
+     * The frequency the station should be on (null: tuned by hand, or not on FM). The stock radio app tunes its own
+     * last station when it powers the chip up, sometimes after our command: the tuner leaving it is undone, unless
+     * the transmitter list says the new frequency carries the same programme (the radio app's AF moved it).
+     */
+    private var fmTarget: Int? = null
+    private var retunes = 0
+    private var lastRetune = 0L
+
+    private fun guardFrequency(f: FytRadio.State) {
+        val target = fmTarget ?: return
+        if (active != Source.FM || !fmPlaying || tunedByHand != null || scanJob?.isActive == true) return
+        if (f.freq == 0 || f.freq == target || f.search != 0) return
+        val label = wanted?.let(store.state.value::station)?.label
+        val here = location()
+        val same = label != null && here != null && fmList()?.nameAt(f.freq, here)?.let { FmLinking.namesMatch(it, label) } == true
+        if (same) { log.i(TAG, "FM: AF moved $label to ${Station.fmText(f.freq)}"); fmTarget = f.freq; return }
+        val now = System.currentTimeMillis()
+        if (now - lastRetune < RETUNE_GAP_MS) return
+        if (now - lastRetune > 60_000) retunes = 0
+        if (retunes >= MAX_RETUNES) return
+        retunes++; lastRetune = now
+        log.i(TAG, "FM: the tuner went to ${Station.fmText(f.freq)} by itself (the stock radio app?): back to ${Station.fmText(target)}")
+        fm.tune(target)
+    }
+
     private fun onFm(f: FytRadio.State) {
+        guardFrequency(f)
         // the FM row's seek/step landed: that frequency is the station now
         if (tunedByHand != null && f.search == 0) tunedByHand = currentStation()
         // an FM-only station's name, heard while listening (the scan may have caught none)
@@ -468,6 +499,9 @@ class RadioController(
         /** FM nearby again after the car moved this far. */
         const val REFILL_KM = 15.0
         const val PLACE_CHECK_MS = 60_000L
+        /** Undoing a frequency change by the stock radio app: at most every 1.5 s, 5 times a minute. */
+        const val RETUNE_GAP_MS = 1_500L
+        const val MAX_RETUNES = 5
         /** DAB lost this long: FM takes over (the engine's own DAB following starts after 6 s). */
         const val LOST_TO_FM_MS = 2_500L
         /** DAB weak (dropouts) this long: FM takes over. */
