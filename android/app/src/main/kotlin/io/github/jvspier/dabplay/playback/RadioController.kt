@@ -339,14 +339,20 @@ class RadioController(
             if (from != freq) {
                 if (!fm.tunerInRadioApp) fm.bandFm()
                 fm.tune(freq)
-                if (tunedTo(freq, 2500)) radioScreenSeen = fm.tunerInRadioApp
+                // the stock radio app powers the chip up first when the radio becomes the source, and drops
+                // tuning meanwhile: ask once more before deciding its screen is missing
+                val ok = tunedTo(freq, 1500) || (fm.tunerInRadioApp && run { fm.tune(freq); tunedTo(freq, 2000) })
+                if (ok) radioScreenSeen = fm.tunerInRadioApp
                 else if (fm.tunerInRadioApp) openRadioScreen(freq)
                 else log.w(TAG, "FM: the tuner didn't go to ${Station.fmText(freq)}")
             }
             // toggles only: without the current state from the server (an app-driven tuner) they'd flip every time
+            // the stock radio app keeps its own AF/TA settings and doesn't report them: leave them to it
             val f = fm.state.value
-            if (f.taKnown && trafficAnnouncements() != f.ta) fm.toggleTa()
-            if (f.afKnown && !f.af) fm.toggleAf()
+            if (!fm.tunerInRadioApp) {
+                if (f.taKnown && trafficAnnouncements() != f.ta) fm.toggleTa()
+                if (f.afKnown && !f.af) fm.toggleAf()
+            }
         }
         publish()
     }

@@ -4,6 +4,13 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.6] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- Switching to FM again no longer opens the stock radio app's screen a second time: the app asks once more while
+  the radio app powers the tuner up.
+- AF and TA stay as set in the stock radio app (with it as the tuner, the app flipped AF at every switch).
+
 ## [1.4.0-fm.5] - 2026-10-31 (DABplay+ FM)
 
 ### New
