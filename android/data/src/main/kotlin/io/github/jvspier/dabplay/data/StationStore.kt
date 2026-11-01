@@ -24,10 +24,25 @@ data class Recent(val key: ServiceKey, val time: Long)
 /** The same service announced on another ensemble (FIG 0/24 + 0/21), learned while listening; for service following. */
 data class AltFreq(val eid: Int, val khz: Int)
 
-/** A station as the UI sees it: one service, on the ensemble where it was seen most recently. */
-data class Station(val service: StoredService, val ensemble: StoredEnsemble) {
+/** An FM station from the app's own FM scan (the FM fork): frequency in 10 kHz units, its RDS name if it sent one. */
+data class StoredFm(val freq: Int, val ps: String, val lastSeen: Long)
+
+/**
+ * A station as the UI sees it: one service, on the ensemble where it was seen most recently, and the FM frequency it
+ * is also on ([fm], 10 kHz units) when the head unit has an FM tuner. An FM-only station has an FM key
+ * ([ServiceKey.isFm]) and a placeholder service and ensemble ([FM_ENSEMBLE]); only DAB stations go to the DAB engine.
+ */
+data class Station(val service: StoredService, val ensemble: StoredEnsemble, val fm: Int? = null) {
     val key get() = service.key
     val label get() = service.label
+    val hasDab get() = !key.isFm
+
+    companion object {
+        val FM_ENSEMBLE = StoredEnsemble(-1, "FM", 0, "FM", 0, 0, emptyList())
+        fun fmOnly(f: StoredFm) = Station(StoredService(ServiceKey.fm(f.freq), f.ps.ifEmpty { "FM ${fmText(f.freq)}" }, -1, 0, -1), FM_ENSEMBLE, f.freq)
+        /** "101.7" (10 kHz units in, MHz out; the second decimal only when it isn't 0). */
+        fun fmText(freq: Int) = "${freq / 100}.${freq % 100 / 10}${if (freq % 10 != 0) "${freq % 10}" else ""}"
+    }
 }
 
 data class Snapshot(
@@ -36,14 +51,29 @@ data class Snapshot(
     val recents: List<Recent> = emptyList(),
     val lastPlayed: ServiceKey? = null,
     val alternatives: Map<ServiceKey, List<AltFreq>> = emptyMap(),
+    /** FM frequencies (kHz) a service is also on (FIG 0/6 + 0/21), learned while listening; for the DAB → FM fallback. */
+    val fm: Map<ServiceKey, List<Int>> = emptyMap(),
+    /** FM stations from the last FM scan. */
+    val fmStations: List<StoredFm> = emptyList(),
+    /** Links set by hand: DAB station → FM frequency (10 kHz units); 0 = never link it to FM. */
+    val fmLinks: Map<ServiceKey, Int> = emptyMap(),
 ) {
+    /**
+     * DAB stations (each with its FM frequency, if any) and the FM stations no DAB station took, A–Z. One station is
+     * one entry, whatever it is received on (owner, 2026-10-30).
+     */
     val stations: List<Station> by lazy {
-        ensembles.sortedByDescending { it.lastSeen }
+        val dab = ensembles.sortedByDescending { it.lastSeen }
             .flatMap { e -> e.services.map { Station(it, e) } }
             .distinctBy { it.key }
+        val links = FmLinking.link(dab, fmStations, fm, fmLinks)
+        val taken = links.values.toSet()
+        (dab.map { it.copy(fm = links[it.key]) } + fmStations.filter { it.freq !in taken }.map(Station::fmOnly))
             .sortedBy { it.label.lowercase() }
     }
+    /** An FM key whose frequency a DAB station has taken since (a later scan or link) finds that station. */
     fun station(key: ServiceKey) = stations.firstOrNull { it.key == key }
+        ?: key.fmFreq?.let { f -> stations.firstOrNull { it.fm == f } }
     val favouriteStations get() = favourites.mapNotNull(::station)
 }
 
@@ -107,6 +137,29 @@ class StationStore(
         change { it.copy(alternatives = it.alternatives + found) }
     }
 
+    /** Merge learned FM frequencies (key → kHz); only writes when something changed. */
+    fun learnFm(found: Map<ServiceKey, List<Int>>) {
+        val cur = _state.value.fm
+        if (found.all { (k, v) -> cur[k] == v }) return
+        change { it.copy(fm = it.fm + found) }
+    }
+
+    /** An FM scan: its stations replace the old FM list. */
+    fun applyFmScan(found: List<StoredFm>) = change { s -> s.copy(fmStations = found.map { it.copy(lastSeen = now()) }) }
+
+    /** The RDS name of an FM station, heard while listening (it may have sent none during the scan). */
+    fun fmName(freq: Int, ps: String) {
+        val cur = _state.value.fmStations.firstOrNull { it.freq == freq } ?: return
+        if (ps.isBlank() || cur.ps == ps) return
+        change { s -> s.copy(fmStations = s.fmStations.map { if (it.freq == freq) it.copy(ps = ps) else it }) }
+    }
+
+    /** Link [key] to FM [freq] by hand; null = never link it to FM. */
+    fun linkFm(key: ServiceKey, freq: Int?) = change { s -> s.copy(fmLinks = s.fmLinks + (key to (freq ?: 0))) }
+
+    /** Back to the automatic link for [key]. */
+    fun autoLinkFm(key: ServiceKey) = change { s -> s.copy(fmLinks = s.fmLinks - key) }
+
     fun clearRecents(): List<Recent> = synchronized(lock) { _state.value.recents.also { change { s -> s.copy(recents = emptyList()) } } }
     /** Undo of [clearRecents]: merged, so stations played since the clear stay (newest first). */
     fun restoreRecents(r: List<Recent>) = change { s ->
@@ -148,6 +201,10 @@ class StationStore(
             lastPlayed = o.optString("lastPlayed").takeIf { it.isNotEmpty() }?.let(::key),
             alternatives = o.optJSONObject("alternatives")?.let { a -> a.keys().asSequence().associate { k ->
                 key(k) to a.getJSONArray(k).objs().map { AltFreq(it.getInt("eid"), it.getInt("khz")) } } }.orEmpty(),
+            fm = o.optJSONObject("fm")?.let { a -> a.keys().asSequence().associate { k ->
+                key(k) to a.getJSONArray(k).let { l -> (0 until l.length()).map(l::getInt) } } }.orEmpty(),
+            fmStations = o.optJSONArray("fmStations").objs().map { StoredFm(it.getInt("freq"), it.optString("ps"), it.optLong("lastSeen")) },
+            fmLinks = o.optJSONObject("fmLinks")?.let { a -> a.keys().asSequence().associate { k -> key(k) to a.getInt(k) } }.orEmpty(),
         )
     }.getOrNull()
 
@@ -165,6 +222,9 @@ class StationStore(
         s.lastPlayed?.let { o.put("lastPlayed", it.toString()) }
         o.put("alternatives", JSONObject().also { j -> s.alternatives.forEach { (k, v) ->
             j.put(k.toString(), JSONArray(v.map { JSONObject().put("eid", it.eid).put("khz", it.khz) })) } })
+        o.put("fm", JSONObject().also { j -> s.fm.forEach { (k, v) -> j.put(k.toString(), JSONArray(v)) } })
+        o.put("fmStations", JSONArray(s.fmStations.map { JSONObject().put("freq", it.freq).put("ps", it.ps).put("lastSeen", it.lastSeen) }))
+        o.put("fmLinks", JSONObject().also { j -> s.fmLinks.forEach { (k, v) -> j.put(k.toString(), v) } })
         // whole or nothing: write, sync to the disk, then rename over the old file (power can go at any moment in a car)
         val tmp = File(file.path + ".tmp")
         FileOutputStream(tmp).use { out -> out.write(o.toString(1).toByteArray()); out.fd.sync() }

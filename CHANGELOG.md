@@ -4,6 +4,76 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.8] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- The first FM station after start-up stayed silent when the stock radio app was already on its frequency: the app
+  took that for tuned while the radio app wasn't even running. The first time, the radio app's screen now opens
+  straight away, and the radio app is started by binding to it (Android refuses a plain start while DABplay+ FM
+  isn't in front, as at boot).
+
+## [1.4.0-fm.7] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- Sometimes the wrong FM station played: the stock radio app tunes its own last station when it powers the tuner up,
+  at times after the app's command. A frequency change the app didn't ask for is now undone (unless the transmitter
+  list says the new frequency carries the same programme, as when the radio app's AF moves it).
+
+## [1.4.0-fm.6] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- Switching to FM again no longer opens the stock radio app's screen a second time: the app asks once more while
+  the radio app powers the tuner up.
+- AF and TA stay as set in the stock radio app (with it as the tuner, the app flipped AF at every switch).
+
+## [1.4.0-fm.5] - 2026-10-31 (DABplay+ FM)
+
+### New
+- **FM station names from a transmitter list**: the app carries the German Wikipedia's list of FM transmitters
+  (offline, CC BY-SA 4.0, see assets/licenses). Where the stock radio app keeps the RDS names to itself, FM stations
+  get their names from it, and DAB stations find their FM frequency by that name.
+- **FM nearby**: with the head unit's location (asked for at the first FM scan), Scan FM fills the list with the
+  programmes in reach at once, without seeking, and again after 15 km of driving. Without a location the seek scan
+  runs as before; the place is then estimated from the frequencies it found, and stops that no transmitter there
+  explains are dropped as noise.
+- **The strongest FM frequency as you drive**: a station on FM moves to its programme's strongest frequency once the
+  one playing is out of reach (checked every minute).
+
+## [1.4.0-fm.4] - 2026-10-31 (DABplay+ FM)
+
+### Changed
+- On radio type 4 with `persist.lsec.radio.ms_handler` set, the MainServer drives the tuner chip itself and passes
+  the RDS name and text on: the app then leaves the stock radio app alone.
+- AF and TA are switched only when the head unit reports their state (with the stock radio app as the tuner they
+  flipped at every station).
+- The FM scan doesn't wait for station names the stock radio app never passes on.
+
+## [1.4.0-fm.3] - 2026-10-31 (DABplay+ FM)
+
+### Fixed
+- **FM on head units whose stock radio app drives the tuner** (radio type 3/4, e.g. the EKIY T900): the MainServer
+  only passes commands on to that app's screen. The app now wakes the stock radio app, and the first time FM needs
+  tuning it opens that app's screen for a moment at the right frequency and comes back (only while DABplay+ FM is on
+  screen, never over navigation).
+- Tuning sends the frequency in the form these units pass on (mode 1).
+- While FM plays, DAB is silent without audio output or audio focus: before, the head unit took the app for a media
+  player and switched its radio off within half a second.
+- An FM scan that finds nothing keeps the stations of the last scan.
+
+## [1.4.0-fm.2] - 2026-10-30 (DABplay+ FM, fork creafy/dabplayplusfm)
+
+### New
+- **FM through the head unit's own tuner** on FYT head units (UIS7862 and similar with `com.syu.ms`), in its own app
+  "DABplay+ FM" next to DABplay+.
+- **One station, one tile**: a station's DAB service and its FM frequency are one station. Linked by the FM
+  frequencies the DAB multiplex announces for it, else by name; Now playing → link button to set it by hand.
+- **Best source by itself**: DAB first; FM takes over when DAB is lost for 2.5 s or weak for 6 s, and DAB comes back
+  after 5 s of good reception (it keeps receiving silently meanwhile). The source pill on Now playing switches
+  automatic → DAB → FM.
+- **Scan FM** next to Scan DAB on the Stations tab; FM-only stations join the list and the favourites.
+- On FM, Now playing has seek and step buttons around the usual controls.
+- Settings → FM test: the raw connection to the head unit's tuner, with an event log.
+
 ## [1.4.0] - 2026-10-29
 
 ### New

@@ -7,6 +7,7 @@ import io.github.jvspier.dabplay.core.mp2.Mp2Decoder
 import io.github.jvspier.dabplay.core.mp2.Mp2Framer
 import io.github.jvspier.dabplay.core.fic.FicDecoder
 import io.github.jvspier.dabplay.core.fic.dabAlternatives
+import io.github.jvspier.dabplay.core.fic.fmFrequencies
 import io.github.jvspier.dabplay.core.Announcement
 import io.github.jvspier.dabplay.core.AnnouncementWatcher
 import io.github.jvspier.dabplay.core.Reception
@@ -130,9 +131,28 @@ class DabEngine(
         _state.update { it.copy(unsupportedDongle = false) }
     }
     fun scan() = commands.offer(Cmd.Scan)
-    fun play(key: ServiceKey) = commands.offer(Cmd.Play(key))
+    /** FM-only stations (the FM fork) are the app's, not the engine's: ignored here. */
+    fun play(key: ServiceKey) { if (!key.isFm) commands.offer(Cmd.Play(key)) }
     fun pause() = commands.offer(Cmd.Pause)
-    fun resume() { listenerKey()?.let(::play) ?: store.state.value.lastPlayed?.let(::play) }
+    fun resume() { listenerKey()?.takeIf { !it.isFm }?.let(::play) ?: store.state.value.lastPlayed?.let(::play) }
+
+    /**
+     * The FM fork: silent but still receiving while the head unit's FM tuner plays the same station (DAB weak or lost,
+     * or FM chosen by hand), so the app sees DAB come back and can switch back without a gap. Silent means no audio
+     * output and no audio focus at all, not a muted track: an FYT head unit takes a playing app (or one holding the
+     * focus) as its audio source and switches its radio off.
+     */
+    fun setMuted(muted: Boolean) {
+        if (this.muted == muted) return
+        this.muted = muted
+        events.i(TAG, if (muted) "DAB silent (FM plays): audio output and focus released" else "DAB audible again")
+        val p = activePlayer
+        if (muted) { p?.release(); runCatching { focus.abandon() } }
+        else if (p != null) { if (state.value.playing) requestFocus(p); p.setLevel(level()) }
+    }
+    @Volatile private var muted = false
+    @Volatile private var activePlayer: AudioOut? = null
+    private fun level() = if (muted) 0f else focusLevel
 
     /** The listener's station: during an announcement the one to return to, not the announcing one. */
     private fun listenerKey() = state.value.announcement?.returnTo ?: state.value.current?.key
@@ -275,7 +295,7 @@ class DabEngine(
         // the driver's audio thread feeds while the engine thread may be stopping: after stopAudio() no chunk gets
         // through (one arriving late would start a new audio worker playing the old station)
         override fun onPcm(data: ByteArray, sampleRate: Int, channels: Int) =
-            synchronized(audioLock) { if (station != null) player.feedPcm(data, sampleRate, channels) }
+            synchronized(audioLock) { if (station != null && !muted) player.feedPcm(data, sampleRate, channels) }
         override fun onText(text: String) { station?.let { showText(text, it) } }
         override fun onSlide(bytes: ByteArray) { if (station != null) showSlide(bytes) }
         override fun onStarted() {
@@ -359,6 +379,7 @@ class DabEngine(
 
     /** Audio focus for [player]: a call silences it, navigation ducks it, another media app pauses the radio. */
     private fun requestFocus(player: AudioOut): Boolean {
+        if (muted) { activePlayer = player; return true }        // silent under FM: no focus (see setMuted)
         val ok = focus.request { c ->
             focusLevel = when (c) {
                 FocusChange.LOST -> { pause(); 1f }                  // another media app took over
@@ -366,10 +387,11 @@ class DabEngine(
                 FocusChange.DUCK -> DUCK_LEVEL                       // navigation prompt
                 FocusChange.RESTORE -> 1f
             }
-            player.setLevel(focusLevel)
+            player.setLevel(level())
             events.i(TAG, "audio focus: $c")
         }
-        if (ok) player.setLevel(focusLevel)                         // e.g. a station change during a call stays silent
+        activePlayer = player
+        if (ok) player.setLevel(level())                         // e.g. a station change during a call stays silent
         return ok
     }
 
@@ -607,15 +629,15 @@ class DabEngine(
                         framer.feed(data) { frame, h ->
                             if (Mp2Decoder.crcOk(frame)) mp2Frames++ else mp2Bad++      // a CRC-failed frame plays as silence
                             guarded("PAD") { DabMp2Pad.split(frame, h)?.let { (x, f) -> pad.feedPad(x, f, exact = false) } }
-                            player.feedMp2(frame)
+                            if (!muted) player.feedMp2(frame)
                         }
                     }
                     continue
                 }
                 // a lost AU becomes silence of its length (120 ms per superframe / AUs per superframe): the timing holds
-                guarded("DAB+") { dec.feed(data, lost = { n -> dec.format?.let { f -> player.feedSilence(n * 120 / f.ausPerSuperframe) } }) { au ->
+                guarded("DAB+") { dec.feed(data, lost = { n -> if (!muted) dec.format?.let { f -> player.feedSilence(n * 120 / f.ausPerSuperframe) } }) { au ->
                     pad.feedAu(au.data)
-                    player.feedAac(au.asc, au.data, au.format.outputRate)
+                    if (!muted) player.feedAac(au.asc, au.data, au.format.outputRate)
                 } }
             }
         }
@@ -658,6 +680,7 @@ class DabEngine(
 
         /** Store what this ensemble announces about its services elsewhere (for all its services, not just [st]). */
         private fun learnAlternatives(f: FicDecoder, st: Station) {
+            learnFm(f, st)
             val found = f.otherEnsembleServices.keys.associate { sid ->
                 ServiceKey(st.key.ecc, sid) to dabAlternatives(f.otherEnsembleServices, f.frequencyInfo, sid, st.ensemble.eid)
                     .filter { a -> Band3.CHANNELS.any { it.second == a.khz } }     // L-band etc.: the tuner can't go there
@@ -666,6 +689,15 @@ class DabEngine(
             if (found.isEmpty()) return
             events.i(TAG, "learned alternatives: " + found.entries.joinToString { (k, v) -> "$k on ${v.joinToString("/") { channelName(it.khz) }}" })
             store.learnAlternatives(found)
+        }
+
+        /** Store the FM frequencies this ensemble announces for its services (for FM fallback on FYT head units). */
+        private fun learnFm(f: FicDecoder, st: Station) {
+            val found = f.services.keys.associate { sid -> ServiceKey(st.key.ecc, sid) to fmFrequencies(f.links.values, f.frequencyInfo, sid) }
+                .filterValues { it.isNotEmpty() }
+            if (found.isEmpty() || found.all { (k, v) -> store.state.value.fm[k] == v }) return
+            events.i(TAG, "learned FM frequencies: " + found.entries.joinToString { (k, v) -> "$k on ${v.joinToString("/") { "${it / 1000}.${it % 1000 / 100}" }}" })
+            store.learnFm(found)
         }
 
         /**

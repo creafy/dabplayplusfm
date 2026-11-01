@@ -1,6 +1,8 @@
 package io.github.jvspier.dabplay
 
 import android.app.Application
+import io.github.jvspier.dabplay.data.FmTransmitters
+import io.github.jvspier.dabplay.playback.CarLocation
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -20,6 +22,14 @@ import io.github.jvspier.dabplay.data.SettingsStore
 import io.github.jvspier.dabplay.data.StationStore
 import io.github.jvspier.dabplay.engine.AudioFocus
 import io.github.jvspier.dabplay.engine.DabEngine
+import io.github.jvspier.dabplay.fyt.FytRadio
+import io.github.jvspier.dabplay.playback.RadioController
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 import io.github.jvspier.dabplay.logos.LogoFetcher
 import java.io.File
 
@@ -33,6 +43,34 @@ class DabApp : Application() {
     /** The event log (logcat + a file to pull after a drive). */
     lateinit var events: Diagnostics; private set
     val diagnosticsExport by lazy { DiagnosticsExport(this, events) }
+    /** The head unit's own FM tuner (FYT head units only), connected while Settings → FM test is open. */
+    val fmRadio by lazy { FytRadio(this, ::fmEvent) }
+    /** DAB and FM as one radio (the FM fork): what the UI and the media session talk to. */
+    lateinit var radio: RadioController; private set
+    private val fmLines = MutableStateFlow<List<String>>(emptyList())
+    /** The FM test's recent events, for its screen (the diagnostics log has them all). */
+    val fmLog: StateFlow<List<String>> = fmLines
+    private val fmTime = SimpleDateFormat("HH:mm:ss.SSS", Locale.ROOT)
+
+    fun fmEvent(msg: String) {
+        events.i("FytRadio", msg)
+        val line = "${synchronized(fmTime) { fmTime.format(Date()) }} $msg"
+        fmLines.update { (it + line).takeLast(200) }
+    }
+
+    /** The FYT system properties that say which tuner the head unit has (getprop: no hidden API needed). */
+    fun fytProps(): String = listOf("sys.fyt.radio_type", "persist.lsec.radio.ms_handler", "ro.fyt.platform", "sys.fyt.platform").joinToString(", ") { k ->
+        val v = runCatching { Runtime.getRuntime().exec(arrayOf("getprop", k)).inputStream.bufferedReader().readText().trim() }.getOrDefault("?")
+        "$k=${v.ifEmpty { "-" }}"
+    }
+
+    /** The offline FM transmitter list (Germany), for FM station names and FM nearby; null if it won't load. */
+    val fmList: FmTransmitters? by lazy {
+        runCatching { assets.open("fm/de.tsv").bufferedReader().use { FmTransmitters.parse(it.readText()) } }
+            .onFailure { events.w("Radio", "FM transmitter list didn't load", it) }.getOrNull()
+    }
+    val carLocation by lazy { CarLocation(this) }
+
     /** MainActivity is on screen (started, not stopped): a dongle appearing then connects without opening anything. */
     @Volatile var uiVisible = false
     /** How long the CPU had been in deep sleep when the screen last went off (see [woke]). */
@@ -50,6 +88,19 @@ class DabApp : Application() {
             resumeOnStart = { settings.state.value.resumeOnStart }, followStation = { settings.state.value.followStation },
             trafficAnnouncements = { settings.state.value.trafficAnnouncements },
             usbThreadSetup = { android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_AUDIO) })
+        radio = RadioController(engine, fmRadio, store, events,
+            trafficAnnouncements = { settings.state.value.trafficAnnouncements },
+            uiVisible = { uiVisible },
+            fmList = { fmList },
+            location = carLocation::now,
+            rememberEstimate = carLocation::rememberEstimate,
+            bringBack = {
+                runCatching { startActivity(Intent(this, MainActivity::class.java)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_NO_ANIMATION)) }
+                    .onFailure { events.w("Radio", "bringing the app back failed", it) }
+            })
+        // an FM-only station last time: the engine leaves it to the app (a DAB one resumes when the dongle is ready)
+        if (settings.state.value.resumeOnStart && store.state.value.lastPlayed?.isFm == true) radio.resume()
         logos = LogoStore(File(filesDir, "logos"))
         logoFetcher = LogoFetcher(this, store, logos, settings, current = { engine.state.value.current?.key }).also { it.start() }
         // in the app process, not an activity: the radio plays on with no screen open, and an unplug must still stop it
@@ -87,7 +138,7 @@ class DabApp : Application() {
                 .onFailure { events.w("DabApp", "couldn't open the app: ${it.message}") }
         }
         // as at a cold start: the last station plays again (Settings → Resume last station)
-        if (s.resumeOnStart && !engine.state.value.playing) engine.resume()
+        if (s.resumeOnStart && !radio.playing) radio.resume()
     }
 
     private companion object {

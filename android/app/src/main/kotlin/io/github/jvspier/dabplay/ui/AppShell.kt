@@ -1,6 +1,7 @@
 package io.github.jvspier.dabplay.ui
 
 import androidx.activity.compose.BackHandler
+import io.github.jvspier.dabplay.playback.SourceUi
 import android.graphics.BitmapFactory
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.AnimatedVisibility
@@ -129,10 +130,20 @@ class RadioActions(
     /** A name for the file, and saving it where the user picked (Storage Access Framework). */
     val diagnosticsFileName: () -> String = { "dabplay-diagnostics.txt" },
     val saveDiagnostics: (android.net.Uri) -> Unit = {},
+    // the FM fork
+    /** The source chip on Now playing: automatic → DAB → FM. */
+    val cycleSource: () -> Unit = {},
+    /** The FM row: -2 seek down, -1 step down, +1 step up, +2 seek up. */
+    val fmTune: (Int) -> Unit = {},
+    val scanFm: () -> Unit = {},
+    /** Link a DAB station to an FM frequency (10 kHz units) by hand; null = never FM. */
+    val linkFm: (ServiceKey, Int?) -> Unit = { _, _ -> },
+    val autoLinkFm: (ServiceKey) -> Unit = {},
 )
 
 @Composable
-fun AppShell(engine: EngineState, db: Snapshot, settings: Settings, actions: RadioActions, logoStatus: LogoStatus = LogoStatus()) {
+fun AppShell(engine: EngineState, db: Snapshot, settings: Settings, actions: RadioActions, logoStatus: LogoStatus = LogoStatus(),
+             src: SourceUi = SourceUi()) {
     val c = LocalDabColors.current
     var tab by rememberSaveable { mutableStateOf(if (db.favourites.isEmpty() && db.stations.isNotEmpty()) Tab.STATIONS else Tab.HOME) }
     val saved = rememberSaveableStateHolder()
@@ -168,8 +179,8 @@ fun AppShell(engine: EngineState, db: Snapshot, settings: Settings, actions: Rad
                             saved.SaveableStateProvider(t.name) {
                                 when (t) {
                                     Tab.HOME -> HomeScreen(engine, db, actions, compactTitle = panelLayout, onBrowse = { tab = Tab.STATIONS })
-                                    Tab.STATIONS -> StationsScreen(engine, db, actions, compactTitle = panelLayout)
-                                    Tab.PLAYING -> NowPlayingScreen(engine, db, actions, chipOnLeft = right, taOn = settings.trafficAnnouncements)
+                                    Tab.STATIONS -> StationsScreen(engine, db, actions, compactTitle = panelLayout, src = src)
+                                    Tab.PLAYING -> NowPlayingScreen(engine, db, actions, chipOnLeft = right, taOn = settings.trafficAnnouncements, src = src)
                                     Tab.RECENT -> RecentScreen(engine, db, actions, compactTitle = panelLayout)
                                     Tab.SETTINGS -> SettingsScreen(settings, db, actions, compactTitle = panelLayout, logoStatus = logoStatus, panelFits = panelFits)
                                 }

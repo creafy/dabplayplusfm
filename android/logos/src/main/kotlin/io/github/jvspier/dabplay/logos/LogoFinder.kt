@@ -44,7 +44,7 @@ class LogoFinder(private val http: Http, private val dns: DnsLookup, private val
         val spi = spiService(q, net)
         spi?.let { pickLogo(it.logos) }?.let { fetch(net, it.url, LogoSource.RADIODNS) }?.let { return it }
 
-        val country = Countries.of(q.ecc, q.sid)
+        val country = if (q.ecc > 0xFF) null else Countries.of(q.ecc, q.sid)      // an FM station (the FM fork): no DAB country code
         val rb by lazy { radioBrowser.find(q.label, country, net) }
         val homepage = spi?.homepage ?: rb.firstNotNullOfOrNull { it.homepage }
         homepage?.let { fromWebsite(net, it) }?.let { return it }

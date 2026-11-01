@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- station logos, only when online (Settings → Download station logos) -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- the FM fork: which FM transmitters are near (the offline transmitter list); asked for at the first FM scan -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application

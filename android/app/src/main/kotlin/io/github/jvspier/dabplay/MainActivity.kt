@@ -14,6 +14,8 @@ import android.view.View
 import android.widget.Toast
 import io.github.jvspier.dabplay.data.StationStore
 import androidx.activity.ComponentActivity
+import androidx.activity.result.contract.ActivityResultContracts
+import io.github.jvspier.dabplay.playback.CarLocation
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import io.github.jvspier.dabplay.ui.theme.LocalNight
@@ -41,6 +43,17 @@ import io.github.jvspier.dabplay.ui.components.LocalLogos
 import io.github.jvspier.dabplay.ui.theme.DabPlayTheme
 
 class MainActivity : ComponentActivity() {
+    /** FM scan: the location first (once; the transmitter list needs it), then the scan, granted or not. */
+    private var afterLocation: (() -> Unit)? = null
+    private val locationAsk = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+        afterLocation?.invoke(); afterLocation = null
+    }
+    private fun askLocationThen(then: () -> Unit) {
+        val app = application as DabApp
+        if (app.carLocation.permitted || app.fmList == null) then()
+        else { afterLocation = then; runCatching { locationAsk.launch(CarLocation.PERMISSIONS) }.onFailure { then() } }
+    }
+
     private val app get() = application as DabApp
     private lateinit var usb: UsbManager
     private var controller: ListenableFuture<MediaController>? = null
@@ -76,15 +89,17 @@ class MainActivity : ComponentActivity() {
                     fullScreen = settings.fullScreen
                     applySystemBars()
                 }
-                val s by app.engine.state.collectAsStateWithLifecycle()
+                val s by app.radio.state.collectAsStateWithLifecycle()
+                val src by app.radio.source.collectAsStateWithLifecycle()
                 val db by app.store.state.collectAsStateWithLifecycle()
                 // one stable instance: the lambdas read current state when called, so nothing below recomposes because of them
                 val actions = remember {
                     val e = app.engine
+                    val r = app.radio
                     RadioActions(
-                        play = e::play,
-                        togglePlay = { if (e.state.value.playing) e.pause() else e.resume() },
-                        skip = e::skip,
+                        play = r::play,
+                        togglePlay = r::togglePlay,
+                        skip = r::skip,
                         toggleFavourite = { k ->
                             if (!app.store.toggleFavourite(k))
                                 Toast.makeText(this, "${StationStore.MAX_FAVOURITES} favorites is the maximum: remove one first", Toast.LENGTH_LONG).show()
@@ -100,6 +115,11 @@ class MainActivity : ComponentActivity() {
                         shareDiagnostics = { app.diagnosticsExport.share(this) },
                         diagnosticsFileName = app.diagnosticsExport::fileName,
                         saveDiagnostics = app.diagnosticsExport::saveTo,
+                        cycleSource = r::cycleSource,
+                        fmTune = { d -> when (d) { -2 -> r.seekDown(); -1 -> r.stepDown(); 1 -> r.stepUp(); 2 -> r.seekUp() } },
+                        scanFm = { askLocationThen(r::scanFm) },
+                        linkFm = r::linkFm,
+                        autoLinkFm = r::autoLinkFm,
                     )
                 }
                 val logos by app.logos.state.collectAsStateWithLifecycle()
@@ -107,7 +127,7 @@ class MainActivity : ComponentActivity() {
                 // "Download station logos" off = initials everywhere, as its Settings line says; the cache stays for when
                 // it's switched back on
                 CompositionLocalProvider(LocalLogos provides if (settings.downloadLogos) logos else emptyMap()) {
-                    AppShell(s, db, settings, actions, logoStatus)
+                    AppShell(s, db, settings, actions, logoStatus, src)
                 }
             }
         }
