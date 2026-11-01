@@ -13,7 +13,8 @@ What the fork adds:
   picked automatically**: DAB first, FM when DAB is lost for 2.5 s or weak for 6 s, and back to DAB after 5 s of good
   reception. DAB keeps receiving silently in the meantime. The source pill on Now playing switches between automatic,
   DAB and FM by hand.
-- **FM station list without RDS**: the app carries the German Wikipedia's list of FM transmitters (offline,
+- **FM station list without RDS**: the app carries the German Wikipedia's lists of FM transmitters in Germany,
+  Austria and Switzerland (offline,
   CC BY-SA 4.0, see `android/app/src/main/assets/licenses/fm-transmitters.txt`). With the head unit's location,
   **Scan FM fills in the programmes in reach** without seeking, and again after 15 km. Without a location it runs a
   seek scan and works out the place from the frequencies it found.
@@ -27,7 +28,7 @@ How FM works on these units: the app talks to the head unit's MainServer over Bi
 On most units (`sys.fyt.radio_type` 3/4, the T900 among them) the stock radio app `com.syu.radio` drives the FM chip
 itself. It runs in the background, its screen opens briefly the first time FM is tuned, and it doesn't pass RDS names
 on, which is what the transmitter list is for. DAB stays fully silent while FM plays, otherwise the head unit would
-switch its radio off. Germany only so far (the transmitter list), FM only (no AM).
+switch its radio off. Transmitter lists for Germany, Austria and Switzerland so far; FM only (no AM).
 
 Status: in daily use on an EKIY T900 (FYT, UIS7862, Android 10) since November 2026. The original DABplay+ README
 follows. Its download and Play links point to the upstream app, which has no FM.

@@ -64,10 +64,17 @@ class DabApp : Application() {
         "$k=${v.ifEmpty { "-" }}"
     }
 
-    /** The offline FM transmitter list (Germany), for FM station names and FM nearby; null if it won't load. */
+    /**
+     * The offline FM transmitter lists (assets/fm/: Germany, Austria, Switzerland, one file each), merged, for FM
+     * station names and FM nearby: near a border both sides count. Null if none loads.
+     */
     val fmList: FmTransmitters? by lazy {
-        runCatching { assets.open("fm/de.tsv").bufferedReader().use { FmTransmitters.parse(it.readText()) } }
-            .onFailure { events.w("Radio", "FM transmitter list didn't load", it) }.getOrNull()
+        val files = runCatching { assets.list("fm").orEmpty().filter { it.endsWith(".tsv") }.sorted() }.getOrDefault(emptyList())
+        val all = files.flatMap { f ->
+            runCatching { assets.open("fm/$f").bufferedReader().use { FmTransmitters.parse(it.readText()).all } }
+                .onFailure { events.w("Radio", "FM transmitter list $f didn't load", it) }.getOrDefault(emptyList())
+        }
+        if (all.isEmpty()) null else FmTransmitters(all).also { events.i("Radio", "FM transmitter lists ${files.joinToString()}: ${all.size} transmitters") }
     }
     val carLocation by lazy { CarLocation(this) }
 
