@@ -4,6 +4,12 @@ What changed in each version of DABplay+, newest first. Each version's APK is on
 [release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
 your stations, favourites and settings.
 
+## [1.4.0-fm.9] - 2026-11-01 (DABplay+ FM)
+
+### New
+- **FM transmitter lists for Austria and Switzerland** next to Germany's (German Wikipedia, CC BY-SA 4.0): FM names,
+  FM nearby and the strongest frequency now work there too, and near a border both sides count.
+
 ## [1.4.0-fm.8] - 2026-10-31 (DABplay+ FM)
 
 ### Fixed

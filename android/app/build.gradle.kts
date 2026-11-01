@@ -13,8 +13,8 @@ android {
         applicationId = "io.github.creafy.dabplayfm"
         minSdk = 26
         targetSdk = 36
-        versionCode = 22                                 // +1 for every release: Android installs only higher codes as updates
-        versionName = "1.4.0-fm.8"
+        versionCode = 23                                 // +1 for every release: Android installs only higher codes as updates
+        versionName = "1.4.0-fm.9"
     }
 
     // The release key lives outside the repo: dabplay.storeFile and dabplay.password in ~/.gradle/gradle.properties.
