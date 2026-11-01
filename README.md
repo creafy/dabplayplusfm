@@ -1,5 +1,39 @@
 <p align="center"><img src="docs/banner.png" alt="DABplay+: car-friendly DAB+ radio for Android head units"></p>
 
+# DABplay+ FM
+
+**This is a fork of [DABplay+](https://github.com/jvspier/dabplayplus) (MIT) that adds FM.** It puts DAB+ through a
+USB dongle and the head unit's built-in FM tuner into one app, for FYT head units (UIS7862 and similar, the ones with
+`com.syu.ms`, e.g. the EKIY T900). It installs as its own app, "DABplay+ FM" (`io.github.creafy.dabplayfm`), next to
+DABplay+.
+
+What the fork adds:
+
+- **One station, one tile**: a station's DAB service and its FM frequency are one station. **The best source is
+  picked automatically**: DAB first, FM when DAB is lost for 2.5 s or weak for 6 s, and back to DAB after 5 s of good
+  reception. DAB keeps receiving silently in the meantime. The source pill on Now playing switches between automatic,
+  DAB and FM by hand.
+- **FM station list without RDS**: the app carries the German Wikipedia's list of FM transmitters (offline,
+  CC BY-SA 4.0, see `android/app/src/main/assets/licenses/fm-transmitters.txt`). With the head unit's location,
+  **Scan FM fills in the programmes in reach** without seeking, and again after 15 km. Without a location it runs a
+  seek scan and works out the place from the frequencies it found.
+- **Linking DAB and FM**: through the FM frequencies a multiplex announces (FIG 0/6 + 0/21), otherwise by name
+  ("NDR 2" ↔ "NDR 2 Hamburg", "DLF" ↔ "Deutschlandfunk (Dlf)"), otherwise by hand (the link button on Now playing).
+- **The strongest FM frequency while driving**: once the frequency playing is out of reach, a station on FM moves to
+  its programme's strongest frequency.
+- On FM, Now playing has seek and step buttons. Settings → FM test shows the raw connection to the tuner.
+
+How FM works on these units: the app talks to the head unit's MainServer over Binder ([docs/fyt-radio.md](docs/fyt-radio.md)).
+On most units (`sys.fyt.radio_type` 3/4, the T900 among them) the stock radio app `com.syu.radio` drives the FM chip
+itself. It runs in the background, its screen opens briefly the first time FM is tuned, and it doesn't pass RDS names
+on, which is what the transmitter list is for. DAB stays fully silent while FM plays, otherwise the head unit would
+switch its radio off. Germany only so far (the transmitter list), FM only (no AM).
+
+Status: in daily use on an EKIY T900 (FYT, UIS7862, Android 10) since November 2026. The original DABplay+ README
+follows. Its download and Play links point to the upstream app, which has no FM.
+
+---
+
 A car-friendly DAB+ radio app for Android head units, driving a cheap USB DAB+ dongle directly.
 Big tiles, big text, few taps: made to be used while driving.
 
