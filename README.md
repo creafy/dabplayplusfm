@@ -7,6 +7,9 @@ USB dongle and the head unit's built-in FM tuner into one app, for FYT head unit
 `com.syu.ms`, e.g. the EKIY T900). It installs as its own app, "DABplay+ FM" (`io.github.creafy.dabplayfm`), next to
 DABplay+.
 
+**Download:** the signed APK is on this fork's [Releases](https://github.com/creafy/dabplayplusfm/releases) page
+(tags `fm-v…`); what changed is in the [changelog](CHANGELOG.md).
+
 What the fork adds:
 
 - **One station, one tile**: a station's DAB service and its FM frequency are one station. **The best source is

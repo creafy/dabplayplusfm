@@ -1,0 +1,56 @@
+# Release DABplay+ FM (manual: Actions → Release → Run workflow, on main). Builds and tests the app, signs it with the
+# release key from the repository secrets, and creates the GitHub release fm-v<versionName> with the APK and the
+# version's changelog section as notes. Secrets: DABPLAY_KEYSTORE_B64 (the keystore, base64) and DABPLAY_PASSWORD.
+name: Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: gradle/actions/wrapper-validation@v6
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v6
+      - name: Version
+        id: v
+        run: |
+          v=$(sed -n 's/.*versionName = "\(.*\)".*/\1/p' android/app/build.gradle.kts | head -1)
+          test -n "$v"
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "fm-v$v" >/dev/null; then echo "::error::fm-v$v exists already: raise versionName/versionCode first"; exit 1; fi
+      - name: Release key
+        env:
+          KEYSTORE_B64: ${{ secrets.DABPLAY_KEYSTORE_B64 }}
+          PASSWORD: ${{ secrets.DABPLAY_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_B64" ] || [ -z "$PASSWORD" ]; then echo "::error::secrets DABPLAY_KEYSTORE_B64 and DABPLAY_PASSWORD are missing"; exit 1; fi
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/release.jks"
+          mkdir -p ~/.gradle
+          printf 'dabplay.storeFile=%s\ndabplay.password=%s\n' "$RUNNER_TEMP/release.jks" "$PASSWORD" >> ~/.gradle/gradle.properties
+      - name: Tests and signed release build
+        working-directory: android
+        run: ./gradlew test assembleRelease
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          V: ${{ steps.v.outputs.version }}
+        run: |
+          apk="DABplayFM-$V.apk"
+          cp android/app/build/outputs/apk/release/app-release.apk "$apk"
+          # the changelog section of this version, without its heading
+          awk -v v="$V" '/^## \[/{p = index($0, "[" v "]") > 0; next} p' CHANGELOG.md > notes.md
+          [ -s notes.md ] || echo "DABplay+ FM $V" > notes.md
+          gh release create "fm-v$V" "$apk" --target "$GITHUB_SHA" --title "DABplay+ FM $V" --notes-file notes.md
+      - name: Forget the key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/release.jks"
