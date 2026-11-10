@@ -41,8 +41,8 @@ follows. Its download and Play links point to the upstream app, which has no FM.
 A car-friendly DAB+ radio app for Android head units, driving a cheap USB DAB+ dongle directly.
 Big tiles, big text, few taps: made to be used while driving.
 
-**Download:** the APK is on the [Releases](https://github.com/jvspier/dabplayplus/releases) page; what changed in each
-version is in the [changelog](CHANGELOG.md). Website: [jvspier.github.io/dabplayplus](https://jvspier.github.io/dabplayplus/).
+**The original DABplay+ (without FM):** its APK is on the [Releases](https://github.com/jvspier/dabplayplus/releases) page of
+the original project. Website: [jvspier.github.io/dabplayplus](https://jvspier.github.io/dabplayplus/).
 
 **Google Play:** DABplay+ is in a closed test before it goes public, and Google wants 12 testers for 14 days. Want to
 help? Join the [tester group](https://groups.google.com/g/dabplay-testers), then open the [test page](https://play.google.com/apps/testing/io.github.jvspier.dabplay) with the same Google

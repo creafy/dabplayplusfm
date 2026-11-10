@@ -160,6 +160,16 @@ class StationStore(
     /** Back to the automatic link for [key]. */
     fun autoLinkFm(key: ServiceKey) = change { s -> s.copy(fmLinks = s.fmLinks - key) }
 
+    /**
+     * Settings → Clear station list: forget every scanned DAB ensemble (and what was learned about them), for a clean rescan
+     * after stations from somewhere else piled up (a scan keeps a missed multiplex for [DROP_AFTER_MISSES] scans).
+     * Recents and the last station stay: they show and play again as soon as a rescan finds them.
+     */
+    fun clearStations(keepFavourites: Boolean) = change { s ->
+        // the fork: the FM list of the last FM scan and the links set by hand stay, Scan FM replaces that list itself
+        s.copy(ensembles = emptyList(), alternatives = emptyMap(), fm = emptyMap(), favourites = if (keepFavourites) s.favourites else emptyList())
+    }
+
     fun clearRecents(): List<Recent> = synchronized(lock) { _state.value.recents.also { change { s -> s.copy(recents = emptyList()) } } }
     /** Undo of [clearRecents]: merged, so stations played since the clear stay (newest first). */
     fun restoreRecents(r: List<Recent>) = change { s ->

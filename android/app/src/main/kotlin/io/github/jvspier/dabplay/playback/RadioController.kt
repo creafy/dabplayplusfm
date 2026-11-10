@@ -13,6 +13,7 @@ import io.github.jvspier.dabplay.data.StoredFm
 import io.github.jvspier.dabplay.engine.DabEngine
 import io.github.jvspier.dabplay.engine.EngineLog
 import io.github.jvspier.dabplay.engine.EngineState
+import io.github.jvspier.dabplay.engine.SourceSwitch
 import io.github.jvspier.dabplay.fyt.FytRadio
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -103,8 +104,8 @@ class RadioController(
     private var tunedByHand: Station? = null
     /** Paused by the listener: nothing switches on by itself. */
     private var paused = false
-    private var dabBadSince = 0L
-    private var dabGoodSince = 0L
+    /** DAB ⇄ FM on automatic: the timers and the decision. */
+    private val switch = SourceSwitch()
     private var scanJob: Job? = null
     private val ui = MutableStateFlow(SourceUi(fmAvailable = fmAvailable))
     val source: StateFlow<SourceUi> = ui
@@ -138,7 +139,7 @@ class RadioController(
         tunedByHand = null
         choice = SourceChoice.AUTO
         paused = false
-        dabBadSince = 0; dabGoodSince = 0
+        switch.reset()
         when {
             st == null -> engine.play(key)
             !st.hasDab -> { engine.setMuted(true); engine.pause(); store.played(st.key); startFm(st.fm!!) }
@@ -185,7 +186,7 @@ class RadioController(
         when (choice) {
             SourceChoice.FM -> toFm(st)
             SourceChoice.DAB -> toDab()
-            SourceChoice.AUTO -> { dabGoodSince = 0; dabBadSince = 0 }       // the next ticks decide
+            SourceChoice.AUTO -> switch.reset()       // the next ticks decide
         }
         publish()
     }
@@ -420,18 +421,11 @@ class RadioController(
         if (wanted == null && e.playing) wanted = e.current?.key          // started by the engine (resume at start-up)
         val st = wanted?.let(store.state.value::station) ?: return
         if (!st.hasDab || st.fm == null || choice != SourceChoice.AUTO) return
-        val onDab = e.current?.key == st.key || e.announcement != null
-        val bad = !e.dongle || e.problem != null || (e.playing && onDab && e.reception != Reception.GOOD)
-        val good = e.dongle && e.playing && onDab && !e.tuning && e.reception == Reception.GOOD && e.problem == null
-        dabBadSince = if (bad) (dabBadSince.takeIf { it > 0 } ?: now) else 0
-        dabGoodSince = if (good) (dabGoodSince.takeIf { it > 0 } ?: now) else 0
+        val move = switch.step(now, e, st.key, onFm = active == Source.FM)
         when (active) {
-            Source.DAB -> {
-                val limit = if (e.reception == Reception.WEAK) WEAK_TO_FM_MS else LOST_TO_FM_MS
-                if (dabBadSince > 0 && now - dabBadSince >= limit && fmPlayingAllowed(e)) toFm(st)
-            }
+            Source.DAB -> if (move == SourceSwitch.Move.TO_FM) toFm(st)
             Source.FM -> {
-                if (dabGoodSince > 0 && now - dabGoodSince >= BACK_TO_DAB_MS) toDab()
+                if (move == SourceSwitch.Move.TO_DAB) toDab()
                 // the engine stopped by itself (another media app took the audio focus): the radio stops, FM too
                 else if (e.dongle && !e.playing && !e.tuning && e.scan == null && enginePlayedUnderFm) {
                     log.i(TAG, "DAB stopped while FM covered for it (audio focus?): pausing"); pause(); return
@@ -443,9 +437,6 @@ class RadioController(
     }
     /** While FM covers for DAB: the engine was seen playing (so its stopping later means something). */
     private var enginePlayedUnderFm = false
-
-    /** Not during a DAB scan (the engine isn't playing anything then). */
-    private fun fmPlayingAllowed(e: EngineState) = e.scan == null
 
     /**
      * The frequency the station should be on (null: tuned by hand, or not on FM). The stock radio app tunes its own
@@ -504,12 +495,6 @@ class RadioController(
         /** Undoing a frequency change by the stock radio app: at most every 1.5 s, 5 times a minute. */
         const val RETUNE_GAP_MS = 1_500L
         const val MAX_RETUNES = 5
-        /** DAB lost this long: FM takes over (the engine's own DAB following starts after 6 s). */
-        const val LOST_TO_FM_MS = 2_500L
-        /** DAB weak (dropouts) this long: FM takes over. */
-        const val WEAK_TO_FM_MS = 6_000L
-        /** DAB good again this long: back to DAB. */
-        const val BACK_TO_DAB_MS = 5_000L
         /** The head unit on another source this long: FM counts as stopped. */
         const val SOURCE_TAKEN_MS = 4_000L
     }

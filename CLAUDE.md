@@ -1,5 +1,27 @@
 # DAB+ car radio app — reverse engineering + Android app
 
+## This repository is the FM fork (read this first)
+`creafy/dabplayplusfm` is a fork of DABplay+ (`jvspier/dabplayplus`, MIT) that adds FM through the head unit's own
+tuner. Everything below this section is the original project's guide and still holds for the DAB side; where the two
+differ, this section wins.
+
+- **Target:** the fork's owner uses an **EKIY T900** head unit (FYT platform, Unisoc UIS7862, Android 10,
+  `com.syu.ms` MainServer) and a USB DAB+ stick of the
+  C100/DTR-100 family (`16c0:05dc`, manufacturer string `wshtyr@126.com`). The Dudu3 below is the original owner's unit.
+- **App:** "DABplay+ FM", applicationId `io.github.creafy.dabplayfm`, installs next to DABplay+. Versions are
+  `<upstream version>-fm.<n>`, tags `fm-v…`; `versionCode` goes up by one for every release. Releases are made by the
+  `Release` workflow (manual start, signed with the key in the repository secrets). There is no website for the fork.
+- **FM scope:** FM is in scope here (the original's "FM is out of scope" doesn't apply). FM goes through the FYT
+  MainServer (`android/fyt-radio`); `RadioController` (app, `playback/`) picks the source, `SourceSwitch` (engine,
+  JVM-tested) holds the DAB ⇄ FM rule: lost 2.5 s or weak 6 s → FM, good 5 s → DAB.
+- **Upstream:** take the original's releases in by merging its `main` (`git fetch https://github.com/jvspier/dabplayplus main`),
+  keep the fork's applicationId and version line, and add a `…-fm.1` changelog entry. Keep changes to upstream files
+  small so the merges stay easy.
+- **Testing:** the JVM modules run without the Android SDK (`./gradlew :engine:test :data:test --configure-on-demand`);
+  the app itself is built by CI (`Build` workflow). FM can only be tried on the real head unit.
+- The working rule "never send guessed commands to the dongle" holds unchanged. The same care goes for the MainServer:
+  only use the command codes documented in `docs/fyt-radio.md`.
+
 ## Goal
 A car-friendly Android DAB+ radio app for a **Dudu3 Android head unit**, driving a cheap
 Chinese **USB DAB+ dongle** directly. It should do what DABdream+ does, with a UI you can

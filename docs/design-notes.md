@@ -126,7 +126,7 @@ design session.
   (reconfirms 2026-09-25). Distribution: APKs via GitHub Releases after 1-2 weeks of Dudu3 use, one release key.
 - **Website** (owner, 2026-10-18): one page on GitHub Pages in the app's night theme (draft "A · Night drive" of three),
   plus the privacy page Google Play needs. `site/` + `site/build.sh` (assembles from the repo's screenshots, icon, font and
-  social preview; fills in the version), published by `.github/workflows/pages.yml`. Loads nothing from elsewhere: the
+  social preview; fills in the version), published by `.github/workflows/pages.yml` in the original repository (the FM fork has no website and no such workflow). Loads nothing from elsewhere: the
   Phosphor icons are inline, the font is the app's; no cookies, no analytics.
   Changelog (2026-10-20): CHANGELOG.md is the source; the site shows the latest version under "What's new" and all
   versions on changelog.html (site/changelog.py + fill.py at build time), so the two can't disagree.
