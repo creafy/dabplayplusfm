@@ -1,8 +1,16 @@
 # Changelog
 
-What changed in each version of DABplay+, newest first. Each version's APK is on its
-[release page](https://github.com/jvspier/dabplayplus/releases); every version installs over the previous one and keeps
-your stations, favourites and settings.
+What changed in each version, newest first. The versions marked DABplay+ FM are this fork's: their APKs are on the
+fork's [release page](https://github.com/creafy/dabplayplusfm/releases) (tags `fm-v…`). The others are the original
+DABplay+'s, on its [release page](https://github.com/jvspier/dabplayplus/releases). Every version installs over the
+previous one and keeps your stations, favourites and settings.
+
+## [1.4.1-fm.1] - 2026-11-10 (DABplay+ FM)
+
+### Changed
+- Based on DABplay+ 1.4.1 (see below): **Settings → Clear station list** and the fix for Start with the car after a
+  sleep the head unit doesn't announce. In DABplay+ FM, clearing removes the DAB stations; the FM list stays until
+  the next Scan FM.
 
 ## [1.4.0-fm.9] - 2026-11-01 (DABplay+ FM)
 
@@ -79,6 +87,17 @@ your stations, favourites and settings.
 - **Scan FM** next to Scan DAB on the Stations tab; FM-only stations join the list and the favourites.
 - On FM, Now playing has seek and step buttons around the usual controls.
 - Settings → FM test: the raw connection to the head unit's tuner, with an event log.
+
+## [1.4.1] - 2026-11-06
+
+### New
+- **Settings → Clear station list**: removes all stations, then scans again, so only the stations you can receive
+  where you are come back. You choose whether to keep your favorites (they return as soon as the scan finds them).
+
+### Fixed
+- Start with the car now also works on head units that sleep when you switch off the car and don't tell apps when
+  they wake up (the Dudu3 does this). DABplay+ notices the sleep itself and opens when the unit is awake again, but not
+  when it only wakes for a moment, like a car starting to charge.
 
 ## [1.4.0] - 2026-10-29
 

@@ -108,6 +108,7 @@ class MainActivity : ComponentActivity() {
                         scan = e::scan,
                         clearRecents = app.store::clearRecents,
                         restoreRecents = app.store::restoreRecents,
+                        clearStations = { keep -> app.store.clearStations(keep); if (e.state.value.dongle) e.scan() },
                         updateSettings = app.settings::update,
                         skipAnnouncement = e::skipAnnouncement,
                         retryLogos = app.logoFetcher::retryMissing,

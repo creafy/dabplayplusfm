@@ -15,18 +15,18 @@ jobs:
       run:
         working-directory: android
     steps:
-      - uses: actions/checkout@v7
-      - uses: gradle/actions/wrapper-validation@v6
-      - uses: actions/setup-java@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: gradle/actions/wrapper-validation@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
+      - uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: temurin
           java-version: '25'
-      - uses: gradle/actions/setup-gradle@v6
+      - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
       # the runner image ships an Android SDK with accepted licences; AGP fetches the missing platform (compileSdk 37)
       - name: Tests and release build
         run: ./gradlew test assembleRelease
       # signed with the runner's throwaway debug key: for trying a build, not for installing over another one
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: dabplay-ci-apk-debug-signed
           path: android/app/build/outputs/apk/release/app-release.apk
